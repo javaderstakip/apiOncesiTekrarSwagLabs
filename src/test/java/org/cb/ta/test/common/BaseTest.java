@@ -1,9 +1,10 @@
-package org.cb.ta.test;
+package org.cb.ta.test.common;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.*;
@@ -19,10 +20,15 @@ public class BaseTest {
     public BaseTest() {
         this.driver = new ChromeDriver();
         driver.get("https://demoqa.com/");
-        driver.manage().window().minimize();
+        driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         this.actions = new Actions(driver);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        webDriverWait.until(ExpectedConditions.urlToBe("https://www.toolsqa.com/selenium-training/"));
+        //webDriverWait.until(ExpectedConditions.visibilityOf(element));
+        //wait.until(ExpectedConditions.elementToBeClickable(element));
+        webDriverWait.until(ExpectedConditions.urlContains("param=value"));
+        webDriverWait.until(ExpectedConditions.urlContains("training"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         jsx = (JavascriptExecutor) driver;
     }
