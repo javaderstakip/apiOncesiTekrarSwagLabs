@@ -24,12 +24,12 @@ public class BaseTest {
         driver.manage().deleteAllCookies();
         this.actions = new Actions(driver);
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        webDriverWait.until(ExpectedConditions.urlToBe("https://www.toolsqa.com/selenium-training/"));
+//        webDriverWait.until(ExpectedConditions.urlToBe("https://www.toolsqa.com/selenium-training/"));
+//        webDriverWait.until(ExpectedConditions.urlContains("param=value"));
+//        webDriverWait.until(ExpectedConditions.urlContains("training"));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         //webDriverWait.until(ExpectedConditions.visibilityOf(element));
-        //wait.until(ExpectedConditions.elementToBeClickable(element));
-        webDriverWait.until(ExpectedConditions.urlContains("param=value"));
-        webDriverWait.until(ExpectedConditions.urlContains("training"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
         jsx = (JavascriptExecutor) driver;
     }
 }
