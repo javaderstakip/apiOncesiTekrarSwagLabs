@@ -2,6 +2,7 @@ package org.cb.ta.test;
 
 import org.cb.ta.pages.HomePage;
 import org.cb.ta.test.common.BaseTest;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -96,7 +97,9 @@ public class HomePageTest extends BaseTest {
     @Test
     public void elementsButtonClick() throws InterruptedException {
         home.getElementsButton().click();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/elements"));
         System.out.println(driver.getTitle());
     }
