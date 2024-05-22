@@ -23,12 +23,12 @@ public class HomePageTest extends BaseTest {
     }
     @AfterClass
     public void afterTest(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.quit();
     }
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         home.getHomePageButton().click();
 //        Thread.sleep(2000);
     }

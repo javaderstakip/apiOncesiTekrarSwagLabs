@@ -26,7 +26,8 @@ public class HomePage extends BasePage {
     private WebElement elementsButton;
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[2]")
     private WebElement formsButton;
-    @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[3]")
+    //@FindBy(xpath = "(//div[@class='card mt-4 top-card'])[3]")
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div/div[3]/div/div[3]/h5")
     private WebElement alertFrameWindowsButton;
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[4]")
     private WebElement widgetButton;
