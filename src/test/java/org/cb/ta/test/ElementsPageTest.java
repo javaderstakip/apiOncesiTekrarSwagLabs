@@ -48,5 +48,20 @@ public class ElementsPageTest extends BaseTest {
     @Test
     public void checkBoxClick(){
         elementsPage.getCheckBox().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/checkbox"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getCheckBoxText().isDisplayed());
+        System.out.println(elementsPage.getCheckBoxText());
+    }
+    @Test
+    public void radioButtonClick(){
+        elementsPage.getRadioButton().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/radio-button"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getCheckBoxText().isDisplayed());
     }
 }

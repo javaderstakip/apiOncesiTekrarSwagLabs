@@ -26,4 +26,10 @@ public class ElementsPage extends BasePage{
     private WebElement checkBox;
     @FindBy(xpath = "//*[@id='userName-label']")
     private WebElement fullNameText;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
+    private WebElement checkBoxText;
+    @FindBy(xpath = "//*[@id=\"item-2\"]/span")
+    private WebElement radioButton;
+    @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
+    private WebElement radioButtonText;
 }
