@@ -22,7 +22,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//img[@class='banner-image']")
     private WebElement joinNowButton;
     //@FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div/div[1]/div/div[3]/h5")
+    @FindBy(xpath = "//*[@id='app']/div/div/div[2]/div/div[1]/div/div[3]/h5")
     private WebElement elementsButton;
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[2]")
     private WebElement formsButton;

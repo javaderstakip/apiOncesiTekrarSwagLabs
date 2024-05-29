@@ -32,4 +32,8 @@ public class ElementsPage extends BasePage{
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
     private WebElement radioButtonText;
+    @FindBy(xpath = "//*[@id=\"item-3\"]/span")
+    private WebElement webTablesButton;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
+    private WebElement webTablesText;
 }

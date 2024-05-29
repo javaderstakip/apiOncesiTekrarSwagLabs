@@ -64,4 +64,13 @@ public class ElementsPageTest extends BaseTest {
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(elementsPage.getCheckBoxText().isDisplayed());
     }
+    @Test
+    public void webTablesButtonClick(){
+        elementsPage.getWebTablesButton().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/webtables"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getWebTablesText().isDisplayed());
+    }
 }
