@@ -73,4 +73,54 @@ public class ElementsPageTest extends BaseTest {
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(elementsPage.getWebTablesText().isDisplayed());
     }
+    @Test
+    public void buttonsClick(){
+        elementsPage.getButtons().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/buttons"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getButtonsText().isDisplayed());
+    }
+    @Test
+    public void linksClick(){
+        elementsPage.getLinks().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/links"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getLinks().isDisplayed());
+        System.out.println(elementsPage.getLinks());
+    }
+    @Test
+    public void brokenLinksImagesClick(){
+        elementsPage.getBrokenLinksImages().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/broken"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getBrokenLinksImagesText().isDisplayed());
+        System.out.println(elementsPage.getBrokenLinksImagesText());
+    }
+    @Test
+    public void uploadAndDownloadClick(){
+        elementsPage.getUploadAndDownload().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/upload-download"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getUploadAndDownload().isDisplayed());
+        System.out.println(elementsPage.getUploadAndDownloadText());
+    }
+    @Test
+    public void dynamicPropertiesClick(){
+        elementsPage.getDynamicProperties().click();
+        webDriverWait.until(WebDriver::getCurrentUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/dynamic-properties"));
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(elementsPage.getDynamicProperties().isDisplayed());
+        System.out.println(elementsPage.getDynamicProperties());
+
+    }
 }
