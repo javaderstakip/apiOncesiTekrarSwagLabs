@@ -22,6 +22,20 @@ public class ElementsPage extends BasePage{
     private WebElement elementsButton;
     @FindBy(xpath = "(//*[@id='item-0']/span)[1]")
     private WebElement TextBox;
+    @FindBy(xpath = "//*[@id=\"userName\"]")
+    private WebElement fullName;
+    @FindBy(xpath = "//*[@id=\"userEmail\"]")
+    private WebElement email;
+    @FindBy(xpath = "//*[@id=\"currentAddress\"]")
+    private WebElement currentAddress;
+    @FindBy(xpath = "//*[@id=\"permanentAddress\"]")
+    private WebElement permanentAddress;
+    @FindBy(xpath = "//*[@id='submit']")
+    private WebElement submit;
+    @FindBy(xpath = "<div class=\"border col-md-12 col-sm-12\"><p id=\"name\" class=\"mb-1\">Name:hami mandıralı</p><p id=\"email\" class=\"mb-1\">Email:ha@gmail.com</p><p id=\"currentAddress\" class=\"mb-1\">Current Address :hatay, turkıye </p><p id=\"permanentAddress\" class=\"mb-1\">Permananet Address :hatay, turkıye</p></div>")
+    private WebElement submitControlTest;
+    @FindBy(xpath = "//*[@id=\"name\"]")
+    private WebElement nameControl;
     @FindBy(xpath = "(//*[@id='item-1']/span)[1]")
     private WebElement checkBox;
     @FindBy(xpath = "//*[@id='userName-label']")

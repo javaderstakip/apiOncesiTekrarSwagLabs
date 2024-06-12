@@ -3,6 +3,8 @@ package org.cb.ta.test;
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.HomePage;
 import org.cb.ta.test.common.BaseTest;
+import org.junit.jupiter.api.TestTemplate;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -25,7 +27,7 @@ public class ElementsPageTest extends BaseTest {
     @AfterClass
     public void afterTest(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.quit();
+        //driver.quit();
     }
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
@@ -36,7 +38,7 @@ public class ElementsPageTest extends BaseTest {
     }
 
     @Test
-    public void textBoxClick(){
+    public void textBoxClick() throws InterruptedException {
         elementsPage.getTextBox().click();
         webDriverWait.until(WebDriver::getCurrentUrl);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -44,6 +46,21 @@ public class ElementsPageTest extends BaseTest {
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(elementsPage.getFullNameText().isDisplayed());
         System.out.println(elementsPage.getFullNameText());
+        elementsPage.getFullName().sendKeys("hami mandıralı");
+        elementsPage.getEmail().sendKeys("ha@gmail.com");
+        elementsPage.getCurrentAddress().sendKeys("hatay, turkıye");
+        elementsPage.getPermanentAddress().sendKeys("hatay, turkıye");
+        jsx.executeScript("window.scrollBy(0,250)");
+        elementsPage.getSubmit().click();
+        Assert.assertTrue(elementsPage.getNameControl().isDisplayed());
+        System.out.println(elementsPage.getNameControl().isDisplayed());
+        //Thread.sleep(3000);
+    }
+    @Test
+    public void textBoxTest() throws InterruptedException {
+        elementsPage.getTextBox().click();
+
+        //Thread.sleep(3000);
     }
     @Test
     public void checkBoxClick(){
