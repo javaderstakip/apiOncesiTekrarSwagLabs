@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Queue;
+
 @Getter
 public class ElementsPage extends BasePage{
 
@@ -52,6 +54,20 @@ public class ElementsPage extends BasePage{
     private WebElement checkBoxText;
     @FindBy(xpath = "//*[@id=\"tree-node\"]/div/button[1]")
     private WebElement plusButton;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/div/button[2]")
+    private WebElement minesButton;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/span/label/span[3]")
+    private WebElement checkBoxHomeBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/span/button")
+    private WebElement checkBoxHomeArrow;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/label/span[3]")
+    private WebElement checkBoxDesktopBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/button")
+    private WebElement checkBoxDesktopArrow;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[1]/span/label/span[3]")
+    private WebElement checkBoxNotes;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[2]/span/label/span[3]")
+    private WebElement checkBoxCommands;
     @FindBy(xpath = "//*[@id=\"item-2\"]/span")
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")

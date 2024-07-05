@@ -76,7 +76,29 @@ public class ElementsPageTest extends BaseTest {
         System.out.println(elementsPage.getCheckBoxText());
         jsx.executeScript("window.scrollBy(0,250)");
         elementsPage.getPlusButton().click();
+        Assert.assertTrue(elementsPage.getPlusButton().isEnabled());
         jsx.executeScript("window.scrollBy(0,250)");
+        elementsPage.getMinesButton().click();
+        Assert.assertTrue(elementsPage.getMinesButton().isEnabled());
+        Assert.assertFalse(elementsPage.getMinesButton().isSelected());
+        //elementsPage.getPlusButton().click();
+        elementsPage.getCheckBoxHomeArrow().click();
+        elementsPage.getCheckBoxHomeBox().click();
+        Assert.assertFalse(elementsPage.getCheckBoxHomeBox().isSelected());
+        Assert.assertTrue(elementsPage.getCheckBoxHomeBox().isEnabled());
+        Assert.assertTrue(elementsPage.getCheckBoxHomeArrow().isEnabled());
+        elementsPage.getCheckBoxHomeArrow().click();
+        elementsPage.getCheckBoxHomeArrow().click();
+        Assert.assertTrue(elementsPage.getCheckBoxDesktopBox().isEnabled());
+        Assert.assertTrue(elementsPage.getCheckBoxDesktopArrow().isEnabled());
+        Assert.assertTrue(elementsPage.getCheckBoxDesktopBox().isDisplayed());
+        elementsPage.getCheckBoxDesktopBox().click();
+        elementsPage.getCheckBoxDesktopArrow().click();
+        elementsPage.getCheckBoxDesktopArrow().click();
+        Assert.assertTrue(elementsPage.getCheckBoxNotes().isEnabled());
+        elementsPage.getCheckBoxNotes().click();
+        Assert.assertTrue(elementsPage.getCheckBoxCommands().isEnabled());
+        elementsPage.getCheckBoxCommands().click();
     }
     @Test
     public void radioButtonClick(){
