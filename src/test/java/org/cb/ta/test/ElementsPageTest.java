@@ -54,12 +54,15 @@ public class ElementsPageTest extends BaseTest {
         elementsPage.getSubmit().click();
         Assert.assertTrue(elementsPage.getNameControl().isDisplayed());
         System.out.println(elementsPage.getNameControl().isDisplayed());
-        //Thread.sleep(3000);
-    }
-    @Test
-    public void textBoxTest() throws InterruptedException {
-        elementsPage.getTextBox().click();
-
+        Assert.assertTrue(elementsPage.getTextBoxTextVerify().getText().equals("Name:hami mandıralı"));
+        Assert.assertFalse(elementsPage.getTextBoxTextVerify().getText().equals("Name:hami mandıral"));
+        System.out.println(elementsPage.getTextBoxTextVerify().getText());
+        Assert.assertTrue(elementsPage.getEMailTextVerify().getText().equals("Email:ha@gmail.com"));
+        System.out.println(elementsPage.getEMailTextVerify().getText());
+        Assert.assertTrue(elementsPage.getCurrentAddressTextVerify().getText().equals("Current Address :hatay, turkıye"));
+        System.out.println(elementsPage.getCurrentAddressTextVerify().getText());
+        Assert.assertTrue(elementsPage.getPermenantAddressTextVerify().getText().equals("Permananet Address :hatay, turkıye"));
+        System.out.println(elementsPage.getPermenantAddressTextVerify().getText());
         //Thread.sleep(3000);
     }
     @Test
@@ -71,6 +74,9 @@ public class ElementsPageTest extends BaseTest {
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(elementsPage.getCheckBoxText().isDisplayed());
         System.out.println(elementsPage.getCheckBoxText());
+        jsx.executeScript("window.scrollBy(0,250)");
+        elementsPage.getPlusButton().click();
+        jsx.executeScript("window.scrollBy(0,250)");
     }
     @Test
     public void radioButtonClick(){

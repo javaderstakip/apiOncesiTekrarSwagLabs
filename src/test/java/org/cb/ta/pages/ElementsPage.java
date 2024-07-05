@@ -35,6 +35,14 @@ public class ElementsPage extends BasePage{
     @FindBy(xpath = "<div class=\"border col-md-12 col-sm-12\"><p id=\"name\" class=\"mb-1\">Name:hami mandıralı</p><p id=\"email\" class=\"mb-1\">Email:ha@gmail.com</p><p id=\"currentAddress\" class=\"mb-1\">Current Address :hatay, turkıye </p><p id=\"permanentAddress\" class=\"mb-1\">Permananet Address :hatay, turkıye</p></div>")
     private WebElement submitControlTest;
     @FindBy(xpath = "//*[@id=\"name\"]")
+    private WebElement textBoxTextVerify;
+    @FindBy(xpath = "//*[@id=\"email\"]")
+    private WebElement eMailTextVerify;
+    @FindBy(xpath = "//p[@id='currentAddress']")
+    private WebElement currentAddressTextVerify;
+    @FindBy(xpath = "//p[@id=\"permanentAddress\"]")
+    private WebElement permenantAddressTextVerify;
+    @FindBy(xpath = "//*[@id=\"name\"]")
     private WebElement nameControl;
     @FindBy(xpath = "(//*[@id='item-1']/span)[1]")
     private WebElement checkBox;
@@ -42,6 +50,8 @@ public class ElementsPage extends BasePage{
     private WebElement fullNameText;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
     private WebElement checkBoxText;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/div/button[1]")
+    private WebElement plusButton;
     @FindBy(xpath = "//*[@id=\"item-2\"]/span")
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
