@@ -68,6 +68,14 @@ public class ElementsPage extends BasePage{
     private WebElement checkBoxNotes;
     @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[2]/span/label/span[3]")
     private WebElement checkBoxCommands;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/button")
+    private WebElement checkBoxDocumentsArrow;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/label/span[1]")
+    private WebElement checkBoxDocumentsBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/span/button")
+    private WebElement checkBoxWorkspacesArrow;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/span/label/span[1]")
+    private WebElement checkBoxWorkspacesBox;
     @FindBy(xpath = "//*[@id=\"item-2\"]/span")
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")

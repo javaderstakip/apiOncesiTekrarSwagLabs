@@ -95,10 +95,17 @@ public class ElementsPageTest extends BaseTest {
         elementsPage.getCheckBoxDesktopBox().click();
         elementsPage.getCheckBoxDesktopArrow().click();
         elementsPage.getCheckBoxDesktopArrow().click();
-        Assert.assertTrue(elementsPage.getCheckBoxNotes().isEnabled());
-        elementsPage.getCheckBoxNotes().click();
-        Assert.assertTrue(elementsPage.getCheckBoxCommands().isEnabled());
-        elementsPage.getCheckBoxCommands().click();
+        elementsPage.getCheckBoxDocumentsArrow().click();
+        Assert.assertTrue(elementsPage.getCheckBoxDocumentsArrow().isEnabled());
+        Assert.assertTrue(elementsPage.getCheckBoxDocumentsBox().isEnabled());
+        elementsPage.getCheckBoxDocumentsBox().click();
+        elementsPage.getCheckBoxDocumentsBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxWorkspacesArrow().isEnabled());
+        elementsPage.getCheckBoxWorkspacesArrow().click();
+        elementsPage.getCheckBoxWorkspacesArrow().click();
+        Assert.assertTrue((elementsPage.getCheckBoxWorkspacesBox().isEnabled()));
+        elementsPage.getCheckBoxWorkspacesBox().click();
+        elementsPage.getCheckBoxWorkspacesBox().click();
     }
     @Test
     public void radioButtonClick(){
