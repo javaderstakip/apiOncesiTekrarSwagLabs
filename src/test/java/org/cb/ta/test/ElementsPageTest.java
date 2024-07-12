@@ -84,6 +84,7 @@ public class ElementsPageTest extends BaseTest {
         //elementsPage.getPlusButton().click();
         elementsPage.getCheckBoxHomeArrow().click();
         elementsPage.getCheckBoxHomeBox().click();
+        //elementsPage.getCheckBoxHomeArrow().click();
         Assert.assertFalse(elementsPage.getCheckBoxHomeBox().isSelected());
         Assert.assertTrue(elementsPage.getCheckBoxHomeBox().isEnabled());
         Assert.assertTrue(elementsPage.getCheckBoxHomeArrow().isEnabled());
@@ -92,20 +93,29 @@ public class ElementsPageTest extends BaseTest {
         Assert.assertTrue(elementsPage.getCheckBoxDesktopBox().isEnabled());
         Assert.assertTrue(elementsPage.getCheckBoxDesktopArrow().isEnabled());
         Assert.assertTrue(elementsPage.getCheckBoxDesktopBox().isDisplayed());
+        elementsPage.getCheckBoxDesktopArrow().click();
         elementsPage.getCheckBoxDesktopBox().click();
-        elementsPage.getCheckBoxDesktopArrow().click();
-        elementsPage.getCheckBoxDesktopArrow().click();
+        //elementsPage.getCheckBoxDesktopArrow().click();
+        Assert.assertTrue(elementsPage.getCheckBoxNotes().isEnabled());
+        elementsPage.getCheckBoxNotes().click();
+        Assert.assertTrue(elementsPage.getCheckBoxCommands().isEnabled());
+        elementsPage.getCheckBoxCommands().click();
         elementsPage.getCheckBoxDocumentsArrow().click();
         Assert.assertTrue(elementsPage.getCheckBoxDocumentsArrow().isEnabled());
         Assert.assertTrue(elementsPage.getCheckBoxDocumentsBox().isEnabled());
         elementsPage.getCheckBoxDocumentsBox().click();
-        elementsPage.getCheckBoxDocumentsBox().click();
+        //elementsPage.getCheckBoxDocumentsBox().click();
         Assert.assertTrue(elementsPage.getCheckBoxWorkspacesArrow().isEnabled());
         elementsPage.getCheckBoxWorkspacesArrow().click();
-        elementsPage.getCheckBoxWorkspacesArrow().click();
+        //elementsPage.getCheckBoxWorkspacesArrow().click();
         Assert.assertTrue((elementsPage.getCheckBoxWorkspacesBox().isEnabled()));
         elementsPage.getCheckBoxWorkspacesBox().click();
         elementsPage.getCheckBoxWorkspacesBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxReactBox().isEnabled());
+        elementsPage.getCheckBoxReactBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxOfficeArrow().isEnabled());
+        elementsPage.getCheckBoxOfficeArrow().click();
+        //elementsPage.getCheckBoxOfficeArrow().click();
     }
     @Test
     public void radioButtonClick(){
