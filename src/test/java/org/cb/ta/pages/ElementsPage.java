@@ -98,7 +98,7 @@ public class ElementsPage extends BasePage{
     private WebElement checkBoxDownloadsArrow;
     @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[3]/span/label/span[1]")
     private WebElement checkBoxDownloadsBox;
-    @FindBy(xpath = "//*[@id=\"result\"]/span[16]")
+    @FindBy(xpath = "//span[contains(text(),'downloads')]")
     private WebElement checkBoxDownloadsText;
     @FindBy(xpath = "//*[@id=\"item-2\"]/span")
     private WebElement radioButton;

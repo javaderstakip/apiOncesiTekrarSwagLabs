@@ -104,7 +104,7 @@ public class CheckBoxTest extends BaseTest {
         elementsPage.getCheckBoxDownloadsArrow().click();
         Assert.assertTrue((elementsPage.getCheckBoxDownloadsBox().isEnabled()));
         elementsPage.getCheckBoxDownloadsBox().click();
-        Assert.assertTrue(elementsPage.getCheckBoxDownloadsText().getText().equals("downloads"));
-        System.out.println(elementsPage.getCheckBoxDownloadsText().getText());
+        elementsPage.getCheckBoxDownloadsBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxDownloadsText().isDisplayed());
     }
 }
