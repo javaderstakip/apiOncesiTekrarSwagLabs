@@ -80,8 +80,26 @@ public class ElementsPage extends BasePage{
     private WebElement checkBoxReactBox;
     @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/ol/li[2]/span/label/span[3]")
     private WebElement checkBoxAngularBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/ol/li[3]/span/label/span[1]")
+    private WebElement checkBoxVeuBox;
     @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/button")
     private WebElement checkBoxOfficeArrow;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/label/span[2]")
+    private WebElement checkBoxOfficeBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/ol/li[1]/span/label/span[3]")
+    private WebElement checkBoxPublicBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/ol/li[2]/span/label/span[1]")
+    private WebElement checkBoxPrivateBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/ol/li[3]/span/label/span[1]")
+    private WebElement checkBoxClassifiedBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/ol/li[4]/span/label/span[1]")
+    private WebElement checkBoxGeneralBox;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[3]/span/button")
+    private WebElement checkBoxDownloadsArrow;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[3]/span/label/span[1]")
+    private WebElement checkBoxDownloadsBox;
+    @FindBy(xpath = "//*[@id=\"result\"]/span[16]")
+    private WebElement checkBoxDownloadsText;
     @FindBy(xpath = "//*[@id=\"item-2\"]/span")
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")

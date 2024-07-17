@@ -84,8 +84,27 @@ public class CheckBoxTest extends BaseTest {
         elementsPage.getCheckBoxWorkspacesBox().click();
         Assert.assertTrue(elementsPage.getCheckBoxReactBox().isEnabled());
         elementsPage.getCheckBoxReactBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxAngularBox().isEnabled());
+        elementsPage.getCheckBoxAngularBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxVeuBox().isEnabled());
+        elementsPage.getCheckBoxVeuBox().click();
         Assert.assertTrue(elementsPage.getCheckBoxOfficeArrow().isEnabled());
         elementsPage.getCheckBoxOfficeArrow().click();
-        //elementsPage.getCheckBoxOfficeArrow().click();
+        Assert.assertTrue(elementsPage.getCheckBoxOfficeBox().isEnabled());
+        elementsPage.getCheckBoxOfficeBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxPublicBox().isEnabled());
+        elementsPage.getCheckBoxPublicBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxPrivateBox().isEnabled());
+        elementsPage.getCheckBoxPrivateBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxClassifiedBox().isEnabled());
+        elementsPage.getCheckBoxClassifiedBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxGeneralBox().isEnabled());
+        elementsPage.getCheckBoxGeneralBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxDownloadsArrow().isEnabled());
+        elementsPage.getCheckBoxDownloadsArrow().click();
+        Assert.assertTrue((elementsPage.getCheckBoxDownloadsBox().isEnabled()));
+        elementsPage.getCheckBoxDownloadsBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxDownloadsText().getText().equals("downloads"));
+        System.out.println(elementsPage.getCheckBoxDownloadsText().getText());
     }
 }
