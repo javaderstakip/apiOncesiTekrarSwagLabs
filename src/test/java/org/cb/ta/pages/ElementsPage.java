@@ -100,6 +100,16 @@ public class ElementsPage extends BasePage{
     private WebElement checkBoxDownloadsBox;
     @FindBy(xpath = "//span[contains(text(),'downloads')]")
     private WebElement checkBoxDownloadsText;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[3]/ol/li[1]/span/label/span[1]")
+    private WebElement checkBoxWordFileBox;
+    @FindBy(xpath = "//span[contains(text(),'wordFile')]")
+    private WebElement checkBoxWordFileText;
+    @FindBy(xpath = "//*[@id=\"tree-node\"]/ol/li/ol/li[3]/ol/li[2]/span/label/span[1]")
+    private WebElement checkBoxExcelFileBox;
+    @FindBy(xpath = "//span[contains(text(),'excelFile')]")
+    private WebElement checkBoxExcelFileText;
+    @FindBy(xpath = "//*[@id=\"result\"]/span[11]")
+    private WebElement checkBoxExcelFileTextLocator;
     @FindBy(xpath = "//*[@id=\"item-2\"]/span")
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")

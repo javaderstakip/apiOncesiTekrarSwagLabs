@@ -59,52 +59,85 @@ public class CheckBoxTest extends BaseTest {
         Assert.assertFalse(elementsPage.getCheckBoxHomeBox().isSelected());
         Assert.assertTrue(elementsPage.getCheckBoxHomeBox().isEnabled());
         Assert.assertTrue(elementsPage.getCheckBoxHomeArrow().isEnabled());
+
         elementsPage.getCheckBoxHomeArrow().click();
         elementsPage.getCheckBoxHomeArrow().click();
         Assert.assertTrue(elementsPage.getCheckBoxDesktopBox().isEnabled());
+
         Assert.assertTrue(elementsPage.getCheckBoxDesktopArrow().isEnabled());
+
         Assert.assertTrue(elementsPage.getCheckBoxDesktopBox().isDisplayed());
         elementsPage.getCheckBoxDesktopArrow().click();
         elementsPage.getCheckBoxDesktopBox().click();
         //elementsPage.getCheckBoxDesktopArrow().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxNotes().isEnabled());
         elementsPage.getCheckBoxNotes().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxCommands().isEnabled());
         elementsPage.getCheckBoxCommands().click();
+
         elementsPage.getCheckBoxDocumentsArrow().click();
         Assert.assertTrue(elementsPage.getCheckBoxDocumentsArrow().isEnabled());
+
         Assert.assertTrue(elementsPage.getCheckBoxDocumentsBox().isEnabled());
         elementsPage.getCheckBoxDocumentsBox().click();
         //elementsPage.getCheckBoxDocumentsBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxWorkspacesArrow().isEnabled());
         elementsPage.getCheckBoxWorkspacesArrow().click();
         //elementsPage.getCheckBoxWorkspacesArrow().click();
+
         Assert.assertTrue((elementsPage.getCheckBoxWorkspacesBox().isEnabled()));
         elementsPage.getCheckBoxWorkspacesBox().click();
         elementsPage.getCheckBoxWorkspacesBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxReactBox().isEnabled());
         elementsPage.getCheckBoxReactBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxAngularBox().isEnabled());
         elementsPage.getCheckBoxAngularBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxVeuBox().isEnabled());
         elementsPage.getCheckBoxVeuBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxOfficeArrow().isEnabled());
         elementsPage.getCheckBoxOfficeArrow().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxOfficeBox().isEnabled());
         elementsPage.getCheckBoxOfficeBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxPublicBox().isEnabled());
         elementsPage.getCheckBoxPublicBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxPrivateBox().isEnabled());
         elementsPage.getCheckBoxPrivateBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxClassifiedBox().isEnabled());
         elementsPage.getCheckBoxClassifiedBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxGeneralBox().isEnabled());
         elementsPage.getCheckBoxGeneralBox().click();
+
         Assert.assertTrue(elementsPage.getCheckBoxDownloadsArrow().isEnabled());
         elementsPage.getCheckBoxDownloadsArrow().click();
+
         Assert.assertTrue((elementsPage.getCheckBoxDownloadsBox().isEnabled()));
         elementsPage.getCheckBoxDownloadsBox().click();
         elementsPage.getCheckBoxDownloadsBox().click();
+        System.out.println(elementsPage.getCheckBoxDownloadsText().getText());
         Assert.assertTrue(elementsPage.getCheckBoxDownloadsText().isDisplayed());
+
+        Assert.assertTrue(elementsPage.getCheckBoxWordFileBox().isEnabled());
+        elementsPage.getCheckBoxWordFileBox().click();
+        elementsPage.getCheckBoxWordFileBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxWordFileText().isDisplayed());
+        System.out.println(elementsPage.getCheckBoxWordFileText().getText());
+
+        Assert.assertTrue(elementsPage.getCheckBoxExcelFileBox().isEnabled());
+        elementsPage.getCheckBoxExcelFileBox().click();
+        elementsPage.getCheckBoxExcelFileBox().click();
+        Assert.assertTrue(elementsPage.getCheckBoxExcelFileText().isDisplayed());
+        System.out.println(elementsPage.getCheckBoxExcelFileText().getText());
     }
 }
