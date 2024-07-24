@@ -114,6 +114,16 @@ public class ElementsPage extends BasePage{
     private WebElement radioButton;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
     private WebElement radioButtonText;
+    @FindBy(xpath = "(//label[@class='custom-control-label'])[1]")
+    private WebElement radioButtonYes;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/p/span")
+    private WebElement radioButtonYesText;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/label")
+    private WebElement radioButtonImpressive;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/p/span")
+    private WebElement radioButtonImpressiveText;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[4]")
+    private WebElement radioButtonNo;
     @FindBy(xpath = "//*[@id=\"item-3\"]/span")
     private WebElement webTablesButton;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
