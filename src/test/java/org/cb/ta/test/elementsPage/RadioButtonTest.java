@@ -39,10 +39,13 @@ public class RadioButtonTest extends BaseTest {
     public void radioButtonClick2(){
         elementsPage.getRadioButtonYes().click();
         Assert.assertTrue(elementsPage.getRadioButtonYesText().isDisplayed());
+        Assert.assertTrue(elementsPage.getRadioButtonYesText().getText().equals("Yes"));
         System.out.println(elementsPage.getRadioButtonYesText().getText());
 
         elementsPage.getRadioButtonImpressive().click();
-        Assert.assertTrue(elementsPage.getRadioButtonImpressiveText().isEnabled());
+        //elementsPage.getRadioButtonYes().click();
+        Assert.assertTrue(elementsPage.getRadioButtonImpressiveText().isDisplayed());
+        Assert.assertTrue(elementsPage.getRadioButtonImpressiveText().getText().equals("Impressive"));
         System.out.println(elementsPage.getRadioButtonImpressiveText().getText());
 
         Assert.assertFalse(elementsPage.getRadioButtonNo().isSelected());
