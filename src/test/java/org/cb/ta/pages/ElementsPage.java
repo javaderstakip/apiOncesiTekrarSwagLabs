@@ -128,6 +128,30 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesButton;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/h1")
     private WebElement webTablesText;
+    @FindBy(xpath = "//button[@id='addNewRecordButton']")
+    private WebElement webTablesAdd;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[1]/button/span[1]")
+    private WebElement webTablesRegistrationFormX;
+    @FindBy(xpath = "//div[@id='registration-form-modal']")
+    private WebElement webTablesRegistrationForm;
+    @FindBy(xpath = "//input[@id='firstName']")
+    private WebElement webTablesRegistrationFormFirstName2;
+    @FindBy(xpath = "//*[@id=\"firstName-wrapper\"]/div[2]")
+    private WebElement webTablesRegistrationFormFirstName;
+    @FindBy(xpath = "//*[@id=\"firstName-label\"]")
+    private WebElement webTablesRegistrationFormFirstNameText;
+    @FindBy(xpath = "//input[@id='lastName']")
+    private WebElement webTablesRegistrationFormLastName;
+    @FindBy (xpath = "//input[@id='userEmail']")
+    private WebElement webTablesRegistrationFormEmail;
+    @FindBy(xpath = "//input[@id='age']")
+    private WebElement webTablesRegistrationFormAge;
+    @FindBy(xpath = "//input[@id='salary']")
+    private WebElement webTablesRegistrationFormSalary;
+    @FindBy(xpath = "//input[@id='department']")
+    private WebElement webTablesRegistrationFormDepartment;
+    @FindBy(xpath = "//button[@id='submit']")
+    private WebElement webTablesRegistrationFormSubmit;
     @FindBy(xpath = "(//*[@id=\"item-4\"]/span)[1]")
     private WebElement buttons;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/h1")

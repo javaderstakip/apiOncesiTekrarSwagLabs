@@ -36,18 +36,18 @@ public class RadioButtonTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/radio-button"));
     }
     @Test
-    public void radioButtonClick2(){
+    public void radioButton(){
         elementsPage.getRadioButtonYes().click();
         Assert.assertTrue(elementsPage.getRadioButtonYesText().isDisplayed());
         Assert.assertTrue(elementsPage.getRadioButtonYesText().getText().equals("Yes"));
         System.out.println(elementsPage.getRadioButtonYesText().getText());
 
         elementsPage.getRadioButtonImpressive().click();
-        //elementsPage.getRadioButtonYes().click();
+        elementsPage.getRadioButtonYes().click();
         Assert.assertTrue(elementsPage.getRadioButtonImpressiveText().isDisplayed());
         Assert.assertTrue(elementsPage.getRadioButtonImpressiveText().getText().equals("Impressive"));
         System.out.println(elementsPage.getRadioButtonImpressiveText().getText());
 
-        Assert.assertFalse(elementsPage.getRadioButtonNo().isSelected());
+        Assert.assertTrue(elementsPage.getRadioButtonNo().isSelected());
     }
 }
