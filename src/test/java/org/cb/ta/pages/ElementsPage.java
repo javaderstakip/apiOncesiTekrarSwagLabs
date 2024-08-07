@@ -152,6 +152,24 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesRegistrationFormDepartment;
     @FindBy(xpath = "//button[@id='submit']")
     private WebElement webTablesRegistrationFormSubmit;
+    @FindBy(xpath = "//input[@id=\"searchBox\"]")
+    private WebElement webTablesTypeToSearch;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div")
+    private WebElement webTablesSearch;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[1]/div[1]")
+    private WebElement webTablesFirsName;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[2]/div[1]")
+    private WebElement webTablesLastName;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[3]/div[1]")
+    private WebElement webTablesAge;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[4]/div[1]")
+    private WebElement webTablesEmail;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[5]/div[1]")
+    private WebElement webTablesSalary;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[6]/div[1]")
+    private WebElement webTablesDepartment;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[7]/div[1]")
+    private WebElement webTablesAction;
     @FindBy(xpath = "(//*[@id=\"item-4\"]/span)[1]")
     private WebElement buttons;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/h1")
