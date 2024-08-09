@@ -110,12 +110,17 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesAction().click();Thread.sleep(3000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
+        jsx.executeScript("window.scrollBy(0,250)");
+
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("tahir").perform();
-        elementsPage.getWebTablesSearch().click();
+        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
-        actions.sendKeys(Keys.DELETE).perform();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
 
 //        elementsPage.getWebTablesRegistrationFormFirstName().click();
 //        elementsPage.getWebTablesRegistrationFormFirstNameText().click();
