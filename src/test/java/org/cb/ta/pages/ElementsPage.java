@@ -154,6 +154,14 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesRegistrationFormSubmit;
     @FindBy(xpath = "//input[@id=\"searchBox\"]")
     private WebElement webTablesTypeToSearch;
+    @FindBy(xpath = "//span[@id='edit-record-4']")
+    private WebElement webTablesActionEdit;
+    @FindBy(xpath = "//*[@id=\"delete-record-4\"]")
+    private WebElement webTablesActionDelete;
+    @FindBy (xpath = "//*[@id=\"delete-record-6\"]")
+    private WebElement webTablesActionDelete2;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div")
+    private WebElement webTablesPages;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div")
     private WebElement webTablesSearch;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[1]/div[1]")

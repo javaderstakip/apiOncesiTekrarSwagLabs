@@ -64,9 +64,9 @@ public class WebTablesTest extends BaseTest {
         actions.sendKeys(Keys.TAB).sendKeys("Kelb").perform();
         actions.sendKeys(Keys.TAB).sendKeys("tk@gmail.com").perform();
         actions.sendKeys(Keys.TAB).sendKeys("33").perform();
-        actions.sendKeys(Keys.TAB).sendKeys("2500").perform();Thread.sleep(3000);
-        actions.sendKeys(Keys.TAB).sendKeys("Legal").perform();Thread.sleep(3000);
-        actions.sendKeys(Keys.TAB).perform();Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("2500").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Legal").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
         elementsPage.getWebTablesRegistrationFormSubmit().click();Thread.sleep(3000);
 
         elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
@@ -130,18 +130,22 @@ public class WebTablesTest extends BaseTest {
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
+        elementsPage.getWebTablesActionEdit().click();
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.TAB).sendKeys("Kadir").perform();
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.TAB).sendKeys("5000").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB);//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        elementsPage.getWebTablesRegistrationFormSubmit().click();
 
-//        elementsPage.getWebTablesRegistrationFormFirstName().click();
-//        elementsPage.getWebTablesRegistrationFormFirstNameText().click();
-//        Thread.sleep(3000);
-//        actions.moveToElement(elementsPage.getWebTablesRegistrationFormFirstName()).click().build().perform();
-//        Thread.sleep(3000);
-        //elementsPage.getWebTablesRegistrationFormFirstName().sendKeys("Tahir");Thread.sleep(3000);
-//        elementsPage.getWebTablesRegistrationFormLastName().sendKeys("Kelb");
-//        elementsPage.getWebTablesRegistrationFormEmail().sendKeys("tk@gmail.com");
-//        elementsPage.getWebTablesRegistrationFormAge().sendKeys("33");
-//        elementsPage.getWebTablesRegistrationFormSalary().sendKeys("2500");
-//        elementsPage.getWebTablesRegistrationFormDepartment().sendKeys("Legal");
-//        elementsPage.getWebTablesRegistrationFormSubmit().click();
+        elementsPage.getWebTablesPages().click();Thread.sleep(3000);
+
+        elementsPage.getWebTablesActionDelete().click();
+        elementsPage.getWebTablesActionDelete2().click();
+
+
     }
 }
