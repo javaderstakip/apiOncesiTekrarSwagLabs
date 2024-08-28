@@ -95,7 +95,7 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesFirsName().click();
         elementsPage.getWebTablesLastName().click();
         elementsPage.getWebTablesAge().click();
-        //elementsPage.getEmail().click();
+        elementsPage.getWebTablesEmail().click();
         elementsPage.getWebTablesSalary().click();
         elementsPage.getWebTablesDepartment().click();
         elementsPage.getWebTablesAction().click();Thread.sleep(3000);
@@ -104,7 +104,7 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesFirsName().click();
         elementsPage.getWebTablesLastName().click();
         elementsPage.getWebTablesAge().click();
-        //elementsPage.getEmail().click();
+        elementsPage.getWebTablesEmail().click();
         elementsPage.getWebTablesSalary().click();
         elementsPage.getWebTablesDepartment().click();
         elementsPage.getWebTablesAction().click();Thread.sleep(3000);
@@ -114,6 +114,15 @@ public class WebTablesTest extends BaseTest {
 
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("tahir").perform();
+        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
+        Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
+        elementsPage.getWebTablesTypeToSearch().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+        elementsPage.getWebTablesTypeToSearch().click();
+        actions.sendKeys("duran").perform();
         elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
