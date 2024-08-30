@@ -160,6 +160,16 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesActionDelete;
     @FindBy (xpath = "//*[@id=\"delete-record-6\"]")
     private WebElement webTablesActionDelete2;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[2]/select")
+    private WebElement webTablesRows;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[2]/select/option[1]")
+    private WebElement webTablesRowsFive;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[3]/button")
+    private WebElement webTablesNext;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[1]/button")
+    private WebElement webTablesPrevious;
+    @FindBy(xpath = "(//div[@class='rt-resizer'])[3]")
+    private WebElement webTablesRtResizer;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div")
     private WebElement webTablesPages;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div")

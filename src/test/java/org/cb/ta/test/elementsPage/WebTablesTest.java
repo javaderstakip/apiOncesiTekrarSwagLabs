@@ -92,29 +92,31 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesRegistrationFormSubmit().click();
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        elementsPage.getWebTablesFirsName().click();
-        elementsPage.getWebTablesLastName().click();
-        elementsPage.getWebTablesAge().click();
-        elementsPage.getWebTablesEmail().click();
-        elementsPage.getWebTablesSalary().click();
-        elementsPage.getWebTablesDepartment().click();
-        elementsPage.getWebTablesAction().click();Thread.sleep(3000);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        elementsPage.getWebTablesFirsName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesEmail().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesSalary().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesDepartment().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesAction().click();//Thread.sleep(1000);
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        elementsPage.getWebTablesFirsName().click();
-        elementsPage.getWebTablesLastName().click();
-        elementsPage.getWebTablesAge().click();
-        elementsPage.getWebTablesEmail().click();
-        elementsPage.getWebTablesSalary().click();
-        elementsPage.getWebTablesDepartment().click();
-        elementsPage.getWebTablesAction().click();Thread.sleep(3000);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        elementsPage.getWebTablesFirsName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesEmail().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesSalary().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesDepartment().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesAction().click();//Thread.sleep(1000);
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
+        //Thread.sleep(1000);
         jsx.executeScript("window.scrollBy(0,250)");
+        Thread.sleep(1000);
 
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("tahir").perform();
-        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
+        elementsPage.getWebTablesSearch().click();//Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -123,7 +125,7 @@ public class WebTablesTest extends BaseTest {
 
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("duran").perform();
-        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
+        elementsPage.getWebTablesSearch().click();//Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -141,11 +143,23 @@ public class WebTablesTest extends BaseTest {
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
         elementsPage.getWebTablesRegistrationFormSubmit().click();
 
+        jsx.executeScript("window.scrollBy(0,250)");
+        Thread.sleep(1000);
+        elementsPage.getWebTablesRows().click();Thread.sleep(1000);
+        elementsPage.getWebTablesRowsFive().click();Thread.sleep(1000);
+        elementsPage.getWebTablesNext().click();Thread.sleep(3000);
+        elementsPage.getWebTablesPrevious().click();Thread.sleep(3000);
         elementsPage.getWebTablesPages().click();Thread.sleep(3000);
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("2").perform();
+        Thread.sleep(1000);
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("1").perform();
 
-        elementsPage.getWebTablesActionDelete().click();
+        Thread.sleep(3000);
+        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
         elementsPage.getWebTablesActionDelete2().click();
 
-
+        elementsPage.getWebTablesRtResizer().isEnabled();
+        //actions.clickAndHold().moveToLocation(50,0);
+        elementsPage.getWebTablesRtResizer().getLocation().moveBy(50,0);
     }
 }
