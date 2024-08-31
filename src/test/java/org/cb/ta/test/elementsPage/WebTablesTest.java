@@ -40,12 +40,21 @@ public class WebTablesTest extends BaseTest {
         Thread.sleep(2000);
     }
     @Test
-    public void webTablesClick(){
+    public void webTablesClick() throws InterruptedException {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         Assert.assertTrue(elementsPage.getWebTablesText().isDisplayed());
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/webtables"));
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        actions.clickAndHold(elementsPage.getWebTablesRtResizer())
+                .moveToLocation(920,0).release().perform();
+        actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
+                .moveToLocation(1050,0).release().perform();
+        actions.clickAndHold(elementsPage.getWebTablesRtResizer())
+                .moveByOffset(900,0).release().perform();
+        actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
+                .moveByOffset(-800,0).release().perform();
+        Thread.sleep(1000);
     }
     @Test
     public void webTablesTest() throws InterruptedException {
@@ -143,7 +152,7 @@ public class WebTablesTest extends BaseTest {
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
         elementsPage.getWebTablesRegistrationFormSubmit().click();
 
-        jsx.executeScript("window.scrollBy(0,250)");
+        //jsx.executeScript("window.scrollBy(0,250)");
         Thread.sleep(1000);
         elementsPage.getWebTablesRows().click();Thread.sleep(1000);
         elementsPage.getWebTablesRowsFive().click();Thread.sleep(1000);
@@ -160,6 +169,8 @@ public class WebTablesTest extends BaseTest {
 
         elementsPage.getWebTablesRtResizer().isEnabled();
         //actions.clickAndHold().moveToLocation(50,0);
-        elementsPage.getWebTablesRtResizer().getLocation().moveBy(50,0);
+//        actions.clickAndHold(elementsPage.getWebTablesRtResizer())
+//                .moveToLocation(750,0).release().perform();
+        //elementsPage.getWebTablesRtResizer().getLocation().moveBy(50,0);
     }
 }
