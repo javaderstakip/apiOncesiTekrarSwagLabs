@@ -47,13 +47,13 @@ public class WebTablesTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/webtables"));
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         actions.clickAndHold(elementsPage.getWebTablesRtResizer())
-                .moveToLocation(920,0).release().perform();
+                .moveToLocation(920,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
-                .moveToLocation(1050,0).release().perform();
+                .moveToLocation(1050,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer())
-                .moveByOffset(900,0).release().perform();
+                .moveByOffset(900,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
-                .moveByOffset(-800,0).release().perform();
+                .moveByOffset(-1000,0).release().build().perform();
         Thread.sleep(1000);
     }
     @Test
@@ -167,10 +167,5 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
         elementsPage.getWebTablesActionDelete2().click();
 
-        elementsPage.getWebTablesRtResizer().isEnabled();
-        //actions.clickAndHold().moveToLocation(50,0);
-//        actions.clickAndHold(elementsPage.getWebTablesRtResizer())
-//                .moveToLocation(750,0).release().perform();
-        //elementsPage.getWebTablesRtResizer().getLocation().moveBy(50,0);
     }
 }
