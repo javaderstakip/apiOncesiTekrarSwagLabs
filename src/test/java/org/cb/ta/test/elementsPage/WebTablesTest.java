@@ -103,6 +103,30 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesRegistrationFormSubmit().click();
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
+        elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Hasan Hüseyin Basri").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Hayırhahoğullarıgillerden").perform();
+        actions.sendKeys(Keys.TAB).sendKeys("oh@gmail.com").perform();
+        actions.sendKeys(Keys.TAB).sendKeys("40").perform();
+        actions.sendKeys(Keys.TAB).sendKeys("20500").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Insurance").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        elementsPage.getWebTablesRegistrationFormSubmit().click();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+        elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Saniyegül Cavidanşah Handan").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Yakutnur Mihribanzadegiller").perform();
+        actions.sendKeys(Keys.TAB).sendKeys("oh@gmail.com").perform();
+        actions.sendKeys(Keys.TAB).sendKeys("40").perform();
+        actions.sendKeys(Keys.TAB).sendKeys("45000").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("Insurance").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        elementsPage.getWebTablesRegistrationFormSubmit().click();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         elementsPage.getWebTablesFirsName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
@@ -161,9 +185,11 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesNext().click();Thread.sleep(3000);
         elementsPage.getWebTablesPrevious().click();Thread.sleep(3000);
         elementsPage.getWebTablesPages().click();Thread.sleep(3000);
-        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("2").perform();
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("2")
+                .sendKeys(Keys.ENTER).build().perform();
         Thread.sleep(1000);
-        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("1").perform();
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("1")
+                .sendKeys(Keys.ENTER).build().perform();
 
         Thread.sleep(3000);
         elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
