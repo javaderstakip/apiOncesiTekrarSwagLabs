@@ -50,10 +50,12 @@ public class WebTablesTest extends BaseTest {
                 .moveToLocation(920,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
                 .moveToLocation(1050,0).release().build().perform();
+        //üstteki iki moveToLocation komutu sıfır noktasından konumu istenilen yere götürür
         actions.clickAndHold(elementsPage.getWebTablesRtResizer())
                 .moveByOffset(900,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
                 .moveByOffset(-1000,0).release().build().perform();
+        //bu iki moveByOffset komutu bulunulan noktadan istenilen yere götürür
         Thread.sleep(1000);
     }
     @Test
