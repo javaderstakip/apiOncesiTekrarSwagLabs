@@ -37,7 +37,7 @@ public class WebTablesTest extends BaseTest {
     public void afterMethod() throws InterruptedException {
         System.out.println("Test calisti.");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
     @Test
     public void webTablesClick() throws InterruptedException {
@@ -46,6 +46,7 @@ public class WebTablesTest extends BaseTest {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/webtables"));
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        jsx.executeScript("window.scrollBy(0,250)");
         actions.clickAndHold(elementsPage.getWebTablesRtResizer())
                 .moveToLocation(920,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
@@ -54,8 +55,14 @@ public class WebTablesTest extends BaseTest {
         actions.clickAndHold(elementsPage.getWebTablesRtResizer())
                 .moveByOffset(900,0).release().build().perform();
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
-                .moveByOffset(-1000,0).release().build().perform();
+                .moveByOffset(-300,0).release().build().perform();
         //bu iki moveByOffset komutu bulunulan noktadan istenilen yere götürür
+        jsx.executeScript("window.scrollBy(-2000,250)");
+        Thread.sleep(2000);
+//        actions.clickAndHold(elementsPage.getWebTablesRole())
+//                .moveByOffset(-200,0).release().build().perform();
+//        actions.clickAndHold(elementsPage.getWebTablesRole2())
+//                .moveByOffset(-200,0).release().build().perform();
         Thread.sleep(1000);
     }
     @Test
@@ -78,7 +85,7 @@ public class WebTablesTest extends BaseTest {
         actions.sendKeys(Keys.TAB).sendKeys("2500").perform();//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).sendKeys("Legal").perform();//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
-        elementsPage.getWebTablesRegistrationFormSubmit().click();Thread.sleep(3000);
+        elementsPage.getWebTablesRegistrationFormSubmit().click();//Thread.sleep(3000);
 
         elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
@@ -190,10 +197,10 @@ public class WebTablesTest extends BaseTest {
         Thread.sleep(1000);
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("1")
                 .sendKeys(Keys.ENTER).build().perform();
-
         Thread.sleep(3000);
-        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
-        elementsPage.getWebTablesActionDelete2().click();
+        
+//        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
+//        elementsPage.getWebTablesActionDelete2().click();
 
     }
 }

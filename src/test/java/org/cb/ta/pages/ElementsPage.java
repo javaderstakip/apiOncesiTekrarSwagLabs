@@ -172,6 +172,10 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesRtResizer;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[3]/div[2]")
     private WebElement webTablesRtResizer2;
+    @FindBy(xpath = "//div[@class='rt-table']")
+    private WebElement webTablesRole;
+    @FindBy(xpath = "//div[@role='grid']")
+    private WebElement WebTablesRole2;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div")
     private WebElement webTablesPages;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div")
