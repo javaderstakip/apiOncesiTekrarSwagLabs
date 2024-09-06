@@ -59,6 +59,10 @@ public class WebTablesTest extends BaseTest {
         //bu iki moveByOffset komutu bulunulan noktadan istenilen yere götürür
         jsx.executeScript("window.scrollBy(-2000,250)");
         Thread.sleep(2000);
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesRole());
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesFirstName());
+        actions.moveToElement(elementsPage.getWebTablesRole());
+        actions.moveToElement(elementsPage.getWebTablesFirstName());
 //        actions.clickAndHold(elementsPage.getWebTablesRole())
 //                .moveByOffset(-200,0).release().build().perform();
 //        actions.clickAndHold(elementsPage.getWebTablesRole2())
@@ -134,7 +138,7 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesRegistrationFormSubmit().click();
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        elementsPage.getWebTablesFirsName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesFirstName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
         elementsPage.getWebTablesEmail().click();//Thread.sleep(1000);
@@ -143,7 +147,7 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesAction().click();//Thread.sleep(1000);
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        elementsPage.getWebTablesFirsName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesFirstName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
         elementsPage.getWebTablesEmail().click();//Thread.sleep(1000);
