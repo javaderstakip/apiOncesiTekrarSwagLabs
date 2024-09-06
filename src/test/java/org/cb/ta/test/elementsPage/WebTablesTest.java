@@ -57,16 +57,11 @@ public class WebTablesTest extends BaseTest {
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
                 .moveByOffset(-300,0).release().build().perform();
         //bu iki moveByOffset komutu bulunulan noktadan istenilen yere götürür
-        jsx.executeScript("window.scrollBy(-2000,250)");
         Thread.sleep(2000);
-        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesRole());
-        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesFirstName());
-        actions.moveToElement(elementsPage.getWebTablesRole());
-        actions.moveToElement(elementsPage.getWebTablesFirstName());
-//        actions.clickAndHold(elementsPage.getWebTablesRole())
-//                .moveByOffset(-200,0).release().build().perform();
-//        actions.clickAndHold(elementsPage.getWebTablesRole2())
-//                .moveByOffset(-200,0).release().build().perform();
+        //jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesRole());//ise yaramadı
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesFirstName());//ise yaradı
+        actions.moveToElement(elementsPage.getWebTablesRole());//ise yarasa bile istedigimiz degil
+        actions.moveToElement(elementsPage.getWebTablesFirstName());//ise yarasa bile istedigimiz degil
         Thread.sleep(1000);
     }
     @Test
