@@ -60,6 +60,17 @@ public class WebTablesTest extends BaseTest {
         Thread.sleep(2000);
         //jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesRole());//ise yaramadı
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesFirstName());//ise yaradı
+        Thread.sleep(1000);
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesLastName());
+        Thread.sleep(1000);
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesEmail());
+        Thread.sleep(1000);
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesSalary());
+        Thread.sleep(1000);
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesDepartment());
+        Thread.sleep(1000);
+        jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesAction());
+        Thread.sleep(1000);
         actions.moveToElement(elementsPage.getWebTablesRole());//ise yarasa bile istedigimiz degil
         actions.moveToElement(elementsPage.getWebTablesFirstName());//ise yarasa bile istedigimiz degil
         Thread.sleep(1000);
