@@ -41,11 +41,8 @@ public class WebTablesTest extends BaseTest {
     }
     @Test
     public void webTablesClick() throws InterruptedException {
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         Assert.assertTrue(elementsPage.getWebTablesText().isDisplayed());
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/webtables"));
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         jsx.executeScript("window.scrollBy(0,250)");
         actions.clickAndHold(elementsPage.getWebTablesRtResizer())
                 .moveToLocation(920,0).release().build().perform();
@@ -58,19 +55,36 @@ public class WebTablesTest extends BaseTest {
                 .moveByOffset(-300,0).release().build().perform();
         //bu iki moveByOffset komutu bulunulan noktadan istenilen yere götürür
         Thread.sleep(2000);
+        Assert.assertTrue(elementsPage.getWebTablesFirstName().isDisplayed());
+        Assert.assertTrue(elementsPage.getWebTablesFirstName().isEnabled());
+        System.out.println("isEnabled mı: " + elementsPage.getWebTablesFirstName().isEnabled());
+        System.out.println("isEnabled False mi: " + elementsPage.getWebTablesFirstName().isEnabled());
+        Assert.assertTrue(elementsPage.getWebTablesLastName().isDisplayed());
+        Assert.assertTrue(elementsPage.getWebTablesEmail().isDisplayed());
+        Assert.assertTrue(elementsPage.getWebTablesSalary().isDisplayed());
+        Assert.assertTrue(elementsPage.getWebTablesDepartment().isDisplayed());
+        Assert.assertTrue(elementsPage.getWebTablesAction().isDisplayed());
         //jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesRole());//ise yaramadı
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesFirstName());//ise yaradı
         Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesFirstName().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesLastName());
         Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesLastName().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesEmail());
         Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesEmail().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesSalary());
         Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesSalary().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesDepartment());
         Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesDepartment().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesAction());
         Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesAction().isDisplayed());
+        Assert.assertTrue(elementsPage.getWebTablesAction().isEnabled());
+        System.out.println("action isEnabled' mı:" + elementsPage.getWebTablesAction().isEnabled());
         actions.moveToElement(elementsPage.getWebTablesRole());//ise yarasa bile istedigimiz degil
         actions.moveToElement(elementsPage.getWebTablesFirstName());//ise yarasa bile istedigimiz degil
         Thread.sleep(1000);
@@ -195,7 +209,7 @@ public class WebTablesTest extends BaseTest {
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
         elementsPage.getWebTablesRegistrationFormSubmit().click();
 
-        //jsx.executeScript("window.scrollBy(0,250)");
+        jsx.executeScript("window.scrollBy(0,250)");
         Thread.sleep(1000);
         elementsPage.getWebTablesRows().click();Thread.sleep(1000);
         elementsPage.getWebTablesRowsFive().click();Thread.sleep(1000);
@@ -208,6 +222,8 @@ public class WebTablesTest extends BaseTest {
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("1")
                 .sendKeys(Keys.ENTER).build().perform();
         Thread.sleep(3000);
+        Assert.assertTrue(elementsPage.getWebTablesTotalPages().getText().equals("2"));
+        System.out.println("toplam sayfa sayısı :" + elementsPage.getWebTablesTotalPages().getText());
         
 //        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
 //        elementsPage.getWebTablesActionDelete2().click();

@@ -196,6 +196,8 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesDepartment;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[7]/div[1]")
     private WebElement webTablesAction;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/span")
+    private WebElement webTablesTotalPages;
     @FindBy(xpath = "(//*[@id=\"item-4\"]/span)[1]")
     private WebElement buttons;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/h1")
