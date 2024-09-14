@@ -36,7 +36,7 @@ public class WebTablesTest extends BaseTest {
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         System.out.println("Test calisti.");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         //Thread.sleep(2000);
     }
     @Test
@@ -54,7 +54,7 @@ public class WebTablesTest extends BaseTest {
         actions.clickAndHold(elementsPage.getWebTablesRtResizer2())
                 .moveByOffset(-300,0).release().build().perform();
         //bu iki moveByOffset komutu bulunulan noktadan istenilen yere götürür
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         Assert.assertTrue(elementsPage.getWebTablesFirstName().isDisplayed());
         Assert.assertTrue(elementsPage.getWebTablesFirstName().isEnabled());
         System.out.println("isEnabled mı: " + elementsPage.getWebTablesFirstName().isEnabled());
@@ -66,28 +66,28 @@ public class WebTablesTest extends BaseTest {
         Assert.assertTrue(elementsPage.getWebTablesAction().isDisplayed());
         //jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesRole());//ise yaramadı
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesFirstName());//ise yaradı
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Assert.assertTrue(elementsPage.getWebTablesFirstName().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesLastName());
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Assert.assertTrue(elementsPage.getWebTablesLastName().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesEmail());
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Assert.assertTrue(elementsPage.getWebTablesEmail().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesSalary());
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Assert.assertTrue(elementsPage.getWebTablesSalary().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesDepartment());
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Assert.assertTrue(elementsPage.getWebTablesDepartment().isDisplayed());
         jsx.executeScript("arguments[0].scrollIntoView();", elementsPage.getWebTablesAction());
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Assert.assertTrue(elementsPage.getWebTablesAction().isDisplayed());
         Assert.assertTrue(elementsPage.getWebTablesAction().isEnabled());
         System.out.println("action isEnabled' mı:" + elementsPage.getWebTablesAction().isEnabled());
         actions.moveToElement(elementsPage.getWebTablesRole());//ise yarasa bile istedigimiz degil
         actions.moveToElement(elementsPage.getWebTablesFirstName());//ise yarasa bile istedigimiz degil
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
     }
     @Test
     public void webTablesTest() throws InterruptedException {
@@ -174,11 +174,12 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesSalary().click();//Thread.sleep(1000);
         elementsPage.getWebTablesDepartment().click();//Thread.sleep(1000);
         elementsPage.getWebTablesAction().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesAction().click();
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         //Thread.sleep(1000);
         jsx.executeScript("window.scrollBy(0,250)");
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("tahir").perform();
@@ -211,19 +212,28 @@ public class WebTablesTest extends BaseTest {
 
         jsx.executeScript("window.scrollBy(0,250)");
         Thread.sleep(1000);
-        elementsPage.getWebTablesRows().click();Thread.sleep(1000);
-        elementsPage.getWebTablesRowsFive().click();Thread.sleep(1000);
-        elementsPage.getWebTablesNext().click();Thread.sleep(3000);
-        elementsPage.getWebTablesPrevious().click();Thread.sleep(3000);
-        elementsPage.getWebTablesPages().click();Thread.sleep(3000);
+        elementsPage.getWebTablesRows().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesRowsFive().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesNext().click();//Thread.sleep(3000);
+        elementsPage.getWebTablesPrevious().click();//Thread.sleep(3000);
+        elementsPage.getWebTablesPages().click();//Thread.sleep(3000);
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("2")
                 .sendKeys(Keys.ENTER).build().perform();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("1")
                 .sendKeys(Keys.ENTER).build().perform();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesTotalPages().getText().equals("2"));
         System.out.println("toplam sayfa sayısı :" + elementsPage.getWebTablesTotalPages().getText());
+
+        elementsPage.getWebTablesRows().click();
+        elementsPage.getWebTablesRowsTen().click();
+        elementsPage.getWebTablesFirstName().click();
+        System.out.println("ilk satır ilk situn: " + elementsPage.getWebTablesFirstRows().getText());
+        Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equals("Alden"));
+        System.out.println("FirstRows testimiz çalıştı, sen de bi bak!");
+        elementsPage.getWebTablesFirstName().click();
+        Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equals("Tahir"));
         
 //        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
 //        elementsPage.getWebTablesActionDelete2().click();

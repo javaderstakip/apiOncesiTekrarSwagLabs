@@ -164,6 +164,8 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesRows;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[2]/select/option[1]")
     private WebElement webTablesRowsFive;
+    @FindBy(xpath = "//option[@value='10']")
+    private WebElement webTablesRowsTen;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[3]/button")
     private WebElement webTablesNext;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[1]/button")
@@ -198,6 +200,8 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesAction;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/span")
     private WebElement webTablesTotalPages;
+    @FindBy(xpath = "(//div[@class='rt-td'])[1]")
+    private WebElement webTablesFirstRows;
     @FindBy(xpath = "(//*[@id=\"item-4\"]/span)[1]")
     private WebElement buttons;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/h1")
