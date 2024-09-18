@@ -155,7 +155,7 @@ public class ElementsPage extends BasePage{
     @FindBy(xpath = "//input[@id=\"searchBox\"]")
     private WebElement webTablesTypeToSearch;
     @FindBy(xpath = "//span[@id='edit-record-4']")
-    private WebElement webTablesActionEdit;
+    private WebElement webTablesActionEditFirst;
     @FindBy(xpath = "//*[@id=\"delete-record-4\"]")
     private WebElement webTablesActionDelete;
     @FindBy (xpath = "//*[@id=\"delete-record-6\"]")
@@ -166,6 +166,12 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesRowsFive;
     @FindBy(xpath = "//option[@value='10']")
     private WebElement webTablesRowsTen;
+    @FindBy(xpath = "(//div[@class='rt-td'])[22]")
+    private WebElement webTablesRowsFour;
+    @FindBy(xpath = "(//div[@class='rt-td'])[6]")
+    private WebElement webTablesRowsFirstDepartmant;
+    @FindBy(xpath = "(//div[@class='rt-td'])[2]")
+    private WebElement webTablesRowsFirstLastName;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[3]/button")
     private WebElement webTablesNext;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[1]/button")

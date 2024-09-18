@@ -98,7 +98,7 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesRegistrationForm().getText().equals("Registration Form"));
         actions.sendKeys(Keys.TAB).click().perform();//Thread.sleep(3000);
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
@@ -110,6 +110,8 @@ public class WebTablesTest extends BaseTest {
         actions.sendKeys(Keys.TAB).sendKeys("Legal").perform();//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
         elementsPage.getWebTablesRegistrationFormSubmit().click();//Thread.sleep(3000);
+        Assert.assertTrue(elementsPage.getWebTablesRowsFour().getText().equals("Tahir"));
+        System.out.println(elementsPage.getWebTablesRowsFour().getText());
 
         elementsPage.getWebTablesAdd().click();//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
@@ -159,6 +161,7 @@ public class WebTablesTest extends BaseTest {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         elementsPage.getWebTablesFirstName().click();//Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equals("Alden"));
         elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
         elementsPage.getWebTablesEmail().click();//Thread.sleep(1000);
@@ -168,6 +171,8 @@ public class WebTablesTest extends BaseTest {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         elementsPage.getWebTablesFirstName().click();//Thread.sleep(1000);
+        elementsPage.getWebTablesFirstName().click();//Thread.sleep(1000);
+        Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equals("Tahir"));
         elementsPage.getWebTablesLastName().click();//Thread.sleep(1000);
         elementsPage.getWebTablesAge().click();//Thread.sleep(1000);
         elementsPage.getWebTablesEmail().click();//Thread.sleep(1000);
@@ -183,7 +188,7 @@ public class WebTablesTest extends BaseTest {
 
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("tahir").perform();
-        elementsPage.getWebTablesSearch().click();//Thread.sleep(3000);
+        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -192,23 +197,39 @@ public class WebTablesTest extends BaseTest {
 
         elementsPage.getWebTablesTypeToSearch().click();
         actions.sendKeys("duran").perform();
-        elementsPage.getWebTablesSearch().click();//Thread.sleep(3000);
+        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        elementsPage.getWebTablesActionEdit().click();
-        actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
+        elementsPage.getWebTablesTypeToSearch().click();
+        actions.sendKeys("insurance").perform();
+        elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
+        Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
+        elementsPage.getWebTablesTypeToSearch().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Assert.assertTrue(elementsPage.getWebTablesRowsFirstDepartmant().getText().equals("Insurance"));
+        System.out.println("birinci satır altıncı sütun getText: "+elementsPage.getWebTablesRowsFirstDepartmant().getText());
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+        elementsPage.getWebTablesActionEditFirst().click();
+        actions.sendKeys(Keys.TAB).perform();Thread.sleep(3000);
         actions.sendKeys(Keys.TAB);
         actions.sendKeys(Keys.TAB).sendKeys("Kadir").perform();
         actions.sendKeys(Keys.TAB);
         actions.sendKeys(Keys.TAB);
-        actions.sendKeys(Keys.TAB).sendKeys("5000").perform();//Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).sendKeys("5000").perform();Thread.sleep(3000);
         actions.sendKeys(Keys.TAB);//Thread.sleep(3000);
         actions.sendKeys(Keys.TAB).perform();//Thread.sleep(3000);
         elementsPage.getWebTablesRegistrationFormSubmit().click();
+        elementsPage.getWebTablesFirstName().click();
+        elementsPage.getWebTablesFirstName().click();
+        Assert.assertTrue(elementsPage.getWebTablesRowsFirstLastName().getText().equals("Kadir"));
+        System.out.println("ilk satırın firstname i ne oldu :" + elementsPage.getWebTablesRowsFirstLastName().getText());
+        Thread.sleep(3000);
 
         jsx.executeScript("window.scrollBy(0,250)");
         Thread.sleep(1000);
