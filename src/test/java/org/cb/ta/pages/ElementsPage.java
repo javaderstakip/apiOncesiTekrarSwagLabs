@@ -176,6 +176,16 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesNext;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[1]/button")
     private WebElement webTablesPrevious;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/span")
+    private WebElement webTablesTotalPages;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div/input")
+    private WebElement webTablesPage;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div")
+    private WebElement webTablesPage2;
+    @FindBy(xpath = "//input[@value='2']")
+    private WebElement webTablesPage3;
+    @FindBy(xpath = "//input[@type='number']")
+    private WebElement webTablesPage4;
     @FindBy(xpath = "(//div[@class='rt-resizer'])[3]")
     private WebElement webTablesRtResizer;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[3]/div[2]")
@@ -204,8 +214,7 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesDepartment;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[7]/div[1]")
     private WebElement webTablesAction;
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/span")
-    private WebElement webTablesTotalPages;
+
     @FindBy(xpath = "(//div[@class='rt-td'])[1]")
     private WebElement webTablesFirstRows;
     @FindBy(xpath = "(//*[@id=\"item-4\"]/span)[1]")

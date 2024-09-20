@@ -191,6 +191,8 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
+        //Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equals("Tahir"));
+        Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equalsIgnoreCase("tahir"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -200,6 +202,8 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesSearch().click();Thread.sleep(3000);
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
+        Assert.assertTrue(elementsPage.getWebTablesRowsFirstLastName().getText()
+                .equalsIgnoreCase("duran"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -210,7 +214,8 @@ public class WebTablesTest extends BaseTest {
         Assert.assertTrue(elementsPage.getWebTablesSearch().isEnabled());
         elementsPage.getWebTablesTypeToSearch().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        Assert.assertTrue(elementsPage.getWebTablesRowsFirstDepartmant().getText().equals("Insurance"));
+        Assert.assertTrue(elementsPage.getWebTablesRowsFirstDepartmant().getText()
+                .equalsIgnoreCase("insurance"));
         System.out.println("birinci satır altıncı sütun getText: "+elementsPage.getWebTablesRowsFirstDepartmant().getText());
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -236,7 +241,13 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesRows().click();//Thread.sleep(1000);
         elementsPage.getWebTablesRowsFive().click();//Thread.sleep(1000);
         elementsPage.getWebTablesNext().click();//Thread.sleep(3000);
+        System.out.println("page number ne yazdı acaba: " + elementsPage.getWebTablesPage().getText());
+        System.out.println("page number ne yazdı acaba: " + elementsPage.getWebTablesPage2().getText());
+        System.out.println("page number ne yazdı acaba: " + elementsPage.getWebTablesPage3().getText());
+        System.out.println("page number ne yazdı acaba: " + elementsPage.getWebTablesPage4().getText());
+        Assert.assertTrue(elementsPage.getWebTablesPage4().getText().equalsIgnoreCase("2"));
         elementsPage.getWebTablesPrevious().click();//Thread.sleep(3000);
+        Assert.assertTrue(elementsPage.getWebTablesPage().getText().equalsIgnoreCase("1"));
         elementsPage.getWebTablesPages().click();//Thread.sleep(3000);
         actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("2")
                 .sendKeys(Keys.ENTER).build().perform();
