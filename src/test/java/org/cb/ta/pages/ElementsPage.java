@@ -168,6 +168,8 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesRowsTen;
     @FindBy(xpath = "(//div[@class='rt-td'])[22]")
     private WebElement webTablesRowsFour;
+    @FindBy(xpath = "(//div[@class='rt-td'])[57]")
+    private WebElement webTablesRowsNineFirstName;
     @FindBy(xpath = "(//div[@class='rt-td'])[6]")
     private WebElement webTablesRowsFirstDepartmant;
     @FindBy(xpath = "(//div[@class='rt-td'])[2]")
@@ -178,14 +180,16 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesPrevious;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/span")
     private WebElement webTablesTotalPages;
-    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div/input")
+    @FindBy(xpath = "//span[@class='-pageInfo']//input[@type='number']")
     private WebElement webTablesPage;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[1]/div")
     private WebElement webTablesPage2;
     @FindBy(xpath = "//input[@value='2']")
     private WebElement webTablesPage3;
-    @FindBy(xpath = "//input[@type='number']")
+    @FindBy(xpath = "//*[@type='number']")
     private WebElement webTablesPage4;
+    @FindBy(xpath = "//div[@class='-pageJump']")
+    private WebElement webTablesPage5;
     @FindBy(xpath = "(//div[@class='rt-resizer'])[3]")
     private WebElement webTablesRtResizer;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[3]/div[2]")
