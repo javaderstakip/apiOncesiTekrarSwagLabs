@@ -1,4 +1,4 @@
-package org.cb.ta.test.elementsPage;
+package org.cb.ta.test.elementsPageTest;
 
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.test.common.BaseTest;

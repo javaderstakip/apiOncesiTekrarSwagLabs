@@ -1,10 +1,8 @@
-package org.cb.ta.test.elementsPage;
+package org.cb.ta.test.elementsPageTest;
 
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.test.common.BaseTest;
-import org.junit.experimental.theories.Theories;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -233,7 +231,7 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesFirstName().click();
         elementsPage.getWebTablesFirstName().click();
         Assert.assertTrue(elementsPage.getWebTablesRowsFirstLastName().getText().equals("Kadir"));
-        System.out.println("ilk satırın firstname i ne oldu :" + elementsPage.getWebTablesRowsFirstLastName().getText());
+        System.out.println("ilk satırın lastname i ne oldu :" + elementsPage.getWebTablesRowsFirstLastName().getText());
         Thread.sleep(3000);
 
         jsx.executeScript("window.scrollBy(0,250)");
@@ -268,8 +266,18 @@ public class WebTablesTest extends BaseTest {
         elementsPage.getWebTablesFirstName().click();
         Assert.assertTrue(elementsPage.getWebTablesFirstRows().getText().equals("Tahir"));
         
-//        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
-//        elementsPage.getWebTablesActionDelete2().click();
-
+        Assert.assertTrue(elementsPage.getWebTablesActionDeleteIsDisplayedTahir().isDisplayed());
+        System.out.println("tahir görünüyor mu? " + elementsPage.getWebTablesActionDeleteIsDisplayedTahir()
+                .isDisplayed());
+        elementsPage.getWebTablesActionDelete().click();Thread.sleep(2000);
+        Assert.assertFalse(elementsPage.getWebTablesCellFirst().getText()
+                .equalsIgnoreCase("tahir"));
+        System.out.println("tahir görünüyor mu? " + elementsPage.getWebTablesCellFirst().getText());
+        Assert.assertTrue(elementsPage.getWebTablesActionDeleteIsDisplayedOya().isDisplayed());
+        System.out.println("oya var mı? "+elementsPage.getWebTablesActionDeleteIsDisplayedOya().isDisplayed());
+        elementsPage.getWebTablesActionDelete2().click();
+        Assert.assertFalse(elementsPage.getWebTablesCellFifteen().getText()
+                .equalsIgnoreCase("oya"));
+        System.out.println(elementsPage.getWebTablesCellFifteen().getText());
     }
 }

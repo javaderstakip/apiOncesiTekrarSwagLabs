@@ -158,14 +158,22 @@ public class ElementsPage extends BasePage{
     private WebElement webTablesActionEditFirst;
     @FindBy(xpath = "//*[@id=\"delete-record-4\"]")
     private WebElement webTablesActionDelete;
+    @FindBy(xpath = "//*[contains(text(),'Tahir')]")
+    private WebElement webTablesActionDeleteIsDisplayedTahir;
     @FindBy (xpath = "//*[@id=\"delete-record-6\"]")
     private WebElement webTablesActionDelete2;
+    @FindBy(xpath = "//*[contains(text(),'Oya')]")
+    private WebElement webTablesActionDeleteIsDisplayedOya;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[2]/select")
     private WebElement webTablesRows;
+    @FindBy(xpath = "(//div[@class='rt-td'])[1]")
+    private WebElement webTablesCellFirst;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/div[2]/div/div[2]/span[2]/select/option[1]")
     private WebElement webTablesRowsFive;
     @FindBy(xpath = "//option[@value='10']")
     private WebElement webTablesRowsTen;
+    @FindBy(xpath = "(//div[@class='rt-td'])[15]")
+    private WebElement webTablesCellFifteen;
     @FindBy(xpath = "(//div[@class='rt-td'])[22]")
     private WebElement webTablesRowsFour;
     @FindBy(xpath = "(//div[@class='rt-td'])[57]")
