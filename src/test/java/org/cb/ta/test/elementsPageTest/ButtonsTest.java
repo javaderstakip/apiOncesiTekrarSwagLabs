@@ -1,6 +1,7 @@
 package org.cb.ta.test.elementsPageTest;
 
 import org.cb.ta.pages.ElementsPage;
+import org.cb.ta.pages.elementsPages.ButtonsPage;
 import org.cb.ta.test.common.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -8,6 +9,7 @@ import org.testng.annotations.*;
 import java.time.Duration;
 
 public class ButtonsTest extends BaseTest {
+    ButtonsPage buttonsPage = new ButtonsPage(driver);
     ElementsPage elementsPage = new ElementsPage(driver);
     @BeforeClass
     public void beforeTest() throws InterruptedException {
@@ -38,6 +40,18 @@ public class ButtonsTest extends BaseTest {
     }
     @Test
     public void buttonsTestClick(){
+
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/buttons"));
+        System.out.println("Buttons yazısı göründü mü? "+buttonsPage.getButtonsText().getText());
+        Assert.assertTrue(buttonsPage.getButtonsText().isDisplayed());
+    }
+    @Test
+    public void doubleClick() throws InterruptedException {
+        Thread.sleep(2000);
+        actions.doubleClick(buttonsPage.getButtonsDoubleClickLocator()).build().perform();
+        System.out.println("cift clikledi mi? ");
+        Assert.assertTrue(buttonsPage.getYouHaveDoneDoubleClickText().getText()
+                .equalsIgnoreCase("You have done a double click"));
+        System.out.println("evet : "+ buttonsPage.getYouHaveDoneDoubleClickText().getText());
     }
 }
