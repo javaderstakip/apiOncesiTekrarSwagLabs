@@ -2,6 +2,7 @@ package org.cb.ta.test.elementsPageTest;
 
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.elementsPages.ButtonsPage;
+import org.cb.ta.pages.elementsPages.LinksPage;
 import org.cb.ta.test.common.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -53,5 +54,22 @@ public class ButtonsTest extends BaseTest {
         Assert.assertTrue(buttonsPage.getYouHaveDoneDoubleClickText().getText()
                 .equalsIgnoreCase("You have done a double click"));
         System.out.println("evet : "+ buttonsPage.getYouHaveDoneDoubleClickText().getText());
+    }
+    @Test
+    public void rightClickMe(){
+        actions.contextClick(buttonsPage.getRightClickMe()).build().perform();
+        System.out.println("right click başarılı oldu mu? ");
+        Assert.assertTrue(buttonsPage.getYouHaveDoneARightClickText().getText()
+                .equalsIgnoreCase("You have done a right click"));
+        System.out.println("evet: " + buttonsPage.getYouHaveDoneARightClickText().getText());
+    }
+    @Test
+    private void clickMe(){
+        //actions.click(buttonsPage.getClickMe()).build().perform();
+        buttonsPage.getClickMe().click();
+        System.out.println("click leme islemi basarili mi? ");
+        Assert.assertTrue(buttonsPage.getClickMeText().getText()
+                .equalsIgnoreCase("You have done a dynamic click"));
+        System.out.println("evet: " + buttonsPage.getClickMeText().getText());
     }
 }

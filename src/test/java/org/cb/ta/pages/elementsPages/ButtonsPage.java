@@ -24,4 +24,12 @@ public class ButtonsPage extends BasePage {
     private WebElement buttonsDoubleClickLocator;
     @FindBy(xpath = "//p[@id='doubleClickMessage']")
     private WebElement youHaveDoneDoubleClickText;
+    @FindBy(xpath = "//button[@id='rightClickBtn']")
+    private WebElement rightClickMe;
+    @FindBy(xpath = "//p[@id='rightClickMessage']")
+    private WebElement youHaveDoneARightClickText;
+    @FindBy(xpath = "(//button[@class='btn btn-primary'])[3]")
+    private WebElement clickMe;
+    @FindBy(xpath = "//p[@id='dynamicClickMessage']")
+    private WebElement clickMeText;
 }
