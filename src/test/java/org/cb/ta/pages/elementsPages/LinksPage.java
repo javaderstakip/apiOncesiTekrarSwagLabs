@@ -20,4 +20,10 @@ public class LinksPage extends BasePage {
     private WebElement links;
     @FindBy(xpath = "//h1[@class='text-center']")
     private WebElement linksText;
+    @FindBy(xpath = "//*[@id=\"linkWrapper\"]/h5[1]/strong")
+    private WebElement newTabText;
+    @FindBy(xpath = "//a[@id='simpleLink']")
+    private WebElement linksHome;
+    @FindBy(xpath = "//a[@id='dynamicLink']")
+    private WebElement linksHomeeja8R;
 }

@@ -3,10 +3,13 @@ package org.cb.ta.test.elementsPageTest;
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.elementsPages.LinksPage;
 import org.cb.ta.test.common.BaseTest;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LinksTest extends BaseTest {
     ElementsPage elementsPage = new ElementsPage(driver);
@@ -41,5 +44,64 @@ public class LinksTest extends BaseTest {
     @Test
     public void linksTest(){
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/links"));
+        System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
+    }
+    @Test
+    public void linksTextTest(){
+        Assert.assertTrue(linksPage.getLinksText().getText().equalsIgnoreCase("links"));
+        Assert.assertTrue(linksPage.getLinksText().isDisplayed());
+        System.out.println("links yazdı mı? " + linksPage.getLinksText().getText());
+    }
+    @Test
+    public void newTabtest(){
+        Assert.assertTrue(linksPage.getNewTabText().isDisplayed());
+        Assert.assertTrue(linksPage.getNewTabText().getText()
+                .equalsIgnoreCase("Following links will open new tab"));
+        System.out.println("new tab yazısını gorduk mu? " + linksPage.getNewTabText().getText());
+    }
+    @Test
+    public void linksTestHome(){
+        linksPage.getLinksHome().click();
+
+        // Pencere "handle"larını al
+        List<String> windowHandles = new ArrayList<>();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(driver.getWindowHandle())) {
+                windowHandles.add(handle);
+            }
+        }
+        //driver.switchTo().window(windowHandles.get(0));
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+        webDriverWait.until(ExpectedConditions.urlToBe("https://demoqa.com/"));
+        System.out.println("guncel url mız nedır acaba? "+driver.getCurrentUrl());
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+        webDriverWait.until(ExpectedConditions.urlToBe("https://demoqa.com/links"));
+        System.out.println("guncel url mız nedır acaba? "+driver.getCurrentUrl());
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+
+        Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("https://demoqa.com/"));
+    }
+    @Test
+    public void linksTestHomeeja8R(){
+        Assert.assertTrue(linksPage.getLinksHomeeja8R().isEnabled());
+        linksPage.getLinksHomeeja8R().click();
+
+        // Pencere "handle"larını al
+        List<String> windowHandles = new ArrayList<>();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(driver.getWindowHandle())) {
+                windowHandles.add(handle);
+            }
+        }
+        //driver.switchTo().window(windowHandles.get(0));
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+        webDriverWait.until(ExpectedConditions.urlToBe("https://demoqa.com/"));
+        System.out.println("guncel url mız nedır acaba? "+driver.getCurrentUrl());
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+        webDriverWait.until(ExpectedConditions.urlToBe("https://demoqa.com/links"));
+        System.out.println("guncel url mız nedır acaba? "+driver.getCurrentUrl());
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+
+        Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("https://demoqa.com/"));
     }
 }
