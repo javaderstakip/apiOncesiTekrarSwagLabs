@@ -26,4 +26,16 @@ public class LinksPage extends BasePage {
     private WebElement linksHome;
     @FindBy(xpath = "//a[@id='dynamicLink']")
     private WebElement linksHomeeja8R;
+    @FindBy(xpath = "//a[@id='created']")
+    private WebElement linksCreated;
+    @FindBy(xpath = "//p[@id='linkResponse']")
+    private WebElement linksCreatedText201;
+    @FindBy(xpath = "//a[@id='no-content']")
+    private WebElement linksNoContent;
+    @FindBy(xpath = "//p[@id='linkResponse']")
+    private WebElement linksNoContentText;
+    @FindBy(xpath = "//a[@id=\"moved\"]")
+    private WebElement linksMoved;
+    @FindBy(xpath = "//p[@id=\"linkResponse\"]")
+    private WebElement linksMovedText;
 }

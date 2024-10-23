@@ -30,16 +30,21 @@ public class LinksTest extends BaseTest {
     }
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 //        elementsPage.getHomePageButton().click();
 //        elementsPage.getElementsButton().click();
-//        Thread.sleep(2000);
+//        elementsPage.getLinks().click();
+        //Thread.sleep(2000);
     }
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         System.out.println("Test calisti.");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        elementsPage.getHomePageButton().click();
+//        elementsPage.getElementsButton().click();
+//        elementsPage.getLinks().click();
         //Thread.sleep(2000);
+        //driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
     }
     @Test
     public void linksTest(){
@@ -80,6 +85,7 @@ public class LinksTest extends BaseTest {
         driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
 
         Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("https://demoqa.com/"));
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
     }
     @Test
     public void linksTestHomeeja8R(){
@@ -103,5 +109,39 @@ public class LinksTest extends BaseTest {
         driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
 
         Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("https://demoqa.com/"));
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+    }
+    @Test
+    public void linksCreatedTest(){
+        Assert.assertTrue(linksPage.getLinksCreated().isEnabled());
+        Assert.assertTrue(linksPage.getLinksCreated().isDisplayed());
+        linksPage.getLinksCreated().click();
+        jsx.executeScript("window.scrollBy(0,1000)");
+        Assert.assertTrue(linksPage.getLinksCreatedText201().getText()
+                .equalsIgnoreCase("Link has responded with staus 201 and status text Created"));
+    }
+    @Test
+    public void linksNoContentTest() throws InterruptedException {
+        Assert.assertTrue(linksPage.getLinksNoContent().isEnabled());
+        Assert.assertTrue(linksPage.getLinksNoContent().isDisplayed());
+        linksPage.getLinksNoContent().click();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Thread.sleep(3000);
+        jsx.executeScript("window.scrollBy(0,1000)");
+        Assert.assertTrue(linksPage.getLinksNoContentText().getText()
+                .equalsIgnoreCase("Link has responded with staus 204 and status text No Content"));
+    }
+    @Test
+    public void linksMovedTest() throws InterruptedException {
+        Assert.assertTrue(linksPage.getLinksMoved().isEnabled());
+        Assert.assertTrue(linksPage.getLinksMoved().isDisplayed());
+        linksPage.getLinksMoved().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Thread.sleep(3000);
+        jsx.executeScript("window.scrollBy(0,1000)");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Assert.assertTrue(linksPage.getLinksMovedText().getText()
+                .equalsIgnoreCase("Link has responded with staus 301 and status text Moved Permanently"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 }
