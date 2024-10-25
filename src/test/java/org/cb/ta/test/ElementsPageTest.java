@@ -152,6 +152,7 @@ public class ElementsPageTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/links"));
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(elementsPage.getLinks().isDisplayed());
+        Assert.assertTrue(elementsPage.getLinks().isEnabled());
         System.out.println(elementsPage.getLinks());
     }
     @Test
