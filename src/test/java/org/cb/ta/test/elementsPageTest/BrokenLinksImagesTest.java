@@ -54,4 +54,33 @@ public class BrokenLinksImagesTest extends BaseTest {
         Assert.assertTrue(brokenLinksImagesPage.getBrokenLinksImagesText().getText()
                 .equalsIgnoreCase("Broken Links - Images"));
     }
+    @Test
+    public void validImageTest(){
+        String imageUrl = brokenLinksImagesPage.getValidImage().getAttribute("src");
+        Assert.assertEquals(imageUrl, "https://demoqa.com/images/Toolsqa.jpg");
+        System.out.println("1 "+imageUrl.getBytes());
+        System.out.println("3 "+brokenLinksImagesPage.getValidImage().getAttribute("src"));
+
+        int imageWidth = Integer.parseInt(brokenLinksImagesPage.getValidImage().getAttribute("width"));
+        int imageHeight = Integer.parseInt(brokenLinksImagesPage.getValidImage().getAttribute("height"));
+        System.out.println("4 " + brokenLinksImagesPage.getValidImage().getAttribute("width"));
+        System.out.println("5 "+ brokenLinksImagesPage.getValidImage().getAttribute("height"));
+        Assert.assertEquals(imageWidth, 347); // Beklenen genişlik
+        Assert.assertEquals(imageHeight, 100); // Beklenen yükseklik
+
+    }
+    @Test
+    public void brokenImageTest(){
+        String imageUrl2 = brokenLinksImagesPage.getBrokenImage().getAttribute("src");
+        Assert.assertEquals(imageUrl2, "https://demoqa.com/images/Toolsqa_1.jpg");
+        System.out.println("1 "+imageUrl2.getBytes());
+        System.out.println("3 "+brokenLinksImagesPage.getBrokenImage().getAttribute("src"));
+
+        int imageWidth = Integer.parseInt(brokenLinksImagesPage.getBrokenImage().getAttribute("width"));
+        int imageHeight = Integer.parseInt(brokenLinksImagesPage.getBrokenImage().getAttribute("height"));
+        System.out.println("4 " + brokenLinksImagesPage.getBrokenImage().getAttribute("width"));
+        System.out.println("5 "+ brokenLinksImagesPage.getBrokenImage().getAttribute("height"));
+        Assert.assertEquals(imageWidth, 347); // Beklenen genişlik
+        Assert.assertEquals(imageHeight, 100); // Beklenen yükseklik
+    }
 }

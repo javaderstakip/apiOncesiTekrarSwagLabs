@@ -18,4 +18,9 @@ public class BrokenLinksImagesPage extends BasePage {
 
     @FindBy(xpath = "//h1[@class=\"text-center\"]")
     private WebElement BrokenLinksImagesText;
+    @FindBy(xpath = "(//img[@src=\"/images/Toolsqa.jpg\"])[2]")
+    private WebElement validImage;
+    @FindBy(xpath = "//img[@src=\"/images/Toolsqa_1.jpg\"]")
+    private WebElement brokenImage;
+
 }
