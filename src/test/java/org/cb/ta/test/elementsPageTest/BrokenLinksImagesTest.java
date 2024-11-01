@@ -83,4 +83,33 @@ public class BrokenLinksImagesTest extends BaseTest {
         Assert.assertEquals(imageWidth, 347); // Beklenen genişlik
         Assert.assertEquals(imageHeight, 100); // Beklenen yükseklik
     }
+    @Test
+    public void validLinkTest(){
+        jsx.executeScript("window.scrollBy(0,250)");
+        brokenLinksImagesPage.getValidLink().click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://demoqa.com/");
+        System.out.println("1 :" + driver.getCurrentUrl());
+        driver.navigate().back();
+        driver.navigate().forward();
+        driver.navigate().back();
+        driver.navigate().forward();
+    }
+    @Test
+    public void brokenLinkTest() throws InterruptedException {
+        jsx.executeScript("window.scrollBy(0,250)");
+        brokenLinksImagesPage.getBrokenLink().click();Thread.sleep(3000);
+        driver.navigate().back();Thread.sleep(3000);
+        driver.navigate().forward();Thread.sleep(3000);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://demoqa.com/");
+        System.out.println("1 :" + driver.getCurrentUrl());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().back();Thread.sleep(3000);
+        // Geri git ve yeni sayfanın yüklenmesini bekle
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+    @Test
+    public void brokenLinkTestStatusCodes(){
+        jsx.executeScript("window.scrollBy(0,250)");
+        brokenLinksImagesPage.getBrokenLink().click();
+    }
 }

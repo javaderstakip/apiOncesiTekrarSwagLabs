@@ -22,5 +22,11 @@ public class BrokenLinksImagesPage extends BasePage {
     private WebElement validImage;
     @FindBy(xpath = "//img[@src=\"/images/Toolsqa_1.jpg\"]")
     private WebElement brokenImage;
+    @FindBy(xpath = "//a[@href=\"http://demoqa.com\"]")
+    private WebElement validLink;
+    @FindBy(xpath = "//a[@href=\"http://the-internet.herokuapp.com/status_codes/500\"]")
+    private WebElement brokenLink;
+    @FindBy(xpath = "//div[@id=\"content\"]")
+    private WebElement statusCodes;
 
 }
