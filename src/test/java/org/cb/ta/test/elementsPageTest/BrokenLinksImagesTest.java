@@ -30,11 +30,13 @@ public class BrokenLinksImagesTest extends BaseTest {
     }
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
+        System.out.println("Test basladi.");
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 //        elementsPage.getHomePageButton().click();
 //        elementsPage.getElementsButton().click();
 //        elementsPage.getLinks().click();
         //Thread.sleep(2000);
+        driver.get("https://demoqa.com/broken");
     }
     @AfterMethod
     public void afterMethod() throws InterruptedException {
@@ -43,10 +45,11 @@ public class BrokenLinksImagesTest extends BaseTest {
 //        elementsPage.getHomePageButton().click();
 //        elementsPage.getElementsButton().click();
 //        elementsPage.getLinks().click();
-        //Thread.sleep(2000);
-        //driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+//        Thread.sleep(2000);
+//        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+        driver.get("https://demoqa.com/broken");
     }
-    @Test
+    @Test(priority = 1)
     public void brokenLinksImagesTest(){
         Assert.assertFalse(driver.getCurrentUrl().equals("https://demoqa.com/links"));
         Assert.assertTrue(driver.getCurrentUrl().equals("https://demoqa.com/broken"));
@@ -54,7 +57,7 @@ public class BrokenLinksImagesTest extends BaseTest {
         Assert.assertTrue(brokenLinksImagesPage.getBrokenLinksImagesText().getText()
                 .equalsIgnoreCase("Broken Links - Images"));
     }
-    @Test
+    @Test(priority = 2)
     public void validImageTest(){
         String imageUrl = brokenLinksImagesPage.getValidImage().getAttribute("src");
         Assert.assertEquals(imageUrl, "https://demoqa.com/images/Toolsqa.jpg");
@@ -69,21 +72,23 @@ public class BrokenLinksImagesTest extends BaseTest {
         Assert.assertEquals(imageHeight, 100); // Beklenen yükseklik
 
     }
-    @Test
+    @Test(priority = 3)
     public void brokenImageTest(){
         String imageUrl2 = brokenLinksImagesPage.getBrokenImage().getAttribute("src");
         Assert.assertEquals(imageUrl2, "https://demoqa.com/images/Toolsqa_1.jpg");
         System.out.println("1 "+imageUrl2.getBytes());
         System.out.println("3 "+brokenLinksImagesPage.getBrokenImage().getAttribute("src"));
 
-        int imageWidth = Integer.parseInt(brokenLinksImagesPage.getBrokenImage().getAttribute("width"));
-        int imageHeight = Integer.parseInt(brokenLinksImagesPage.getBrokenImage().getAttribute("height"));
+        int imageWidth = Integer.parseInt(brokenLinksImagesPage.getBrokenImage()
+                .getAttribute("width"));
+        int imageHeight = Integer.parseInt(brokenLinksImagesPage.getBrokenImage()
+                .getAttribute("height"));
         System.out.println("4 " + brokenLinksImagesPage.getBrokenImage().getAttribute("width"));
         System.out.println("5 "+ brokenLinksImagesPage.getBrokenImage().getAttribute("height"));
         Assert.assertEquals(imageWidth, 347); // Beklenen genişlik
         Assert.assertEquals(imageHeight, 100); // Beklenen yükseklik
     }
-    @Test
+    @Test(priority = 4)
     public void validLinkTest(){
         jsx.executeScript("window.scrollBy(0,250)");
         brokenLinksImagesPage.getValidLink().click();
@@ -94,22 +99,18 @@ public class BrokenLinksImagesTest extends BaseTest {
         driver.navigate().back();
         driver.navigate().forward();
     }
-    @Test
+    @Test(priority = 5)
     public void brokenLinkTest() throws InterruptedException {
         jsx.executeScript("window.scrollBy(0,250)");
-        brokenLinksImagesPage.getBrokenLink().click();Thread.sleep(3000);
-        driver.navigate().back();Thread.sleep(3000);
-        driver.navigate().forward();Thread.sleep(3000);
+        brokenLinksImagesPage.getBrokenLink().click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://demoqa.com/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("1 :" + driver.getCurrentUrl());
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.navigate().back();Thread.sleep(3000);
-        // Geri git ve yeni sayfanın yüklenmesini bekle
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-    @Test
+    @Test(priority = 6)
     public void brokenLinkTestStatusCodes(){
         jsx.executeScript("window.scrollBy(0,250)");
         brokenLinksImagesPage.getBrokenLink().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 }
