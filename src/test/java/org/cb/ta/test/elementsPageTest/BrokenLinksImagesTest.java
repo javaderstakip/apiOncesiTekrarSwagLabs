@@ -4,10 +4,17 @@ import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.elementsPages.BrokenLinksImagesPage;
 import org.cb.ta.pages.elementsPages.LinksPage;
 import org.cb.ta.test.common.BaseTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +38,7 @@ public class BrokenLinksImagesTest extends BaseTest {
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
         System.out.println("Test basladi.");
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 //        elementsPage.getHomePageButton().click();
 //        elementsPage.getElementsButton().click();
 //        elementsPage.getLinks().click();
@@ -41,7 +48,7 @@ public class BrokenLinksImagesTest extends BaseTest {
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         System.out.println("Test calisti.");
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 //        elementsPage.getHomePageButton().click();
 //        elementsPage.getElementsButton().click();
 //        elementsPage.getLinks().click();
@@ -108,9 +115,25 @@ public class BrokenLinksImagesTest extends BaseTest {
         System.out.println("1 :" + driver.getCurrentUrl());
     }
     @Test(priority = 6)
-    public void brokenLinkTestStatusCodes(){
+    public void brokenLinkTestStatusCodes() throws IOException {
         jsx.executeScript("window.scrollBy(0,250)");
         brokenLinksImagesPage.getBrokenLink().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        System.out.println("nerdeyiz: " + driver.getCurrentUrl());
+//        Assert.assertTrue(driver.getCurrentUrl()
+//                .equalsIgnoreCase("https://the-internet.herokuapp.com/status_codes/200"));
+        String url = brokenLinksImagesPage.getStatusCodes200().getAttribute("href");
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
+            httpURLConnection.setRequestMethod("HEAD");
+            int responseCode = httpURLConnection.getResponseCode();
+            httpURLConnection.disconnect();
+        System.out.println("1 : " + url);
+        System.out.println("2 : " + responseCode);
+            if (responseCode >= 400) {
+                System.out.println(url + " - Broken link");
+                Assert.fail(url + " - Broken link");
+            } else {
+                System.out.println(url + " - Link is working");
+            }
     }
 }

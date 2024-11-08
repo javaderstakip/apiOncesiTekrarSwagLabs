@@ -28,5 +28,7 @@ public class BrokenLinksImagesPage extends BasePage {
     private WebElement brokenLink;
     @FindBy(xpath = "//div[@id=\"content\"]")
     private WebElement statusCodes;
+    @FindBy(xpath = "//a[@href=\"status_codes/200\"]")
+    private WebElement statusCodes200;
 
 }
