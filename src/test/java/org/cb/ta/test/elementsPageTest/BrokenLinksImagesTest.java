@@ -115,25 +115,62 @@ public class BrokenLinksImagesTest extends BaseTest {
         System.out.println("1 :" + driver.getCurrentUrl());
     }
     @Test(priority = 6)
-    public void brokenLinkTestStatusCodes() throws IOException {
+    public void brokenLinkTestStatusCodes() throws IOException, InterruptedException {
         jsx.executeScript("window.scrollBy(0,250)");
         brokenLinksImagesPage.getBrokenLink().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("nerdeyiz: " + driver.getCurrentUrl());
-//        Assert.assertTrue(driver.getCurrentUrl()
-//                .equalsIgnoreCase("https://the-internet.herokuapp.com/status_codes/200"));
-        String url = brokenLinksImagesPage.getStatusCodes200().getAttribute("href");
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
-            httpURLConnection.setRequestMethod("HEAD");
-            int responseCode = httpURLConnection.getResponseCode();
-            httpURLConnection.disconnect();
-        System.out.println("1 : " + url);
-        System.out.println("2 : " + responseCode);
-            if (responseCode >= 400) {
-                System.out.println(url + " - Broken link");
-                Assert.fail(url + " - Broken link");
-            } else {
-                System.out.println(url + " - Link is working");
+        Assert.assertFalse(driver.getCurrentUrl()
+                .equalsIgnoreCase("https://the-internet.herokuapp.com/status_codes/200"));
+        //System.out.println("locator texti : " + brokenLinksImagesPage.getStatusCodes200().getText());
+
+
+
+
+            //driver.get("https://demoqa.com/broken");
+
+            // Find all links on the page
+            List<WebElement> links = driver.findElements(By.tagName("a"));
+
+            for (WebElement link : links) {
+                String url = link.getAttribute("href");
+
+                if (url != null && !url.isEmpty())
+
+                {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
+                    httpURLConnection.setRequestMethod("HEAD");
+
+
+                    int responseCode = httpURLConnection.getResponseCode();
+                    httpURLConnection.disconnect();
+
+                    if (responseCode >= 400) {
+                        System.out.println(url + " - Broken link");
+                        Assert.fail(url + " - Broken link");
+                    } else {
+                        System.out.println(url + " - Link is working");
+                    }
+                }
             }
+
+//        try {
+//            String url = "https://the-internet.herokuapp.com/status_codes/500";
+//            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
+//            httpURLConnection.setRequestMethod("HEAD");Thread.sleep(3000);
+//
+//            int responseCode = httpURLConnection.getResponseCode();
+//            System.out.println("Response Code: " + responseCode);Thread.sleep(3000);
+//
+//            String contentType = httpURLConnection.getContentType();
+//            System.out.println("Content Type: " + contentType);Thread.sleep(3000);
+//
+//            long contentLength = httpURLConnection.getContentLengthLong();
+//            System.out.println("Content Length: " + contentLength);Thread.sleep(3000);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();Thread.sleep(3000);
+//        }
+
     }
 }
