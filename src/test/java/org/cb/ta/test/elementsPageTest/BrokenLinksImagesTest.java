@@ -5,6 +5,7 @@ import org.cb.ta.pages.elementsPages.BrokenLinksImagesPage;
 import org.cb.ta.pages.elementsPages.LinksPage;
 import org.cb.ta.test.common.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -54,7 +55,7 @@ public class BrokenLinksImagesTest extends BaseTest {
 //        elementsPage.getLinks().click();
 //        Thread.sleep(2000);
 //        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
-        driver.get("https://demoqa.com/broken");
+        //driver.get("https://demoqa.com/broken");
     }
     @Test(priority = 1)
     public void brokenLinksImagesTest(){
@@ -122,12 +123,11 @@ public class BrokenLinksImagesTest extends BaseTest {
         System.out.println("nerdeyiz: " + driver.getCurrentUrl());
         Assert.assertFalse(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://the-internet.herokuapp.com/status_codes/200"));
-        //System.out.println("locator texti : " + brokenLinksImagesPage.getStatusCodes200().getText());
 
 
 
 
-            //driver.get("https://demoqa.com/broken");
+            driver.get("https://demoqa.com/broken");
 
             // Find all links on the page
             List<WebElement> links = driver.findElements(By.tagName("a"));
@@ -143,7 +143,9 @@ public class BrokenLinksImagesTest extends BaseTest {
 
 
                     int responseCode = httpURLConnection.getResponseCode();
+                    System.out.println("head nedir? :" + responseCode);
                     httpURLConnection.disconnect();
+                    System.out.println("head nedir? :" + responseCode);
 
                     if (responseCode >= 400) {
                         System.out.println(url + " - Broken link");
@@ -154,23 +156,23 @@ public class BrokenLinksImagesTest extends BaseTest {
                 }
             }
 
-//        try {
-//            String url = "https://the-internet.herokuapp.com/status_codes/500";
-//            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
-//            httpURLConnection.setRequestMethod("HEAD");Thread.sleep(3000);
-//
-//            int responseCode = httpURLConnection.getResponseCode();
-//            System.out.println("Response Code: " + responseCode);Thread.sleep(3000);
-//
-//            String contentType = httpURLConnection.getContentType();
-//            System.out.println("Content Type: " + contentType);Thread.sleep(3000);
-//
-//            long contentLength = httpURLConnection.getContentLengthLong();
-//            System.out.println("Content Length: " + contentLength);Thread.sleep(3000);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();Thread.sleep(3000);
-//        }
+        try {
+            String url = "https://the-internet.herokuapp.com/status_codes/500";
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
+            httpURLConnection.setRequestMethod("HEAD");Thread.sleep(3000);
+
+            int responseCode = httpURLConnection.getResponseCode();
+            System.out.println("Response Code: " + responseCode);Thread.sleep(3000);
+
+            String contentType = httpURLConnection.getContentType();
+            System.out.println("Content Type: " + contentType);Thread.sleep(3000);
+
+            long contentLength = httpURLConnection.getContentLengthLong();
+            System.out.println("Content Length: " + contentLength);Thread.sleep(3000);
+
+        } catch (Exception e) {
+            e.printStackTrace();Thread.sleep(3000);
+        }
 
     }
 }
