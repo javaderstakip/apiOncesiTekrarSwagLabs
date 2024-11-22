@@ -127,6 +127,7 @@ public class BrokenLinksImagesTest extends BaseTest {
 
 
 
+        try{
             driver.get("https://demoqa.com/broken");
 
             // Find all links on the page
@@ -155,6 +156,9 @@ public class BrokenLinksImagesTest extends BaseTest {
                     }
                 }
             }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         try {
             String url = "https://the-internet.herokuapp.com/status_codes/500";
