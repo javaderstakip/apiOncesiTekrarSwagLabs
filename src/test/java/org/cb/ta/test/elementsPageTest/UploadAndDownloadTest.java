@@ -7,11 +7,16 @@ import org.cb.ta.pages.elementsPages.UploadAndDownloadPage;
 import org.cb.ta.test.common.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -19,6 +24,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class UploadAndDownloadTest extends BaseTest{
     ElementsPage elementsPage = new ElementsPage(driver);
@@ -66,5 +72,35 @@ public class UploadAndDownloadTest extends BaseTest{
                 .equalsIgnoreCase("Upload and Download"));
         System.out.println("text kisminda ne yaziyor: "+ uploadAndDownloadPage
                 .getUploadAndDownloadText().getText());
+        Assert.assertTrue(uploadAndDownloadPage.getUploadAndDownloadText().isDisplayed());
+    }
+    @Test(priority = 2)
+    public void downloadButtonTest(){
+        HashMap<String, Object> chromePrefs = new HashMap<>();
+        chromePrefs.put("download.default_directory", "\"C:\\Users\\Msi\\Downloads\"");
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
+        WebDriver driver = new ChromeDriver(options);
+        // İndirme işleminin tamamlanmasını bekle (örneğin, belirli bir süre veya bir koşul gerçekleşene kadar)
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingIndicator")));
+        uploadAndDownloadPage.getDownloadButton().click();
+        // İndirme işleminin tamamlanmasını bekle (örneğin, belirli bir süre veya bir koşul gerçekleşene kadar)
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingIndicator")));
+    }
+    @Test(priority = 3)
+    public boolean isFileDownloaded(String downloadDir, String fileName) {
+        File dir = new File(downloadDir);
+        File[] dirContents = dir.listFiles();
+
+        for (File file : dirContents) {
+            if (file.getName().equals(fileName)) {
+                return true; // Dosya bulundu
+            }
+        }
+        return false; // Dosya bulunamadı
+
+
+
     }
 }

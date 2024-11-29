@@ -17,4 +17,6 @@ public class UploadAndDownloadPage extends BasePage{
     }
     @FindBy(xpath = "//h1[@class=\"text-center\"]")
     private WebElement uploadAndDownloadText;
+    @FindBy(xpath = "//a[@id=\"downloadButton\"]")
+    private WebElement downloadButton;
 }
