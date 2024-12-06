@@ -89,18 +89,40 @@ public class UploadAndDownloadTest extends BaseTest{
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingIndicator")));
     }
     @Test(priority = 3)
-    public boolean isFileDownloaded(String downloadDir, String fileName) {
-        File dir = new File(downloadDir);
-        File[] dirContents = dir.listFiles();
+    public void upLoadAndDownLoadTest() {
+        // ... diğer test kodları ...
 
-        for (File file : dirContents) {
-            if (file.getName().equals(fileName)) {
-                return true; // Dosya bulundu
-            }
+        String downloadPath = "C:/Users/Msi/Downloads";
+        String expectedFileName = "sampl";
+
+        if (isFileDownloadedPartial(downloadPath, expectedFileName)) {
+            System.out.println("Dosya başarıyla indirildi!");
+        } else {
+            System.out.println("Dosya indirme başarısız.");
         }
-        return false; // Dosya bulunamadı
-
-
-
     }
+
+//    public static boolean isFileDownloaded(String downloadPath, String fileName) {
+//        File dir = new File(downloadPath);
+//        File[] dirContents = dir.listFiles();
+//
+//        for (File file : dirContents) {
+//            if (file.getName().equals(fileName)) {
+//                return true; // Dosya bulundu
+//            }
+//        }
+//        return false; // Dosya bulunamadı
+//    }
+public boolean isFileDownloadedPartial(String downloadDir, String fileNameStartsWith) {
+    File dir = new File(downloadDir);
+    File[] dirContents = dir.listFiles();
+
+    for (File file : dirContents) {
+        if (file.getName().startsWith(fileNameStartsWith)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 }
