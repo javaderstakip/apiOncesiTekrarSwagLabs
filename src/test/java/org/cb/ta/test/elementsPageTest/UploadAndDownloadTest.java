@@ -89,40 +89,49 @@ public class UploadAndDownloadTest extends BaseTest{
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingIndicator")));
     }
     @Test(priority = 3)
-    public void upLoadAndDownLoadTest() {
+    public void downLoadTest() {
         // ... diğer test kodları ...
 
         String downloadPath = "C:/Users/Msi/Downloads";
-        String expectedFileName = "sampl";
+        String expectedFileName = "sampleFile (9).jpeg";
 
-        if (isFileDownloadedPartial(downloadPath, expectedFileName)) {
+        if (isFileDownloaded(downloadPath, expectedFileName)) {
             System.out.println("Dosya başarıyla indirildi!");
         } else {
             System.out.println("Dosya indirme başarısız.");
         }
     }
 
-//    public static boolean isFileDownloaded(String downloadPath, String fileName) {
-//        File dir = new File(downloadPath);
-//        File[] dirContents = dir.listFiles();
-//
-//        for (File file : dirContents) {
-//            if (file.getName().equals(fileName)) {
-//                return true; // Dosya bulundu
-//            }
-//        }
-//        return false; // Dosya bulunamadı
-//    }
-public boolean isFileDownloadedPartial(String downloadDir, String fileNameStartsWith) {
-    File dir = new File(downloadDir);
-    File[] dirContents = dir.listFiles();
+    public static boolean isFileDownloaded(String downloadPath, String fileName) {
+        //Not: bu method dosya adının tam olarak doğru olup olmadığını kontrol eder.
+        File dir = new File(downloadPath);
+        File[] dirContents = dir.listFiles();
 
-    for (File file : dirContents) {
-        if (file.getName().startsWith(fileNameStartsWith)) {
-            return true;
+        for (File file : dirContents) {
+            if (file.getName().equals(fileName)) {
+                return true; // Dosya bulundu
+            }
         }
+        return false; // Dosya bulunamadı
     }
-    return false;
-}
+    public boolean isFileDownloadedPartial(String downloadDir, String fileNameStartsWith) {
+        //Not: bu method dosya adının istenen kısma kadarki bölümünü kontrol eder. yani dinamik kontrol yapar.
+            File dir = new File(downloadDir);
+        File[] dirContents = dir.listFiles();
 
+        for (File file : dirContents) {
+            if (file.getName().startsWith(fileNameStartsWith)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    @Test(priority = 4)
+    public void selectFileTest(){
+        uploadAndDownloadPage.getSelectAFile().click();
+    }
+    @Test(priority = 5)
+    public void chooseFileTest(){
+        uploadAndDownloadPage.getChooseFile().click();
+    }
 }

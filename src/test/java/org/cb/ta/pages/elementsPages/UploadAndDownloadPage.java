@@ -19,4 +19,8 @@ public class UploadAndDownloadPage extends BasePage{
     private WebElement uploadAndDownloadText;
     @FindBy(xpath = "//a[@id=\"downloadButton\"]")
     private WebElement downloadButton;
+    @FindBy(xpath = "//label[@for=\"uploadFile\"]")
+    private WebElement selectAFile;
+    @FindBy(xpath = "//input[@id=\"uploadFile\"]")
+    private WebElement chooseFile;
 }
