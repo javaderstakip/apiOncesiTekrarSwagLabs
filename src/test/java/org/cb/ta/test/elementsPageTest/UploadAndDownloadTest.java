@@ -41,7 +41,7 @@ public class UploadAndDownloadTest extends BaseTest{
     @AfterClass
     public void afterTest(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.quit();
+        //driver.quit();
     }
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
@@ -128,7 +128,13 @@ public class UploadAndDownloadTest extends BaseTest{
     }
     @Test(priority = 4)
     public void selectFileTest(){
-        uploadAndDownloadPage.getSelectAFile().click();
+        //uploadAndDownloadPage.getSelectAFile().click();
+
+        String uploadPath = "C:/Users/Msi/Downloads/sampleFile (8).jpeg";
+        String expectedFileName = "sampleFile (9).jpeg";
+
+        //uploadAndDownloadPage.getSelectAFile().sendKeys(uploadPath);//farklı bir yöntemle test etmek için sanırım, daha ne olduğunu bulamadık.
+        uploadAndDownloadPage.getChooseFile().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
     }
     @Test(priority = 5)
     public void chooseFileTest(){
