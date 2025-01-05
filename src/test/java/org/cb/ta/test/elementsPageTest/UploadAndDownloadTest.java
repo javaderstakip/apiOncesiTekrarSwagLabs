@@ -130,11 +130,21 @@ public class UploadAndDownloadTest extends BaseTest{
     public void selectFileTest(){
         //uploadAndDownloadPage.getSelectAFile().click();
 
-        String uploadPath = "C:/Users/Msi/Downloads/sampleFile (8).jpeg";
+        String uploadPath = "C:/Users/Msi/Downloads/sampleFile (1).jpeg";
         String expectedFileName = "sampleFile (9).jpeg";
 
         //uploadAndDownloadPage.getSelectAFile().sendKeys(uploadPath);//farklı bir yöntemle test etmek için sanırım, daha ne olduğunu bulamadık.
         uploadAndDownloadPage.getChooseFile().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
+        //Assert.assertTrue(driver.get("https://C:/Users/Msi/Downloads"));
+        try {
+            if (uploadAndDownloadPage.getFakePath().isDisplayed()) {
+                System.out.println("Dosya başarıyla yüklendi!");
+            } else {
+                System.out.println("Yükleme başarısız!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @Test(priority = 5)
     public void chooseFileTest(){

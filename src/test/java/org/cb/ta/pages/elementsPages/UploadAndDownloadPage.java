@@ -23,4 +23,6 @@ public class UploadAndDownloadPage extends BasePage{
     private WebElement selectAFile;
     @FindBy(xpath = "//input[@id=\"uploadFile\"]")
     private WebElement chooseFile;
+    @FindBy(xpath = "//p[contains(text(),'C:\\fakepath')]")
+    private WebElement fakePath;
 }
