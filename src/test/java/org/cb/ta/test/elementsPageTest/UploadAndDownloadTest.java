@@ -5,10 +5,7 @@ import org.cb.ta.pages.elementsPages.BrokenLinksImagesPage;
 import org.cb.ta.pages.elementsPages.LinksPage;
 import org.cb.ta.pages.elementsPages.UploadAndDownloadPage;
 import org.cb.ta.test.common.BaseTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ScreenOrientation;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -128,14 +125,31 @@ public class UploadAndDownloadTest extends BaseTest{
     }
     @Test(priority = 4)
     public void selectFileTest(){
-        //uploadAndDownloadPage.getSelectAFile().click();
+        uploadAndDownloadPage.getSelectAFile().click();
+        String uploadPath = "C:/Users/Msi/Downloads/sampleFile (3).jpeg";
+        String expectedFileName = "sampleFile (9).jpeg";
 
+        uploadAndDownloadPage.getSelectAFile().click();
+        actions.sendKeys(Keys.TAB).sendKeys("C:\\Users\\Msi\\Downloads\\sampleFile (13).jpeg")
+                .build().perform();
+        actions.sendKeys(Keys.ENTER);
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.TAB);
+        //uploadAndDownloadPage.getSelectAFile().sendKeys(uploadPath);//farklı bir yöntemle test etmek için sanırım, daha ne olduğunu bulamadık.
+
+    }
+    @Test(priority = 5)
+    public void chooseFileTest() throws InterruptedException {
+        //uploadAndDownloadPage.getChooseFile().click();
         String uploadPath = "C:/Users/Msi/Downloads/sampleFile (1).jpeg";
         String expectedFileName = "sampleFile (9).jpeg";
 
         //uploadAndDownloadPage.getSelectAFile().sendKeys(uploadPath);//farklı bir yöntemle test etmek için sanırım, daha ne olduğunu bulamadık.
         uploadAndDownloadPage.getChooseFile().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
-        //Assert.assertTrue(driver.get("https://C:/Users/Msi/Downloads"));
+        Thread.sleep(3000);
+        Assert.assertTrue(uploadAndDownloadPage.getFakePath().isDisplayed());
         try {
             if (uploadAndDownloadPage.getFakePath().isDisplayed()) {
                 System.out.println("Dosya başarıyla yüklendi!");
@@ -145,9 +159,5 @@ public class UploadAndDownloadTest extends BaseTest{
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @Test(priority = 5)
-    public void chooseFileTest(){
-        uploadAndDownloadPage.getChooseFile().click();
     }
 }
