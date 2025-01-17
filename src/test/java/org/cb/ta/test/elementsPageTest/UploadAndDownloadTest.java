@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -123,30 +126,32 @@ public class UploadAndDownloadTest extends BaseTest{
         }
         return false;
     }
+
     @Test(priority = 4)
-    public void selectFileTest(){
+    public void selectFileTestWithRobot() throws AWTException {
+        // Dosya yükleme butonuna tıkla
         uploadAndDownloadPage.getSelectAFile().click();
-        String uploadPath = "C:/Users/Msi/Downloads/sampleFile (3).jpeg";
-        String expectedFileName = "sampleFile (9).jpeg";
 
-        uploadAndDownloadPage.getSelectAFile().click();
-        actions.sendKeys(Keys.TAB).sendKeys("C:\\Users\\Msi\\Downloads\\sampleFile (13).jpeg")
-                .build().perform();
-        actions.sendKeys(Keys.ENTER);
-        actions.sendKeys(Keys.TAB);
-        actions.sendKeys(Keys.TAB);
-        actions.sendKeys(Keys.TAB);
-        actions.sendKeys(Keys.TAB);
-        //uploadAndDownloadPage.getSelectAFile().sendKeys(uploadPath);//farklı bir yöntemle test etmek için sanırım, daha ne olduğunu bulamadık.
+        // Dosya yolunu panoya kopyala
+        StringSelection stringSelection = new StringSelection("C:\\Users\\Msi\\Downloads\\sampleFile (1).jpeg");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
+        // Klavye tuşlarıyla dosya yolunu yapıştır ve Enter'a bas
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
     }
+
     @Test(priority = 5)
     public void chooseFileTest() throws InterruptedException {
         //uploadAndDownloadPage.getChooseFile().click();
         String uploadPath = "C:/Users/Msi/Downloads/sampleFile (1).jpeg";
         String expectedFileName = "sampleFile (9).jpeg";
 
-        //uploadAndDownloadPage.getSelectAFile().sendKeys(uploadPath);//farklı bir yöntemle test etmek için sanırım, daha ne olduğunu bulamadık.
         uploadAndDownloadPage.getChooseFile().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
         Thread.sleep(3000);
         Assert.assertTrue(uploadAndDownloadPage.getFakePath().isDisplayed());
