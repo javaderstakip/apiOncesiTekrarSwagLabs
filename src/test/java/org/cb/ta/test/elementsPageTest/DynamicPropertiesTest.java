@@ -79,19 +79,27 @@ public class DynamicPropertiesTest extends BaseTest {
 
         // ID'nin değiştiğini kontrol edin
         Assert.assertNotEquals(initialId, updatedId);
-
+    }
+    @Test
+    public void differentRandomIdTest(){
 //        WebDriver driver = new ChromeDriver();
 //        driver.get("https://demoqa.com/dynamic-properties");
-//
-//        // Elementi bulun
-//        WebElement randomTextElement = driver.findElement(By.xpath("//*[text()='This text has random Id']"));
-//
-//        // Dinamik ID'yi alın
-//        String elementId = randomTextElement.getAttribute("id");
-//
-//        // ID'nin boş olmadığını ve belirli bir pattern'e uyduğunu kontrol edin
-//        Assert.assertNotNull(elementId);
-//        Assert.assertTrue(elementId.matches("^[a-zA-Z0-9-_]+$")); // Örnek regex: Harfler, sayılar, "-" ve "_" kabul edilir.
 
+        // Elementi bulun
+        //WebElement randomTextElement = driver.findElement(By.xpath("//*[text()='This text has random Id']"));
+
+        // Dinamik ID'yi alın
+//        String elementId = randomTextElement.getAttribute("id");
+        String initialId = dynamicPropertiesPage.getRandomIpText().getAttribute("id");
+
+        // ID'nin boş olmadığını ve belirli bir pattern'e uyduğunu kontrol edin
+        Assert.assertNotNull(initialId);
+        Assert.assertTrue(initialId.matches("^[a-zA-Z0-9-_.@]+$")); // Örnek regex: Harfler, sayılar, "-" ve "_" kabul edilir.
+        System.out.println("updateId ne olarak görünüyor? " + initialId);
+        driver.navigate().refresh();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        String updatedId = dynamicPropertiesPage.getRandomIpText().getAttribute("id");
+        Assert.assertTrue(updatedId.matches("^[a-zA-Z0-9-_.@]+$")); // Örnek regex: Harfler, sayılar, "-" ve "_" kabul edilir.
+        System.out.println("updateId ne olarak görünüyor? " + updatedId);
     }
 }
