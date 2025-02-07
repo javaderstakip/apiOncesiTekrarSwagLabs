@@ -19,4 +19,8 @@ public class DynamicPropertiesPage extends BasePage {
     private WebElement dynamicPropertiesText;
     @FindBy(xpath = "//p[text()='This text has random Id']")
     private WebElement randomIpText;
+    @FindBy(xpath = "//button [@id=\"enableAfter\"]")
+    private WebElement willEnable5Seconds;
+    @FindBy(xpath = "//button [@id=\"colorChange\"]")
+    private WebElement colorChangeButton;
 }

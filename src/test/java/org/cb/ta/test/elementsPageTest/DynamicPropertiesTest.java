@@ -102,4 +102,26 @@ public class DynamicPropertiesTest extends BaseTest {
         Assert.assertTrue(updatedId.matches("^[a-zA-Z0-9-_.@]+$")); // Örnek regex: Harfler, sayılar, "-" ve "_" kabul edilir.
         System.out.println("updateId ne olarak görünüyor? " + updatedId);
     }
+    @Test
+    public void willEnable5SecondsTest() throws InterruptedException {
+        Assert.assertFalse(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
+        System.out.println(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
+        Thread.sleep(5000);
+        Assert.assertTrue(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
+        System.out.println(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
+    }
+    @Test
+    public void colorChangeTest() throws InterruptedException {
+        String initialColor = dynamicPropertiesPage.getColorChangeButton().getCssValue("color");
+        System.out.println(initialColor);
+        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        String finalColor = dynamicPropertiesPage.getColorChangeButton().getCssValue("color");
+        System.out.println(finalColor);
+        if(!initialColor.equals(finalColor)){
+            System.out.println("Test Passed: Renk değişti.");
+        }else {
+            System.out.println("Test Failed: Renk değişmedi.");
+        }
+    }
 }
