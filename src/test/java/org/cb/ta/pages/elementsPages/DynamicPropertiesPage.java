@@ -23,4 +23,8 @@ public class DynamicPropertiesPage extends BasePage {
     private WebElement willEnable5Seconds;
     @FindBy(xpath = "//button [@id=\"colorChange\"]")
     private WebElement colorChangeButton;
+    @FindBy(xpath = "//button [@id=\"visibleAfter\"]")
+    private WebElement visibleAfter;
+    @FindBy(xpath = "//*[contains(text(),'Visible After')]")
+    private WebElement visibleAfter5Seconds;
 }

@@ -4,6 +4,7 @@ import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.elementsPages.DynamicPropertiesPage;
 import org.cb.ta.test.common.BaseTest;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -80,7 +81,7 @@ public class DynamicPropertiesTest extends BaseTest {
         // ID'nin değiştiğini kontrol edin
         Assert.assertNotEquals(initialId, updatedId);
     }
-    @Test
+    @Test (priority = 3)
     public void differentRandomIdTest(){
 //        WebDriver driver = new ChromeDriver();
 //        driver.get("https://demoqa.com/dynamic-properties");
@@ -102,7 +103,7 @@ public class DynamicPropertiesTest extends BaseTest {
         Assert.assertTrue(updatedId.matches("^[a-zA-Z0-9-_.@]+$")); // Örnek regex: Harfler, sayılar, "-" ve "_" kabul edilir.
         System.out.println("updateId ne olarak görünüyor? " + updatedId);
     }
-    @Test
+    @Test(priority = 4)
     public void willEnable5SecondsTest() throws InterruptedException {
         Assert.assertFalse(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
         System.out.println(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
@@ -110,7 +111,7 @@ public class DynamicPropertiesTest extends BaseTest {
         Assert.assertTrue(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
         System.out.println(dynamicPropertiesPage.getWillEnable5Seconds().isEnabled());
     }
-    @Test
+    @Test(priority = 5)
     public void colorChangeTest() throws InterruptedException {
         String initialColor = dynamicPropertiesPage.getColorChangeButton().getCssValue("color");
         System.out.println(initialColor);
@@ -122,6 +123,29 @@ public class DynamicPropertiesTest extends BaseTest {
             System.out.println("Test Passed: Renk değişti.");
         }else {
             System.out.println("Test Failed: Renk değişmedi.");
+        }
+    }
+    @Test(priority = 6)
+    public void visibleAfterTest() throws InterruptedException{
+        Thread.sleep(5000);
+        if(dynamicPropertiesPage.getVisibleAfter().isDisplayed()){
+            System.out.println("Test Passed: 3.");
+        }else {
+            System.out.println("Test Failed: 4.");
+        }
+    }
+    @Test (priority = 7)
+    public void visibleAfterTest2(){
+        //WebDriver driver = new ChromeDriver();
+        By buttonLocator = By.id("//*[contains(text(),'Visible After')]");
+        // 5 saniye boyunca butonun görünür olup olmadığını kontrol et
+        //WebDriverWait wait = new WebDriverWait(driver, 5);
+        try {
+            //wait.until(ExpectedConditions.visibilityOfElementLocated(buttonLocator));
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(buttonLocator));
+            System.out.println("Buton beklenenden önce göründü. Test başarısız.");
+        } catch (Exception e) {
+            System.out.println("Buton 5 saniye içinde görünmedi. Test başarılı.");
         }
     }
 }
