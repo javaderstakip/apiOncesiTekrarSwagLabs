@@ -30,7 +30,7 @@ public class DynamicPropertiesTest extends BaseTest {
     @AfterClass
     public void afterTest() {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        //driver.quit();
+        driver.quit();
     }
 
     @BeforeMethod
@@ -139,6 +139,7 @@ public class DynamicPropertiesTest extends BaseTest {
 
     @Test(priority = 6)
     public void visibleAfterTest() throws InterruptedException {
+        driver.navigate().refresh();
         Thread.sleep(5000);
         if (dynamicPropertiesPage.getVisibleAfter().isDisplayed()) {
             System.out.println("Test Passed: 3.");
