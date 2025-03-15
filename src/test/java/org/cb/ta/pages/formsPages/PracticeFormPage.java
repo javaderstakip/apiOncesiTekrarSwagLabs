@@ -20,4 +20,14 @@ public class PracticeFormPage extends BasePage{
     private WebElement forms;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[1]/div/div/div[2]/div")
     private WebElement practiceForm;
+    @FindBy(xpath = "//h1[@class=\"text-center\"]")
+    private WebElement practiceFormText;
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[2]/div[2]/h5")
+    private WebElement studentRegistrationFormText;
+    @FindBy(xpath = "//input[@placeholder=\"First Name\"]")
+    private WebElement firstName;
+    @FindBy(xpath = "//input[@id=\"firstName\"]")
+    private WebElement firstNameId;
+    @FindBy(xpath = "//input[@placeholder=\"Last Name\"]")
+    private WebElement lastName;
 }

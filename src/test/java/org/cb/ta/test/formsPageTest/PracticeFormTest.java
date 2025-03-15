@@ -62,10 +62,34 @@ public class PracticeFormTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/automation-practice-form"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
-//        Assert.assertTrue(dynamicPropertiesPage.getDynamicPropertiesText().isDisplayed());
-//        Assert.assertTrue(dynamicPropertiesPage.getDynamicPropertiesText().getText()
-//                .equalsIgnoreCase("Dynamic Properties"));
-//        System.out.println("text kisminda ne yaziyor: " + dynamicPropertiesPage
-//                .getDynamicPropertiesText().getText());
+        Assert.assertTrue(practiceFormPage.getPracticeFormText().isDisplayed());
+        Assert.assertTrue(practiceFormPage.getPracticeFormText().getText()
+                .equalsIgnoreCase("Practice Form"));
+        System.out.println("text kisminda ne yaziyor: " + practiceFormPage.getPracticeFormText()
+                .getText());
+        Assert.assertTrue(practiceFormPage.getStudentRegistrationFormText().isDisplayed());
+        Assert.assertTrue(practiceFormPage.getStudentRegistrationFormText().getText()
+                .equalsIgnoreCase("Student Registration Form"));
+        System.out.println("text kisminda ne yaziyor: " + practiceFormPage
+                .getStudentRegistrationFormText().getText());
+    }
+    @Test(priority = 2)
+    public void firstName() throws InterruptedException {
+        practiceFormPage.getFirstName().click();//Thread.sleep(3000);
+        practiceFormPage.getFirstName().sendKeys("Hakan");
+        System.out.println(practiceFormPage.getFirstName().getText());
+//        Assert.assertTrue(practiceFormPage.getFirstName().getText()
+//                .equalsIgnoreCase("Hakan"));
+        practiceFormPage.getFirstNameId().click();
+        practiceFormPage.getFirstNameId().sendKeys("Hakan");
+        System.out.println(practiceFormPage.getFirstNameId().getText());
+//        Assert.assertTrue(practiceFormPage.getFirstNameId().getText()
+//                .equalsIgnoreCase("Name:Hakan"));
+    }
+    @Test(priority = 3)
+    public void lastName() throws InterruptedException {
+        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+        practiceFormPage.getLastName().sendKeys("Basar");
+        System.out.println(practiceFormPage.getLastName().getText());
     }
 }
