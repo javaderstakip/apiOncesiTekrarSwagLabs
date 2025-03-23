@@ -28,6 +28,10 @@ public class PracticeFormPage extends BasePage{
     private WebElement firstName;
     @FindBy(xpath = "//input[@id=\"firstName\"]")
     private WebElement firstNameId;
+    @FindBy(xpath = "(//div[@class=\"col-md-4 col-sm-6\"])[1]")
+    private WebElement firstNameId2;
+    @FindBy(xpath = "//button[@id=\"submit\"]")
+    private WebElement submitButton;
     @FindBy(xpath = "//input[@placeholder=\"Last Name\"]")
     private WebElement lastName;
 }

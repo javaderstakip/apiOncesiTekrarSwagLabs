@@ -75,16 +75,30 @@ public class PracticeFormTest extends BaseTest {
     }
     @Test(priority = 2)
     public void firstName() throws InterruptedException {
-        practiceFormPage.getFirstName().click();//Thread.sleep(3000);
+        practiceFormPage.getFirstName().click();Thread.sleep(3000);
         practiceFormPage.getFirstName().sendKeys("Hakan");
-        System.out.println(practiceFormPage.getFirstName().getText());
+        practiceFormPage.getFirstName().click();
+//        jsx.executeScript("window.scrollBy(0,550)");
+//        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
+//        System.out.println(practiceFormPage.getFirstName().getText());
 //        Assert.assertTrue(practiceFormPage.getFirstName().getText()
 //                .equalsIgnoreCase("Hakan"));
-        practiceFormPage.getFirstNameId().click();
-        practiceFormPage.getFirstNameId().sendKeys("Hakan");
-        System.out.println(practiceFormPage.getFirstNameId().getText());
+
+        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+        practiceFormPage.getLastName().sendKeys("Basar");
+        System.out.println(practiceFormPage.getLastName().getText());
+        jsx.executeScript("window.scrollBy(0,550)");
+        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
+        System.out.println(practiceFormPage.getLastName().getText());
+
+//        practiceFormPage.getFirstNameId().click();
+//        practiceFormPage.getFirstNameId().sendKeys("Hakan");
+//        practiceFormPage.getFirstNameId().click();
+//        jsx.executeScript("window.scrollBy(0,550)");
+//        practiceFormPage.getSubmitButton().click();
+//        System.out.println(practiceFormPage.getFirstNameId().getText());
 //        Assert.assertTrue(practiceFormPage.getFirstNameId().getText()
-//                .equalsIgnoreCase("Name:Hakan"));
+//                .equals("Hakan"));
     }
     @Test(priority = 3)
     public void lastName() throws InterruptedException {
