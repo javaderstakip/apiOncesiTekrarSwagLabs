@@ -74,6 +74,33 @@ public class PracticeFormTest extends BaseTest {
                 .getStudentRegistrationFormText().getText());
     }
     @Test(priority = 2)
+    public void practiceFormBeginningFulling() throws InterruptedException {
+        practiceFormPage.getFirstName().click();//Thread.sleep(3000);
+        practiceFormPage.getFirstName().sendKeys("Hakan");
+
+        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+        practiceFormPage.getLastName().sendKeys("Basar");
+
+        practiceFormPage.getEMail().click();
+        practiceFormPage.getEMail().sendKeys("hakanbasar@gmail.com");
+
+        practiceFormPage.getGenderLabelMale().click();//Thread.sleep(3000);
+        practiceFormPage.getGenderLabelFemale().click();//Thread.sleep(3000);
+        practiceFormPage.getGenderLabelOther().click();//Thread.sleep(3000);
+
+        practiceFormPage.getMobileNumber().click();
+        practiceFormPage.getMobileNumber().sendKeys("3125353535");
+
+        practiceFormPage.getDateOfBirth().click();//Thread.sleep(3000);
+        practiceFormPage.getBinDokuzYuzSeksen().click();//Thread.sleep(3000);
+        practiceFormPage.getSeptember().click();//Thread.sleep(3000);
+        practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
+
+        jsx.executeScript("window.scrollBy(0,250)");
+        practiceFormPage.getSubjects4().click();Thread.sleep(3000);
+        practiceFormPage.getSubjects4().sendKeys("Practices Forms");
+    }
+    @Test(priority = 2)
     public void firstName() throws InterruptedException {
         practiceFormPage.getFirstName().click();Thread.sleep(3000);
         practiceFormPage.getFirstName().sendKeys("Hakan");

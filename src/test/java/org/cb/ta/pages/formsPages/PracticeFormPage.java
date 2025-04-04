@@ -34,4 +34,37 @@ public class PracticeFormPage extends BasePage{
     private WebElement submitButton;
     @FindBy(xpath = "//input[@placeholder=\"Last Name\"]")
     private WebElement lastName;
+    @FindBy(xpath = "//input[@id=\"userEmail\"]")
+    private WebElement eMail;
+    @FindBy(xpath = "//input[@id=\"gender-radio-1\"]")
+    private WebElement genderInputMale;
+    @FindBy(xpath = "//*[@id=\"genterWrapper\"]/div[2]/div[1]/label")
+    private WebElement genderLabelMale;
+    @FindBy(xpath = "//input[@id=\"gender-radio-2\"]")
+    private WebElement genderInputFemale;
+    @FindBy(xpath = "//*[@id=\"genterWrapper\"]/div[2]/div[2]/label")
+    private WebElement genderLabelFemale;
+    @FindBy(xpath = "//input[@id=\"gender-radio-3\"]")
+    private WebElement genderInputOther;
+    @FindBy(xpath = "//*[@id=\"genterWrapper\"]/div[2]/div[3]/label")
+    private WebElement genderLabelOther;
+    @FindBy(xpath = "//input[@id=\"userNumber\"]")
+    private WebElement mobileNumber;
+    @FindBy(xpath = "//input[@id=\"dateOfBirthInput\"]")
+    private WebElement dateOfBirth;
+    @FindBy(xpath = "//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[1]/select/option[9]")
+    private WebElement september;
+    @FindBy(xpath = "//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[3]")
+    private WebElement yirmiUcuncuGun;
+    @FindBy(xpath = "//option[@value=\"1980\"]")
+    private WebElement binDokuzYuzSeksen;
+    @FindBy(xpath = "//div[@id=\"subjectsContainer\"]")
+    private WebElement subjects;
+    @FindBy(xpath = "//*[@id=\"subjectsContainer\"]/div")
+    private WebElement subjects2;
+    @FindBy(xpath = "//*[@id=\"subjectsContainer\"]/div/div[1]/div[1]")
+    private WebElement subjects3;
+    @FindBy(xpath = "//div[@id=\"subjectsContainer\"]")
+    private WebElement subjects4;
+
 }
