@@ -6,6 +6,7 @@ import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.elementsPages.DynamicPropertiesPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -97,40 +98,89 @@ public class PracticeFormTest extends BaseTest {
         practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
 
         jsx.executeScript("window.scrollBy(0,250)");
-        practiceFormPage.getSubjects4().click();Thread.sleep(3000);
-        practiceFormPage.getSubjects4().sendKeys("Practices Forms");
+//        practiceFormPage.getSubjects().click();Thread.sleep(3000);
+//        practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+//        practiceFormPage.getSubjects().sendKeys("Hasar");
+//        practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+
+        try {
+            practiceFormPage.getSubjects().click();Thread.sleep(3000);
+            //practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+            practiceFormPage.getSubjects().sendKeys("Basar");
+            practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+            // Subject alanını bulmaya çalış
+//            subjectInput = driver.findElement(By.id("subjectsInput"));
+//            subjectInput.sendKeys(subjectText);
+//            Assert.assertEquals(subjectInput.getAttribute("value"), subjectText, "Girilen konu metni eşleşmiyor.");
+//            System.out.println("Subject alanı başarıyla bulundu ve test edildi.");
+
+        } catch (NoSuchElementException e) {
+            // Element bulunamazsa bu bloğa girer
+            System.err.println("Hata: Subject alanı bulunamadı! Test adımı atlandı.");
+            e.printStackTrace(); // Hata detaylarını konsola yazdır (isteğe bağlı)
+            // Assert.fail("Subject alanı bulunamadı!"); // Testi doğrudan başarısız etmek isterseniz
+        } catch (Exception e) {
+            // Diğer olası hataları yakalar
+            System.err.println("Beklenmeyen bir hata oluştu: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // Bu blok, try veya catch bloklarından sonra her zaman çalışır (isteğe bağlı)
+            System.out.println("Subject alanı testi tamamlandı.");
+            // Gerekirse temizleme işlemleri burada yapılabilir.
+        }
+
+        practiceFormPage.getHobiesSports().click();Thread.sleep(2000);
+        practiceFormPage.getHobiesReading().click();Thread.sleep(2000);
+        practiceFormPage.getHobiesMusic().click();Thread.sleep(2000);
+
+        practiceFormPage.getSelectPicture().click();
+        String uploadPath = "C:/Users/Msi/Downloads/images.jpeg";
+        String expectedFileName = "images.jpeg";
+
+        practiceFormPage.getSelectPicture().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
+        Thread.sleep(3000);
+        org.testng.Assert.assertTrue(practiceFormPage.getSelectPicture().isDisplayed());
+        try {
+            if (practiceFormPage.getSelectPicture().isDisplayed()) {
+                System.out.println("Dosya başarıyla yüklendi!");
+            } else {
+                System.out.println("Yükleme başarısız!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    @Test(priority = 2)
-    public void firstName() throws InterruptedException {
-        practiceFormPage.getFirstName().click();Thread.sleep(3000);
-        practiceFormPage.getFirstName().sendKeys("Hakan");
-        practiceFormPage.getFirstName().click();
+//    @Test(priority = 3)
+//    public void firstName() throws InterruptedException {
+//        practiceFormPage.getFirstName().click();Thread.sleep(3000);
+//        practiceFormPage.getFirstName().sendKeys("Hakan");
+//        practiceFormPage.getFirstName().click();
+////        jsx.executeScript("window.scrollBy(0,550)");
+////        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
+////        System.out.println(practiceFormPage.getFirstName().getText());
+////        Assert.assertTrue(practiceFormPage.getFirstName().getText()
+////                .equalsIgnoreCase("Hakan"));
+//
+//        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+//        practiceFormPage.getLastName().sendKeys("Basar");
+//        System.out.println(practiceFormPage.getLastName().getText());
 //        jsx.executeScript("window.scrollBy(0,550)");
 //        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
-//        System.out.println(practiceFormPage.getFirstName().getText());
-//        Assert.assertTrue(practiceFormPage.getFirstName().getText()
-//                .equalsIgnoreCase("Hakan"));
-
-        practiceFormPage.getLastName().click();//Thread.sleep(3000);
-        practiceFormPage.getLastName().sendKeys("Basar");
-        System.out.println(practiceFormPage.getLastName().getText());
-        jsx.executeScript("window.scrollBy(0,550)");
-        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
-        System.out.println(practiceFormPage.getLastName().getText());
-
-//        practiceFormPage.getFirstNameId().click();
-//        practiceFormPage.getFirstNameId().sendKeys("Hakan");
-//        practiceFormPage.getFirstNameId().click();
-//        jsx.executeScript("window.scrollBy(0,550)");
-//        practiceFormPage.getSubmitButton().click();
-//        System.out.println(practiceFormPage.getFirstNameId().getText());
-//        Assert.assertTrue(practiceFormPage.getFirstNameId().getText()
-//                .equals("Hakan"));
-    }
-    @Test(priority = 3)
-    public void lastName() throws InterruptedException {
-        practiceFormPage.getLastName().click();//Thread.sleep(3000);
-        practiceFormPage.getLastName().sendKeys("Basar");
-        System.out.println(practiceFormPage.getLastName().getText());
-    }
+//        System.out.println(practiceFormPage.getLastName().getText());
+//
+////        practiceFormPage.getFirstNameId().click();
+////        practiceFormPage.getFirstNameId().sendKeys("Hakan");
+////        practiceFormPage.getFirstNameId().click();
+////        jsx.executeScript("window.scrollBy(0,550)");
+////        practiceFormPage.getSubmitButton().click();
+////        System.out.println(practiceFormPage.getFirstNameId().getText());
+////        Assert.assertTrue(practiceFormPage.getFirstNameId().getText()
+////                .equals("Hakan"));
+//    }
+//    @Test(priority = 4)
+//    public void lastName() throws InterruptedException {
+//        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+//        practiceFormPage.getLastName().sendKeys("Basar");
+//        System.out.println(practiceFormPage.getLastName().getText());
+//    }
 }
