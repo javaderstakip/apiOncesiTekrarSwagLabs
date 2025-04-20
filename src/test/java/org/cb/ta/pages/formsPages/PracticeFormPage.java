@@ -76,8 +76,19 @@ public class PracticeFormPage extends BasePage{
     private WebElement hobiesReading;
     @FindBy(xpath = "//*[@id=\"hobbiesWrapper\"]/div[2]/div[3]/label")
     private WebElement hobiesMusic;
-    @FindBy(xpath = "//*[@id=\"uploadPicture\"]")
+    @FindBy(xpath = "//label[@class=\"form-file-label\"]")
     private WebElement selectPicture;
-//    @FindBy(xpath = "//*[@id=\"uploadPicture\"]")
-//    private WebElement uploadPicture;
+    @FindBy(xpath = "//input[@id=\"uploadPicture\"]")
+    private WebElement choseFile;
+    @FindBy(xpath = "//textarea[@id=\"currentAddress\"]")
+    private WebElement currentAddress;
+    @FindBy(xpath = "(//div[@class=\" css-1wa3eu0-placeholder\"])[1]")
+    private WebElement selectStade;
+    @FindBy(xpath = "//div[@id=\"state\"]")
+    private WebElement state;
+    @FindBy(xpath = "(//div[@class=\" css-1wy0on6\"])[1]")
+    private WebElement state2;
+    @FindBy(xpath = "(//div[@class=\" css-1uccc91-singleValue\"])[2]")
+    private WebElement selectCity;
+
 }

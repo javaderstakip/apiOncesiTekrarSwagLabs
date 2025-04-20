@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 public class PracticeFormTest extends BaseTest {
@@ -74,113 +77,198 @@ public class PracticeFormTest extends BaseTest {
         System.out.println("text kisminda ne yaziyor: " + practiceFormPage
                 .getStudentRegistrationFormText().getText());
     }
-    @Test(priority = 2)
-    public void practiceFormBeginningFulling() throws InterruptedException {
-        practiceFormPage.getFirstName().click();//Thread.sleep(3000);
-        practiceFormPage.getFirstName().sendKeys("Hakan");
 
-        practiceFormPage.getLastName().click();//Thread.sleep(3000);
-        practiceFormPage.getLastName().sendKeys("Basar");
-
-        practiceFormPage.getEMail().click();
-        practiceFormPage.getEMail().sendKeys("hakanbasar@gmail.com");
-
-        practiceFormPage.getGenderLabelMale().click();//Thread.sleep(3000);
-        practiceFormPage.getGenderLabelFemale().click();//Thread.sleep(3000);
-        practiceFormPage.getGenderLabelOther().click();//Thread.sleep(3000);
-
-        practiceFormPage.getMobileNumber().click();
-        practiceFormPage.getMobileNumber().sendKeys("3125353535");
-
-        practiceFormPage.getDateOfBirth().click();//Thread.sleep(3000);
-        practiceFormPage.getBinDokuzYuzSeksen().click();//Thread.sleep(3000);
-        practiceFormPage.getSeptember().click();//Thread.sleep(3000);
-        practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
-
-        jsx.executeScript("window.scrollBy(0,250)");
-//        practiceFormPage.getSubjects().click();Thread.sleep(3000);
-//        practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
-//        practiceFormPage.getSubjects().sendKeys("Hasar");
-//        practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
-
-        try {
-            practiceFormPage.getSubjects().click();Thread.sleep(3000);
-            //practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
-            practiceFormPage.getSubjects().sendKeys("Basar");
-            practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
-            // Subject alanını bulmaya çalış
-//            subjectInput = driver.findElement(By.id("subjectsInput"));
-//            subjectInput.sendKeys(subjectText);
-//            Assert.assertEquals(subjectInput.getAttribute("value"), subjectText, "Girilen konu metni eşleşmiyor.");
-//            System.out.println("Subject alanı başarıyla bulundu ve test edildi.");
-
-        } catch (NoSuchElementException e) {
-            // Element bulunamazsa bu bloğa girer
-            System.err.println("Hata: Subject alanı bulunamadı! Test adımı atlandı.");
-            e.printStackTrace(); // Hata detaylarını konsola yazdır (isteğe bağlı)
-            // Assert.fail("Subject alanı bulunamadı!"); // Testi doğrudan başarısız etmek isterseniz
-        } catch (Exception e) {
-            // Diğer olası hataları yakalar
-            System.err.println("Beklenmeyen bir hata oluştu: " + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            // Bu blok, try veya catch bloklarından sonra her zaman çalışır (isteğe bağlı)
-            System.out.println("Subject alanı testi tamamlandı.");
-            // Gerekirse temizleme işlemleri burada yapılabilir.
-        }
-
-        practiceFormPage.getHobiesSports().click();Thread.sleep(2000);
-        practiceFormPage.getHobiesReading().click();Thread.sleep(2000);
-        practiceFormPage.getHobiesMusic().click();Thread.sleep(2000);
-
-        practiceFormPage.getSelectPicture().click();
-        String uploadPath = "C:/Users/Msi/Downloads/images.jpeg";
-        String expectedFileName = "images.jpeg";
-
-        practiceFormPage.getSelectPicture().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
-        Thread.sleep(3000);
-        org.testng.Assert.assertTrue(practiceFormPage.getSelectPicture().isDisplayed());
-        try {
-            if (practiceFormPage.getSelectPicture().isDisplayed()) {
-                System.out.println("Dosya başarıyla yüklendi!");
-            } else {
-                System.out.println("Yükleme başarısız!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-//    @Test(priority = 3)
-//    public void firstName() throws InterruptedException {
-//        practiceFormPage.getFirstName().click();Thread.sleep(3000);
+//    @Test(priority = 2)
+//    public void practiceFormBeginningFulling() throws InterruptedException {
+//        practiceFormPage.getFirstName().click();//Thread.sleep(3000);
 //        practiceFormPage.getFirstName().sendKeys("Hakan");
-//        practiceFormPage.getFirstName().click();
+//
+//        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+//        practiceFormPage.getLastName().sendKeys("Basar");
+//
+//        practiceFormPage.getEMail().click();
+//        practiceFormPage.getEMail().sendKeys("hakanbasar@gmail.com");
+//
+//        practiceFormPage.getGenderLabelMale().click();//Thread.sleep(3000);
+//        practiceFormPage.getGenderLabelFemale().click();//Thread.sleep(3000);
+//        practiceFormPage.getGenderLabelOther().click();//Thread.sleep(3000);
+//
+//        practiceFormPage.getMobileNumber().click();
+//        practiceFormPage.getMobileNumber().sendKeys("3125353535");
+//
+//        practiceFormPage.getDateOfBirth().click();//Thread.sleep(3000);
+//        practiceFormPage.getBinDokuzYuzSeksen().click();//Thread.sleep(3000);
+//        practiceFormPage.getSeptember().click();//Thread.sleep(3000);
+//        practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
+//
+//        jsx.executeScript("window.scrollBy(0,250)");
+////        practiceFormPage.getSubjects().click();Thread.sleep(3000);
+////        practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+////        practiceFormPage.getSubjects().sendKeys("Hasar");
+////        practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+//
+//        try {
+//            practiceFormPage.getSubjects().click();Thread.sleep(3000);
+//            //practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+//            practiceFormPage.getSubjects().sendKeys("Basar");
+//            practiceFormPage.getSubjects().sendKeys(Keys.ENTER);
+//            // Subject alanını bulmaya çalış
+////            subjectInput = driver.findElement(By.id("subjectsInput"));
+////            subjectInput.sendKeys(subjectText);
+////            Assert.assertEquals(subjectInput.getAttribute("value"), subjectText, "Girilen konu metni eşleşmiyor.");
+////            System.out.println("Subject alanı başarıyla bulundu ve test edildi.");
+//
+//        } catch (NoSuchElementException e) {
+//            // Element bulunamazsa bu bloğa girer
+//            System.err.println("Hata: Subject alanı bulunamadı! Test adımı atlandı.");
+//            e.printStackTrace(); // Hata detaylarını konsola yazdır (isteğe bağlı)
+//            // Assert.fail("Subject alanı bulunamadı!"); // Testi doğrudan başarısız etmek isterseniz
+//        } catch (Exception e) {
+//            // Diğer olası hataları yakalar
+//            System.err.println("Beklenmeyen bir hata oluştu: " + e.getMessage());
+//            e.printStackTrace();
+//        } finally {
+//            // Bu blok, try veya catch bloklarından sonra her zaman çalışır (isteğe bağlı)
+//            System.out.println("Subject alanı testi tamamlandı.");
+//            // Gerekirse temizleme işlemleri burada yapılabilir.
+//        }
+//
+//        practiceFormPage.getHobiesSports().click();Thread.sleep(2000);
+//        practiceFormPage.getHobiesReading().click();Thread.sleep(2000);
+//        practiceFormPage.getHobiesMusic().click();Thread.sleep(2000);
+//
+//        practiceFormPage.getSelectPicture().click();
+//        String uploadPath = "C:/Users/Msi/Downloads/images.jpeg";
+//        String expectedFileName = "images.jpeg";
+//
+//        practiceFormPage.getSelectPicture().sendKeys(uploadPath);//Choosefile butonuyla upload testi yapıyor.
+//        Thread.sleep(3000);
+//        org.testng.Assert.assertTrue(practiceFormPage.getSelectPicture().isDisplayed());
+//        try {
+//            if (practiceFormPage.getSelectPicture().isDisplayed()) {
+//                System.out.println("Dosya başarıyla yüklendi!");
+//            } else {
+//                System.out.println("Yükleme başarısız!");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+////    @Test(priority = 3)
+////    public void firstName() throws InterruptedException {
+////        practiceFormPage.getFirstName().click();Thread.sleep(3000);
+////        practiceFormPage.getFirstName().sendKeys("Hakan");
+////        practiceFormPage.getFirstName().click();
+//////        jsx.executeScript("window.scrollBy(0,550)");
+//////        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
+//////        System.out.println(practiceFormPage.getFirstName().getText());
+//////        Assert.assertTrue(practiceFormPage.getFirstName().getText()
+//////                .equalsIgnoreCase("Hakan"));
+////
+////        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+////        practiceFormPage.getLastName().sendKeys("Basar");
+////        System.out.println(practiceFormPage.getLastName().getText());
 ////        jsx.executeScript("window.scrollBy(0,550)");
 ////        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
-////        System.out.println(practiceFormPage.getFirstName().getText());
-////        Assert.assertTrue(practiceFormPage.getFirstName().getText()
-////                .equalsIgnoreCase("Hakan"));
-//
-//        practiceFormPage.getLastName().click();//Thread.sleep(3000);
-//        practiceFormPage.getLastName().sendKeys("Basar");
-//        System.out.println(practiceFormPage.getLastName().getText());
-//        jsx.executeScript("window.scrollBy(0,550)");
-//        practiceFormPage.getSubmitButton().click();Thread.sleep(3000);
-//        System.out.println(practiceFormPage.getLastName().getText());
-//
-////        practiceFormPage.getFirstNameId().click();
-////        practiceFormPage.getFirstNameId().sendKeys("Hakan");
-////        practiceFormPage.getFirstNameId().click();
-////        jsx.executeScript("window.scrollBy(0,550)");
-////        practiceFormPage.getSubmitButton().click();
-////        System.out.println(practiceFormPage.getFirstNameId().getText());
-////        Assert.assertTrue(practiceFormPage.getFirstNameId().getText()
-////                .equals("Hakan"));
-//    }
-//    @Test(priority = 4)
-//    public void lastName() throws InterruptedException {
-//        practiceFormPage.getLastName().click();//Thread.sleep(3000);
-//        practiceFormPage.getLastName().sendKeys("Basar");
-//        System.out.println(practiceFormPage.getLastName().getText());
-//    }
+////        System.out.println(practiceFormPage.getLastName().getText());
+////
+//////        practiceFormPage.getFirstNameId().click();
+//////        practiceFormPage.getFirstNameId().sendKeys("Hakan");
+//////        practiceFormPage.getFirstNameId().click();
+//////        jsx.executeScript("window.scrollBy(0,550)");
+//////        practiceFormPage.getSubmitButton().click();
+//////        System.out.println(practiceFormPage.getFirstNameId().getText());
+//////        Assert.assertTrue(practiceFormPage.getFirstNameId().getText()
+//////                .equals("Hakan"));
+////    }
+@Test (priority = 2)
+public void practiceFormBeginningFulling2() throws InterruptedException, AWTException {
+    practiceFormPage.getFirstName().click();//Thread.sleep(3000);
+    practiceFormPage.getFirstName().sendKeys("Hakan");
+
+    practiceFormPage.getLastName().click();//Thread.sleep(3000);
+    practiceFormPage.getLastName().sendKeys("Basar");
+
+    practiceFormPage.getEMail().click();
+    practiceFormPage.getEMail().sendKeys("hakanbasar@gmail.com");
+
+    practiceFormPage.getGenderLabelMale().click();//Thread.sleep(3000);
+    practiceFormPage.getGenderLabelFemale().click();//Thread.sleep(3000);
+    practiceFormPage.getGenderLabelOther().click();//Thread.sleep(3000);
+
+    practiceFormPage.getMobileNumber().click();
+    practiceFormPage.getMobileNumber().sendKeys("3125353535");
+
+    practiceFormPage.getDateOfBirth().click();//Thread.sleep(3000);
+    practiceFormPage.getBinDokuzYuzSeksen().click();//Thread.sleep(3000);
+    practiceFormPage.getSeptember().click();//Thread.sleep(3000);
+    practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
+
+    jsx.executeScript("window.scrollBy(0,400)");
+
+    practiceFormPage.getHobiesSports().click();//Thread.sleep(2000);
+    practiceFormPage.getHobiesReading().click();//Thread.sleep(2000);
+    practiceFormPage.getHobiesMusic().click();//Thread.sleep(2000);
+
+    // Dosya yükleme butonuna tıkla
+    //practiceFormPage.getChoseFile().click();//locator u calısmadı
+    practiceFormPage.getSelectPicture().click();//locator calıstı
+    // Dosya yolunu panoya kopyala
+    StringSelection stringSelection = new StringSelection("C:\\Users\\Msi\\Pictures\\Screenshot (15).png");
+    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+    // Klavye tuşlarıyla dosya yolunu yapıştır ve Enter'a bas
+    Robot robot = new Robot();
+    robot.keyPress(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_CONTROL);
+    robot.keyRelease(KeyEvent.VK_V);
+    robot.keyPress(KeyEvent.VK_ENTER);
+    robot.keyRelease(KeyEvent.VK_ENTER);
+
+    practiceFormPage.getCurrentAddress().click();
+    practiceFormPage.getCurrentAddress().sendKeys("hasar...");
+
+    jsx.executeScript("window.scrollBy(0,200)");
+
+    //practiceFormPage.getState().click();//bu locator da calıstı
+    //practiceFormPage.getState2();//bu locator bı ıse yaramadı
+    practiceFormPage.getSelectStade().click();//NCR secımı
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ARROW_UP).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getSelectStade().click();//gurgaon secimi
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getState().click();//uttar predesh
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    //actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getSelectCity().click();//lucknow
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getState().click();//haryana
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getSelectCity().click();//panipat
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getState().click();//rajatshan
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+
+    practiceFormPage.getSelectCity().click();//jaiselmer
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+}
 }
