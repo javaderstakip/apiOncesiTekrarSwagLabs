@@ -75,116 +75,120 @@ public class PracticeFormTest extends BaseTest {
                 .getStudentRegistrationFormText().getText());
     }
 
-@Test (priority = 2)
-public void practiceFormBeginningFulling2() throws InterruptedException, AWTException {
-    practiceFormPage.getFirstName().click();//Thread.sleep(3000);
-    practiceFormPage.getFirstName().sendKeys("Hakan");
+    @Test (priority = 2)
+    public void practiceFormBeginningFulling2() throws InterruptedException, AWTException {
+        practiceFormPage.getFirstName().click();//Thread.sleep(3000);
+        practiceFormPage.getFirstName().sendKeys("Hakan");
 
-    practiceFormPage.getLastName().click();//Thread.sleep(3000);
-    practiceFormPage.getLastName().sendKeys("Basar");
+        practiceFormPage.getLastName().click();//Thread.sleep(3000);
+        practiceFormPage.getLastName().sendKeys("Basar");
 
-    practiceFormPage.getEMail().click();
-    practiceFormPage.getEMail().sendKeys("hakanbasar@gmail.com");
+        practiceFormPage.getEMail().click();
+        practiceFormPage.getEMail().sendKeys("hakanbasar@gmail.com");
 
-    practiceFormPage.getGenderLabelMale().click();//Thread.sleep(3000);
-    practiceFormPage.getGenderLabelFemale().click();//Thread.sleep(3000);
-    practiceFormPage.getGenderLabelOther().click();//Thread.sleep(3000);
+        practiceFormPage.getGenderLabelMale().click();//Thread.sleep(3000);
+        practiceFormPage.getGenderLabelFemale().click();//Thread.sleep(3000);
+        practiceFormPage.getGenderLabelOther().click();//Thread.sleep(3000);
 
-    practiceFormPage.getMobileNumber().click();
-    practiceFormPage.getMobileNumber().sendKeys("3125353535");
+        practiceFormPage.getMobileNumber().click();
+        practiceFormPage.getMobileNumber().sendKeys("3125353535");
 
-    practiceFormPage.getDateOfBirth().click();//Thread.sleep(3000);
-    practiceFormPage.getBinDokuzYuzSeksen().click();//Thread.sleep(3000);
-    practiceFormPage.getSeptember().click();//Thread.sleep(3000);
-    practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
+        practiceFormPage.getDateOfBirth().click();//Thread.sleep(3000);
+        practiceFormPage.getBinDokuzYuzSeksen().click();//Thread.sleep(3000);
+        practiceFormPage.getSeptember().click();//Thread.sleep(3000);
+        practiceFormPage.getYirmiUcuncuGun().click();//Thread.sleep(3000);
 
-//    actions.sendKeys(Keys.ENTER);Thread.sleep(3000);
-    jsx.executeScript("window.scrollBy(0,200)");Thread.sleep(3000);
-    actions.sendKeys(Keys.TAB).perform();Thread.sleep(3000);
-    practiceFormPage.getSubjects().isDisplayed();
-    System.out.println(practiceFormPage.getSubjects().isDisplayed());
-    practiceFormPage.getSubjects().isEnabled();
-    System.out.println(practiceFormPage.getSubjects().isEnabled());
-    practiceFormPage.getSubjects().click();
-//    practiceFormPage.getSubjects().sendKeys("mat");//sendKeys("") ile olmayacak sanırım, baska bisey istiyor buyuk ıhtımal.
-//    actions.sendKeys(Keys.ENTER);Thread.sleep(3000);//Math secimi
-//    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-//    actions.sendKeys(Keys.ARROW_UP).build().perform();
-//    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);//asagıdaki ve yukarıdaki secimleri yoruma aldık.
+    //    actions.sendKeys(Keys.ENTER);Thread.sleep(3000);
+        jsx.executeScript("window.scrollBy(0,200)");Thread.sleep(3000);
+        actions.sendKeys(Keys.TAB).perform();Thread.sleep(3000);
+        practiceFormPage.getSubjects().isDisplayed();
+        System.out.println(practiceFormPage.getSubjects().isDisplayed());
+        practiceFormPage.getSubjects().isEnabled();
+        System.out.println(practiceFormPage.getSubjects().isEnabled());
+        practiceFormPage.getSubjects().click();
+    //    practiceFormPage.getSubjects().sendKeys("mat");//sendKeys("") ile olmayacak sanırım, baska bisey istiyor buyuk ıhtımal.
+    //    actions.sendKeys(Keys.ENTER);Thread.sleep(3000);//Math secimi
+    //    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+    //    actions.sendKeys(Keys.ARROW_UP).build().perform();
+    //    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);//asagıdaki ve yukarıdaki secimleri yoruma aldık.
 
-    JavascriptExecutor js = (JavascriptExecutor)driver;
-    //js.executeScript("arguments[0].value='mat';", practiceFormPage.getSubjects());
+        actions.moveToElement(practiceFormPage.getSubjects()).click().sendKeys("m").perform();Thread.sleep(2000);
+        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
 
-    actions.moveToElement(practiceFormPage.getSubjects()).click().sendKeys("mat").perform();
-    actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+        Thread.sleep(3000);
 
-    Thread.sleep(3000);
+        jsx.executeScript("window.scrollBy(0,200)");
 
-    jsx.executeScript("window.scrollBy(0,200)");
+        practiceFormPage.getHobiesSports().click();//Thread.sleep(2000);
+        Assert.assertTrue(practiceFormPage.getHobiesSports().isEnabled());
+        practiceFormPage.getHobiesReading().click();//Thread.sleep(2000);
+        Assert.assertTrue(practiceFormPage.getHobiesReading().isEnabled());
+        practiceFormPage.getHobiesMusic().click();//Thread.sleep(2000);
+        Assert.assertTrue(practiceFormPage.getHobiesMusic().isEnabled());
 
-    practiceFormPage.getHobiesSports().click();//Thread.sleep(2000);
-    practiceFormPage.getHobiesReading().click();//Thread.sleep(2000);
-    practiceFormPage.getHobiesMusic().click();//Thread.sleep(2000);
+        // Dosya yükleme butonuna tıkla
+        //practiceFormPage.getChoseFile().click();//locator u calısmadı
+        practiceFormPage.getSelectPicture().click();//locator calıstı
+        // Dosya yolunu panoya kopyala
+        StringSelection stringSelection = new StringSelection("C:\\Users\\Msi\\Pictures\\Screenshot (15).png");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+        // Klavye tuşlarıyla dosya yolunu yapıştır ve Enter'a bas
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
 
-    // Dosya yükleme butonuna tıkla
-    //practiceFormPage.getChoseFile().click();//locator u calısmadı
-    practiceFormPage.getSelectPicture().click();//locator calıstı
-    // Dosya yolunu panoya kopyala
-    StringSelection stringSelection = new StringSelection("C:\\Users\\Msi\\Pictures\\Screenshot (15).png");
-    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-    // Klavye tuşlarıyla dosya yolunu yapıştır ve Enter'a bas
-    Robot robot = new Robot();
-    robot.keyPress(KeyEvent.VK_CONTROL);
-    robot.keyPress(KeyEvent.VK_V);
-    robot.keyRelease(KeyEvent.VK_CONTROL);
-    robot.keyRelease(KeyEvent.VK_V);
-    robot.keyPress(KeyEvent.VK_ENTER);
-    robot.keyRelease(KeyEvent.VK_ENTER);
+        practiceFormPage.getCurrentAddress().click();
+        practiceFormPage.getCurrentAddress().sendKeys("hasar...");
 
-    practiceFormPage.getCurrentAddress().click();
-    practiceFormPage.getCurrentAddress().sendKeys("hasar...");
+        jsx.executeScript("window.scrollBy(0,200)");
 
-    jsx.executeScript("window.scrollBy(0,200)");
+        //practiceFormPage.getState().click();//bu locator da calıstı
+        //practiceFormPage.getState2();//bu locator bı ıse yaramadı
+        practiceFormPage.getSelectStade().click();//NCR secımı
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ARROW_UP).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    //practiceFormPage.getState().click();//bu locator da calıstı
-    //practiceFormPage.getState2();//bu locator bı ıse yaramadı
-    practiceFormPage.getSelectStade().click();//NCR secımı
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ARROW_UP).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getSelectStade().click();//gurgaon secimi
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getSelectStade().click();//gurgaon secimi
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getState().click();//uttar predesh
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        //actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getState().click();//uttar predesh
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    //actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getSelectCity().click();//lucknow
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getSelectCity().click();//lucknow
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getState().click();//haryana
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getState().click();//haryana
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getSelectCity().click();//panipat
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getSelectCity().click();//panipat
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getState().click();//rajatshan
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getState().click();//rajatshan
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
+        practiceFormPage.getSelectCity().click();//jaiselmer
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ARROW_DOWN).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();//Thread.sleep(3000);
 
-    practiceFormPage.getSelectCity().click();//jaiselmer
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ARROW_DOWN).build().perform();
-    actions.sendKeys(Keys.ENTER).build().perform();Thread.sleep(3000);
-}
+        practiceFormPage.getSubmit().click();//calisiyor
+        //practiceFormPage.getSubmitButton().click();//iki submit button da calisiyor
+    }
+
 }

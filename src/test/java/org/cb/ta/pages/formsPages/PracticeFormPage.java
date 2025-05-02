@@ -90,5 +90,7 @@ public class PracticeFormPage extends BasePage{
     private WebElement state2;
     @FindBy(xpath = "(//div[@class=\" css-1uccc91-singleValue\"])[2]")
     private WebElement selectCity;
+    @FindBy(xpath = "//button[@id=\"submit\"]")
+    private WebElement submit;
 
 }
