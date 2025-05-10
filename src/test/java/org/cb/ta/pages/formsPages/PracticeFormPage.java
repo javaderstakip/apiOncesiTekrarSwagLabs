@@ -92,5 +92,25 @@ public class PracticeFormPage extends BasePage{
     private WebElement selectCity;
     @FindBy(xpath = "//button[@id=\"submit\"]")
     private WebElement submit;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[1]/td[2]")
+    private WebElement studentname;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[2]/td[2]")
+    private WebElement studentEmail;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[3]/td[2]")
+    private WebElement studentGender;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[4]/td[2]")
+    private WebElement studentMobile;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[5]/td[2]")
+    private WebElement studentDateOfBirth;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[6]/td[2]")
+    private WebElement studentSubject;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[7]/td[2]")
+    private WebElement studentHobbies;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[8]/td[2]")
+    private WebElement studentPicture;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[9]/td[2]")
+    private WebElement studentAddress;
+    @FindBy(xpath = "/html/body/div[4]/div/div/div[2]/div/table/tbody/tr[10]/td[2]")
+    private WebElement studentStateAndCity;
 
 }

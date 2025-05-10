@@ -190,5 +190,31 @@ public class PracticeFormTest extends BaseTest {
         practiceFormPage.getSubmit().click();//calisiyor
         //practiceFormPage.getSubmitButton().click();//iki submit button da calisiyor
     }
-
+    @Test (priority = 3)
+    public void practiceFormBeginningFulling3(){
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentname().getText());
+        Assert.assertTrue(practiceFormPage.getStudentname().getText().equals("Hakan Basar"));
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentEmail().getText());
+        Assert.assertTrue(practiceFormPage.getStudentEmail().getText().equals("hakanbasar@gmail.com"));
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentGender().getText());
+        Assert.assertTrue(practiceFormPage.getStudentGender().getText().equals("Other"));
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentMobile().getText());
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentDateOfBirth().getText());
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentSubject().getText());
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentHobbies().getText());
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentPicture().getText());
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentAddress().getText());
+        System.out.println("practiceFormBeginningFulling3(): "
+                + practiceFormPage.getStudentStateAndCity().getText());
+        
+    }
 }
