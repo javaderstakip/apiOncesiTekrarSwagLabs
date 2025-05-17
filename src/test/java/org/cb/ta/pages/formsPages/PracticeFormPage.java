@@ -13,9 +13,11 @@ public class PracticeFormPage extends BasePage{
         super(driver);
         this.baseUrl = "https://demoqa.com/";
     }
+
     public void navigate(){
         driver.get(baseUrl);
     }
+
     @FindBy(xpath = "(//div[@class=\"card mt-4 top-card\"])[2]")
     private WebElement forms;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div/div/div[1]/div/div/div[2]/div")
@@ -26,7 +28,7 @@ public class PracticeFormPage extends BasePage{
     private WebElement studentRegistrationFormText;
     @FindBy(xpath = "//input[@placeholder=\"First Name\"]")
     private WebElement firstName;
-    @FindBy(xpath = "//input[@id=\"firstName\"]")
+    @FindBy(xpath = "//*[@id=\"userName-label\"]")
     private WebElement firstNameId;
     @FindBy(xpath = "(//div[@class=\"col-md-4 col-sm-6\"])[1]")
     private WebElement firstNameId2;

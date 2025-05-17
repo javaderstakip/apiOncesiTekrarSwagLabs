@@ -12,9 +12,11 @@ public class DynamicPropertiesPage extends BasePage {
         super(driver);
         this.baseUrl = "https://demoqa.com/";
     }
+
     public void navigate(){
         driver.get(baseUrl);
     }
+
     @FindBy(xpath = "//h1[@class='text-center']")
     private WebElement dynamicPropertiesText;
     @FindBy(xpath = "//p[text()='This text has random Id']")
