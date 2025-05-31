@@ -25,5 +25,13 @@ public class BrowserWindowsPage extends BasePage {
     private WebElement alertsFrameWindows3;
     @FindBy(xpath = "(//*[@id=\"item-0\"]/span)[3]")
     private WebElement browserWindows;
+    @FindBy(xpath = "//h1[@class=\"text-center\"]")
+    private WebElement browserWindowsText;
+    @FindBy(xpath = "//button[@id=\"tabButton\"]")
+    private WebElement newTab;
+    @FindBy(xpath = "//h1[@id=\"sampleHeading\"]")
+    private WebElement sampleText;
+    @FindBy(xpath = "//button[@id=\"windowButton\"]")
+    private WebElement newWindow;
 
 }

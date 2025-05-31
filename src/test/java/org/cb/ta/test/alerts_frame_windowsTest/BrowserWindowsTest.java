@@ -14,6 +14,8 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BrowserWindowsTest extends BaseTest {
     ElementsPage elementsPage = new ElementsPage(driver);
@@ -22,10 +24,10 @@ public class BrowserWindowsTest extends BaseTest {
     @BeforeClass
     public void beforeTest() throws InterruptedException {
         elementsPage.getHomePageButton().click();
-        browserWindowsPage.getAlertsFrameWindows().click();
-        browserWindowsPage.getAlertsFrameWindows2().click();
-        browserWindowsPage.getAlertsFrameWindows3().click();
-        browserWindowsPage.getBrowserWindows().click();
+        browserWindowsPage.getAlertsFrameWindows().click();//Thread.sleep(1000);
+        browserWindowsPage.getAlertsFrameWindows2().click();//Thread.sleep(1000);
+        browserWindowsPage.getAlertsFrameWindows3().click();//Thread.sleep(1000);
+        browserWindowsPage.getBrowserWindows().click();//Thread.sleep(1000);
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         //elementsPage.getElementsButton().click();
         //elementsPage.getDynamicProperties().click();
@@ -45,6 +47,7 @@ public class BrowserWindowsTest extends BaseTest {
 //        elementsPage.getLinks().click();
         //Thread.sleep(2000);
         //driver.get("https://demoqa.com/upload-download");
+        // Pencere "handle"larını al
     }
     @AfterMethod
     public void afterMethod() throws InterruptedException {
@@ -56,11 +59,65 @@ public class BrowserWindowsTest extends BaseTest {
 //        Thread.sleep(2000);
 //        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
         //driver.get("https://demoqa.com/upload-download");
+        List<String> windowHandles = new ArrayList<>();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(driver.getWindowHandle())) {
+                windowHandles.add(handle);
+            }
+        }
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
     }
     @Test(priority = 1)
     public void browserWindowsBeginningTest(){
         Assert.assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/browser-windows"));
+        System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
+        Assert.assertTrue(browserWindowsPage.getBrowserWindowsText().isDisplayed());
+        Assert.assertTrue(browserWindowsPage.getBrowserWindowsText().getText()
+                .equalsIgnoreCase("Browser Windows"));
+        System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getBrowserWindowsText()
+                .getText());
+    }
+    @Test(priority = 2)
+    public void newTabTest(){
+        // Pencere "handle"larını al
+        List<String> windowHandles = new ArrayList<>();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(driver.getWindowHandle())) {
+                windowHandles.add(handle);
+            }
+        }
+        browserWindowsPage.getNewTab().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+        Assert.assertTrue(driver.getCurrentUrl()
+                .equalsIgnoreCase("https://demoqa.com/sample"));
+        System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
+        Assert.assertTrue(browserWindowsPage.getSampleText().isDisplayed());
+        Assert.assertTrue(browserWindowsPage.getSampleText().getText()
+                .equalsIgnoreCase("This is a sample page"));
+        System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getSampleText()
+                .getText());
+    }
+    @Test(priority = 3)
+    public void newWindowTest() throws InterruptedException {
+        // Pencere "handle"larını al
+        List<String> windowHandles = new ArrayList<>();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(driver.getWindowHandle())) {
+                windowHandles.add(handle);
+            }
+        }
+        browserWindowsPage.getNewWindow().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+        Thread.sleep(3000);
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+        Thread.sleep(3000);
+        driver.manage().window().maximize();Thread.sleep(3000);
+        Assert.assertTrue(driver.getCurrentUrl()
+                .equalsIgnoreCase("https://demoqa.com/sample"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
     }
 }
