@@ -33,5 +33,9 @@ public class BrowserWindowsPage extends BasePage {
     private WebElement sampleText;
     @FindBy(xpath = "//button[@id=\"windowButton\"]")
     private WebElement newWindow;
+    @FindBy(xpath = "//h1[@id=\"sampleHeading\"]")
+    private WebElement newWindowSampleText;
+    @FindBy(xpath = "//button[@id=\"messageWindowButton\"]")
+    private WebElement newWindowMessage;
 
 }

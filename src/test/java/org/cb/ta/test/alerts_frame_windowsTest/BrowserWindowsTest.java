@@ -6,6 +6,8 @@ import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.elementsPages.DynamicPropertiesPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -15,7 +17,9 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class BrowserWindowsTest extends BaseTest {
     ElementsPage elementsPage = new ElementsPage(driver);
@@ -119,5 +123,83 @@ public class BrowserWindowsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/sample"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
+        Assert.assertTrue(browserWindowsPage.getNewWindowSampleText().getText()
+                .equalsIgnoreCase("This is a sample page"));
+        System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getNewWindowSampleText()
+                .getText());
+    }
+    @Test(priority = 3)
+    public void newWindowMessageTest() throws InterruptedException {
+        // Pencere "handle"larını al
+        List<String> windowHandles = new ArrayList<>();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(driver.getWindowHandle())) {
+                windowHandles.add(handle);
+            }
+        }
+        browserWindowsPage.getNewWindowMessage().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Thread.sleep(3000);
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+        Thread.sleep(3000);
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+        Thread.sleep(3000);
+        //driver.manage().window().maximize();Thread.sleep(3000);
+//        Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("about:blank"));
+//        System.out.println("şu an hangi linkteyiz: " + driver.getCurrentUrl());
+        //buraya kadar bizim yazdıklarımız
+
+
+
+        // Mevcut pencerenin tanıtıcısını alın
+        String originalWindow = driver.getWindowHandle();
+
+// Tüm açık pencerelerin tanıtıcılarını alın
+        Set<String> allWindowHandles = driver.getWindowHandles();
+
+// Yeni açılan pencereye geçiş yapın
+        for (String handle : allWindowHandles) {
+            if (!handle.equals(originalWindow)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
+
+
+        // Pencerenin açıldığını doğrulayın (sayfa tanıtıcısı alarak)
+        //Set<String> allWindowHandles = driver.getWindowHandles();
+        if (allWindowHandles.size() > 1) {
+            System.out.println("Yeni bir pencere açıldı!");
+        } else {
+            System.out.println("Yeni bir pencere açılmadı.");
+        }
+
+// "about:blank" sayfasına geçiş yapın (yukarıdaki kod ile)
+// ...
+
+// Pencereyi kapatın
+        driver.close();
+
+// Orijinal pencereye geri dönün
+        driver.switchTo().window(originalWindow);
+
+
+//        ChromeOptions options = new ChromeOptions();
+//        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+//        options.setExperimentalOption("useAutomationExtension", false);
+//        WebDriver driver = new ChromeDriver(options);
+//
+//
+//        // about:blank sayfasını kapat ve ana sayfaya dön
+//        String mainWindow = driver.getWindowHandle();
+//        for (String handle : driver.getWindowHandles()) {
+//            if (handle.equals(mainWindow)) continue;
+//            driver.switchTo().window(handle);
+//            if (driver.getCurrentUrl().equals("about:blank")) {
+//                driver.close();
+//            }
+//        }
+//        driver.switchTo().window(mainWindow);
+
     }
 }
