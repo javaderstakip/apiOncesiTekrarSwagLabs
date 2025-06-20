@@ -116,10 +116,11 @@ public class BrowserWindowsTest extends BaseTest {
         browserWindowsPage.getNewWindow().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
-        Thread.sleep(3000);
-        driver.manage().window().maximize();Thread.sleep(3000);
+        Thread.sleep(2000);
+        driver.manage().window().maximize();Thread.sleep(2000);
+        driver.manage().window().minimize();Thread.sleep(2000);
         Assert.assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/sample"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
@@ -128,7 +129,7 @@ public class BrowserWindowsTest extends BaseTest {
         System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getNewWindowSampleText()
                 .getText());
     }
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void newWindowMessageTest() throws InterruptedException {
         // Pencere "handle"larını al
         List<String> windowHandles = new ArrayList<>();
@@ -139,7 +140,6 @@ public class BrowserWindowsTest extends BaseTest {
         }
         browserWindowsPage.getNewWindowMessage().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        Thread.sleep(3000);
         driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
         Thread.sleep(3000);
         driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
@@ -151,55 +151,59 @@ public class BrowserWindowsTest extends BaseTest {
 
 
 
-        // Mevcut pencerenin tanıtıcısını alın
-        String originalWindow = driver.getWindowHandle();
-
-// Tüm açık pencerelerin tanıtıcılarını alın
-        Set<String> allWindowHandles = driver.getWindowHandles();
-
-// Yeni açılan pencereye geçiş yapın
-        for (String handle : allWindowHandles) {
-            if (!handle.equals(originalWindow)) {
-                driver.switchTo().window(handle);
-                break;
-            }
-        }
-
-
-        // Pencerenin açıldığını doğrulayın (sayfa tanıtıcısı alarak)
-        //Set<String> allWindowHandles = driver.getWindowHandles();
-        if (allWindowHandles.size() > 1) {
-            System.out.println("Yeni bir pencere açıldı!");
-        } else {
-            System.out.println("Yeni bir pencere açılmadı.");
-        }
-
-// "about:blank" sayfasına geçiş yapın (yukarıdaki kod ile)
-// ...
-
-// Pencereyi kapatın
-        driver.close();
-
-// Orijinal pencereye geri dönün
-        driver.switchTo().window(originalWindow);
-
-
-//        ChromeOptions options = new ChromeOptions();
-//        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-//        options.setExperimentalOption("useAutomationExtension", false);
-//        WebDriver driver = new ChromeDriver(options);
+//        // Mevcut pencerenin tanıtıcısını alın
+//        String originalWindow = driver.getWindowHandle();
 //
+//// Tüm açık pencerelerin tanıtıcılarını alın
+//        Set<String> allWindowHandles = driver.getWindowHandles();
 //
-//        // about:blank sayfasını kapat ve ana sayfaya dön
-//        String mainWindow = driver.getWindowHandle();
-//        for (String handle : driver.getWindowHandles()) {
-//            if (handle.equals(mainWindow)) continue;
-//            driver.switchTo().window(handle);
-//            if (driver.getCurrentUrl().equals("about:blank")) {
-//                driver.close();
+//// Yeni açılan pencereye geçiş yapın
+//        for (String handle : allWindowHandles) {
+//            if (!handle.equals(originalWindow)) {
+//                driver.switchTo().window(handle);
+//                break;
 //            }
 //        }
-//        driver.switchTo().window(mainWindow);
+//
+//
+//        // Pencerenin açıldığını doğrulayın (sayfa tanıtıcısı alarak)
+//        //Set<String> allWindowHandles = driver.getWindowHandles();
+        //*****!!!!allWindowHandles.size() > 1 veya 2 veya 3 olarak deneyelim
+//        if (allWindowHandles.size() > 1) {
+//            System.out.println("Yeni bir pencere açıldı!");
+//        } else {
+//            System.out.println("Yeni bir pencere açılmadı.");
+//        }
+//
+//// "about:blank" sayfasına geçiş yapın (yukarıdaki kod ile)
+//// ...
+//
+//// Pencereyi kapatın
+//        //driver.close();
+//
+//// Orijinal pencereye geri dönün
+//        driver.switchTo().window(originalWindow);// çalışmadı
+
+
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        options.setExperimentalOption("useAutomationExtension", false);
+        WebDriver driver = new ChromeDriver(options);
+        System.out.println("sıfırıncı kısım.");
+
+
+        // about:blank sayfasını kapat ve ana sayfaya dön
+        String mainWindow = driver.getWindowHandle();
+        for (String handle : driver.getWindowHandles()) {
+            if (handle.equals(mainWindow)) continue;
+                driver.switchTo().window(handle);
+                System.out.println("birinci kısım.");
+            if (driver.getCurrentUrl().equals("about:blank")) {
+                driver.close();
+                System.out.println("ikinci kısım.");
+            }
+        }
+        driver.switchTo().window(mainWindow);
 
     }
 }
