@@ -16,10 +16,10 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
-import java.util.Set;
+
+import static org.junit.Assert.assertTrue;
 
 public class BrowserWindowsTest extends BaseTest {
     ElementsPage elementsPage = new ElementsPage(driver);
@@ -73,11 +73,11 @@ public class BrowserWindowsTest extends BaseTest {
     }
     @Test(priority = 1)
     public void browserWindowsBeginningTest(){
-        Assert.assertTrue(driver.getCurrentUrl()
+        assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/browser-windows"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
-        Assert.assertTrue(browserWindowsPage.getBrowserWindowsText().isDisplayed());
-        Assert.assertTrue(browserWindowsPage.getBrowserWindowsText().getText()
+        assertTrue(browserWindowsPage.getBrowserWindowsText().isDisplayed());
+        assertTrue(browserWindowsPage.getBrowserWindowsText().getText()
                 .equalsIgnoreCase("Browser Windows"));
         System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getBrowserWindowsText()
                 .getText());
@@ -95,11 +95,11 @@ public class BrowserWindowsTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
         driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
-        Assert.assertTrue(driver.getCurrentUrl()
+        assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/sample"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
-        Assert.assertTrue(browserWindowsPage.getSampleText().isDisplayed());
-        Assert.assertTrue(browserWindowsPage.getSampleText().getText()
+        assertTrue(browserWindowsPage.getSampleText().isDisplayed());
+        assertTrue(browserWindowsPage.getSampleText().getText()
                 .equalsIgnoreCase("This is a sample page"));
         System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getSampleText()
                 .getText());
@@ -121,10 +121,10 @@ public class BrowserWindowsTest extends BaseTest {
         Thread.sleep(2000);
         driver.manage().window().maximize();Thread.sleep(2000);
         driver.manage().window().minimize();Thread.sleep(2000);
-        Assert.assertTrue(driver.getCurrentUrl()
+        assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/sample"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
-        Assert.assertTrue(browserWindowsPage.getNewWindowSampleText().getText()
+        assertTrue(browserWindowsPage.getNewWindowSampleText().getText()
                 .equalsIgnoreCase("This is a sample page"));
         System.out.println("text kisminda ne yaziyor: " + browserWindowsPage.getNewWindowSampleText()
                 .getText());
@@ -145,65 +145,59 @@ public class BrowserWindowsTest extends BaseTest {
         driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
         Thread.sleep(3000);
         //driver.manage().window().maximize();Thread.sleep(3000);
-//        Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("about:blank"));
-//        System.out.println("şu an hangi linkteyiz: " + driver.getCurrentUrl());
+//        Assert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("about:blank"));//bu kodlar bi işe yaramadı
+//        System.out.println("şu an hangi linkteyiz: " + driver.getCurrentUrl());//dolayısıyla bunlar da bi işe yaramadı
         //buraya kadar bizim yazdıklarımız
 
 
 
-//        // Mevcut pencerenin tanıtıcısını alın
-//        String originalWindow = driver.getWindowHandle();
-//
-//// Tüm açık pencerelerin tanıtıcılarını alın
-//        Set<String> allWindowHandles = driver.getWindowHandles();
-//
-//// Yeni açılan pencereye geçiş yapın
-//        for (String handle : allWindowHandles) {
-//            if (!handle.equals(originalWindow)) {
-//                driver.switchTo().window(handle);
-//                break;
-//            }
-//        }
-//
-//
-//        // Pencerenin açıldığını doğrulayın (sayfa tanıtıcısı alarak)
-//        //Set<String> allWindowHandles = driver.getWindowHandles();
+        // Mevcut pencerenin tanıtıcısını alın
+        String originalWindow = driver.getWindowHandle();
+
+// Tüm açık pencerelerin tanıtıcılarını alın
+        Set<String> allWindowHandles = driver.getWindowHandles();
+
+// Yeni açılan pencereye geçiş yapın
+        for (String handle : allWindowHandles) {
+            if (!handle.equals(originalWindow)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
+
+
+        browserWindowsPage.getNewWindowMessage().click();
+        browserWindowsPage.getNewWindowMessage().click();
+        browserWindowsPage.getNewWindowMessage().click();//bu kliklemelerin sebebi aşagıdaki handle nin birden fazla pencere sayıp saymadıgını test etmek ve anlamak
+        // Pencerenin açıldığını doğrulayın (sayfa tanıtıcısı alarak)
+        //Set<String> allWindowHandles = driver.getWindowHandles();
         //*****!!!!allWindowHandles.size() > 1 veya 2 veya 3 olarak deneyelim
-//        if (allWindowHandles.size() > 1) {
-//            System.out.println("Yeni bir pencere açıldı!");
-//        } else {
-//            System.out.println("Yeni bir pencere açılmadı.");
-//        }
-//
-//// "about:blank" sayfasına geçiş yapın (yukarıdaki kod ile)
-//// ...
-//
-//// Pencereyi kapatın
-//        //driver.close();
-//
-//// Orijinal pencereye geri dönün
-//        driver.switchTo().window(originalWindow);// çalışmadı
+        if (allWindowHandles.size() > 1) {
+            System.out.println("Yeni bir pencere açıldı!");
+        } else {
+            System.out.println("Yeni bir pencere açılmadı.");
+        }
+
+// "about:blank" sayfasına geçiş yapın (yukarıdaki kod ile)
+// ...
+
 
 
         ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+//        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+//        options.setExperimentalOption("useAutomationExtension", false);
+//        WebDriver driver = new ChromeDriver(options);
+//        System.out.println("sıfırıncı kısım.");
+
+// Pop-up engellemeyi kapat
+        options.setExperimentalOption("excludeSwitches",
+                Arrays.asList("disable-popup-blocking"));
+// Otomasyon kontrollerini devre dışı bırak
         options.setExperimentalOption("useAutomationExtension", false);
-        WebDriver driver = new ChromeDriver(options);
-        System.out.println("sıfırıncı kısım.");
 
+        //buraya kadar tarayıcı ayarlarını degistirme ayarı
 
-        // about:blank sayfasını kapat ve ana sayfaya dön
-        String mainWindow = driver.getWindowHandle();
-        for (String handle : driver.getWindowHandles()) {
-            if (handle.equals(mainWindow)) continue;
-                driver.switchTo().window(handle);
-                System.out.println("birinci kısım.");
-            if (driver.getCurrentUrl().equals("about:blank")) {
-                driver.close();
-                System.out.println("ikinci kısım.");
-            }
-        }
-        driver.switchTo().window(mainWindow);
+        System.out.println("birinci kısım");
 
     }
 }
