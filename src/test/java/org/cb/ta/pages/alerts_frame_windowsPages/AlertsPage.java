@@ -30,4 +30,10 @@ public class AlertsPage extends BasePage {
     private WebElement afterFiveSeconds;
     @FindBy(xpath = "//button[@id=\"confirmButton\"]")
     private WebElement confirmBox;
+    @FindBy(xpath = "//span[@id=\"confirmResult\"]")
+    private WebElement confirmBoxAppear;
+    @FindBy(xpath = "//button[@id=\"promtButton\"]")
+    private WebElement promptBox;
+    @FindBy(xpath = "//span[@id=\"promptResult\"]")
+    private WebElement promptBoxAppear;
 }

@@ -3,6 +3,7 @@ package org.cb.ta.test.alerts_frame_windowsTest;
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.alerts_frame_windowsPages.AlertsPage;
 import org.cb.ta.test.common.BaseTest;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -164,13 +165,46 @@ public class AlertsTest extends BaseTest {
             Thread.sleep(2000);
             // Alert'teki "OK" düğmesine tıklayarak kapatın
             alert.dismiss(); // Bu, "OK" veya "Kabul Et" düğmesine basar
+            //alert.accept();
 
             System.out.println("Alert başarıyla kapatıldı.");
 
             // Alert kapatıldıktan sonra sayfadaki başka bir elementi kontrol edebilirsiniz
             // Örneğin: driver.findElement(By.id("elementAfterAlert")).isDisplayed();
-
+            Assert.assertTrue(alertsPage.getConfirmBoxAppear().getText()
+                    .equalsIgnoreCase("You selected Cancel"));
+            System.out.println(alertsPage.getConfirmBoxAppear().getText());
+            Assert.assertTrue(alertsPage.getConfirmBoxAppear().isDisplayed());
+            System.out.println(alertsPage.getConfirmBoxAppear().isDisplayed());
+            alertsPage.getConfirmBox().click();
+            alert.accept();
+            Assert.assertTrue(alertsPage.getConfirmBoxAppear().getText()
+                    .equalsIgnoreCase("You selected Ok"));
+            System.out.println(alertsPage.getConfirmBoxAppear().getText());
+            Assert.assertTrue(alertsPage.getConfirmBoxAppear().isDisplayed());
+            System.out.println(alertsPage.getConfirmBoxAppear().isDisplayed());
         } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Tarayıcıyı kapatın
+            //driver.quit();
+        }
+    }
+    @Test(priority = 5)
+    public void promptBoxTest() throws InterruptedException {
+        alertsPage.getPromptBox().click();
+        try {
+            Alert alert = driver.switchTo().alert();
+            alert.sendKeys("Ada");//Thread.sleep(2000);
+            System.out.println(alert.getText());
+            Assert.assertTrue(alertsPage.getConfirmBoxAppear().isDisplayed());
+            System.out.println(alertsPage.getConfirmBoxAppear().isDisplayed());
+            System.out.println(alertsPage.getConfirmBoxAppear().getText());
+            Assert.assertTrue(alertsPage.getConfirmBoxAppear().getText()
+                    .equalsIgnoreCase("You entered Ada"));
+            //alert.dismiss();
+            alert.accept();
+        }catch (Exception e) {
             e.printStackTrace();
         } finally {
             // Tarayıcıyı kapatın
