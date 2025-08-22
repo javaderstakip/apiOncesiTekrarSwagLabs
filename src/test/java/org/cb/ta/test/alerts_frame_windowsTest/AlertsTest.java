@@ -194,16 +194,19 @@ public class AlertsTest extends BaseTest {
     public void promptBoxTest() throws InterruptedException {
         alertsPage.getPromptBox().click();
         try {
-            Alert alert = driver.switchTo().alert();
-            alert.sendKeys("Ada");//Thread.sleep(2000);
-            System.out.println(alert.getText());
-            Assert.assertTrue(alertsPage.getConfirmBoxAppear().isDisplayed());
-            System.out.println(alertsPage.getConfirmBoxAppear().isDisplayed());
-            System.out.println(alertsPage.getConfirmBoxAppear().getText());
-            Assert.assertTrue(alertsPage.getConfirmBoxAppear().getText()
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.alertIsPresent());
+            //Thread.sleep(3000);
+            Alert promptAlert = driver.switchTo().alert();
+//            promptAlert.accept();
+//            alertsPage.getPromptBox().click();
+            promptAlert.sendKeys("Ada");Thread.sleep(2000);
+            promptAlert.accept();
+            System.out.println("acaba burda : "+alertsPage.getPromptBoxAppear().getText());
+            Assert.assertTrue(alertsPage.getPromptBoxAppear().getText()
                     .equalsIgnoreCase("You entered Ada"));
             //alert.dismiss();
-            alert.accept();
+            promptAlert.accept();
         }catch (Exception e) {
             e.printStackTrace();
         } finally {

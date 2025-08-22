@@ -3,6 +3,8 @@ package org.cb.ta.test.common;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +21,8 @@ public class BaseTest {
 
     public BaseTest() {
         this.driver = new ChromeDriver();
+        //this.driver = new FirefoxDriver();
+        //this.driver = new EdgeDriver();
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
