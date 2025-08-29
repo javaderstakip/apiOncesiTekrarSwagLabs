@@ -21,4 +21,6 @@ public class FramesPage extends BasePage {
     private WebElement frames2;
     @FindBy(xpath = "(//li[@class=\"btn btn-light \"])[13]")
     private WebElement frames3;
+    @FindBy(xpath = "//iframe[@id=\"frame1\"]")
+    private WebElement framesSamplePage;
 }

@@ -67,4 +67,12 @@ public class FramesTest extends BaseTest {
                 .equalsIgnoreCase("https://demoqa.com/frames"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
     }
+    @Test(priority = 2)
+    public void thisIsASamplePageTest(){
+        //framesPage.getFramesSamplePage().click();
+        driver.switchTo().frame("frame1");
+        driver.switchTo().defaultContent();
+        jsx.executeScript("window.scrollBy(0,450)");
+        driver.switchTo().frame("frame2");
+    }
 }
