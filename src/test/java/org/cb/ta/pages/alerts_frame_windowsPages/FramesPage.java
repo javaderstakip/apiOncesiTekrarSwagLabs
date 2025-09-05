@@ -23,4 +23,8 @@ public class FramesPage extends BasePage {
     private WebElement frames3;
     @FindBy(xpath = "//iframe[@id=\"frame1\"]")
     private WebElement framesSamplePage;
+    @FindBy(xpath = "//h1[@id=\"sampleHeading\"]/ancestor::div[@id=\"frame1Wrapper\"]")
+    private WebElement frame1Wrapper;
+    @FindBy(xpath = "//div[contains(text(),'Sample Iframe page')]")
+    private WebElement sampleIframePage;
 }

@@ -75,4 +75,8 @@ public class FramesTest extends BaseTest {
         jsx.executeScript("window.scrollBy(0,450)");
         driver.switchTo().frame("frame2");
     }
+    @Test(priority = 3)
+    public void frameErismeIcerikTest(){
+        System.out.println(framesPage.getSampleIframePage().getText());
+    }
 }
