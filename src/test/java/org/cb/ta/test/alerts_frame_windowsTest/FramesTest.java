@@ -71,6 +71,8 @@ public class FramesTest extends BaseTest {
     public void thisIsASamplePageTest(){
         //framesPage.getFramesSamplePage().click();
         driver.switchTo().frame("frame1");
+        framesPage.getSampleHeading().getText();
+        System.out.println("ne bulduk: " + framesPage.getSampleHeading().getText());
         driver.switchTo().defaultContent();
         jsx.executeScript("window.scrollBy(0,450)");
         driver.switchTo().frame("frame2");

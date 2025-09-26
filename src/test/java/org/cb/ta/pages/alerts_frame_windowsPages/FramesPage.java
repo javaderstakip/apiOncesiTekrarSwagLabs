@@ -21,10 +21,14 @@ public class FramesPage extends BasePage {
     private WebElement frames2;
     @FindBy(xpath = "(//li[@class=\"btn btn-light \"])[13]")
     private WebElement frames3;
-    @FindBy(xpath = "//iframe[@id=\"frame1\"]")
+    @FindBy(xpath = "//*[@id=\"frame1\"]")
     private WebElement framesSamplePage;
-    @FindBy(xpath = "//h1[@id=\"sampleHeading\"]/ancestor::div[@id=\"frame1Wrapper\"]")
+    @FindBy(xpath = "//*[@id=\"frame1Wrapper\"]")
     private WebElement frame1Wrapper;
+    @FindBy(xpath = "//div[@id=\"frame1Wrapper\"]")
+    private WebElement frame1Wrapper2;
     @FindBy(xpath = "//div[contains(text(),'Sample Iframe page')]")
     private WebElement sampleIframePage;
+    @FindBy(xpath = "//*[@id=\"sampleHeading\"]")
+    private WebElement sampleHeading;
 }
