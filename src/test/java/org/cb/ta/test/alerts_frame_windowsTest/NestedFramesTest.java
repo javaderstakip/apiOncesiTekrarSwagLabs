@@ -3,6 +3,7 @@ package org.cb.ta.test.alerts_frame_windowsTest;
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.HomePage;
 import org.cb.ta.pages.alerts_frame_windowsPages.FramesPage;
+import org.cb.ta.pages.alerts_frame_windowsPages.NestedFramesPage;
 import org.cb.ta.test.common.BaseTest;
 import org.testng.annotations.*;
 
@@ -10,17 +11,17 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
-public class FramesTest extends BaseTest {
+public class NestedFramesTest extends BaseTest{
     ElementsPage elementsPage = new ElementsPage(driver);
-    FramesPage framesPage = new FramesPage(driver);
+    NestedFramesPage nestedFramesPage =new NestedFramesPage(driver);
     HomePage homePage = new HomePage(driver);
     @BeforeClass
     public void beforeTest() throws InterruptedException {
-       elementsPage.getHomePageButton().click();Thread.sleep(1000);
-       homePage.getAlertFrameWindowsButton().click();
-       //framesPage.getFrames().click();//Thread.sleep(1000);
+        elementsPage.getHomePageButton().click();Thread.sleep(1000);
+        homePage.getAlertFrameWindowsButton().click();
+        //framesPage.getFrames().click();//Thread.sleep(1000);
         //framesPage.getFrames2().click();
-        framesPage.getFrames3().click();
+        nestedFramesPage.getNestedFrames().click();
 
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         //elementsPage.getElementsButton().click();
@@ -62,24 +63,9 @@ public class FramesTest extends BaseTest {
 //        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
     }
     @Test(priority = 1)
-    public void alertBeginningTest(){
+    public void nestedFramesBeginningTest(){
         assertTrue(driver.getCurrentUrl()
-                .equalsIgnoreCase("https://demoqa.com/frames"));
+                .equalsIgnoreCase("https://demoqa.com/nestedframes"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
-    }
-    @Test(priority = 2)
-    public void thisIsASamplePageTest() throws InterruptedException {
-        //framesPage.getFramesSamplePage().click();
-        driver.switchTo().frame("frame1");
-        framesPage.getSampleHeading().getText();
-        System.out.println("ne bulduk: " + framesPage.getSampleHeading().getText());
-        driver.switchTo().defaultContent();
-        jsx.executeScript("window.scrollBy(0,450)");
-        driver.switchTo().frame("frame2");
-        framesPage.getSampleHeading().getText();
-        System.out.println("ne bulduk2: " + framesPage.getSampleHeading().getText());
-        jsx.executeScript("window.scrollBy(0,150)");Thread.sleep(2000);
-        jsx.executeScript("window.scrollBy(150,0)");
-        driver.switchTo().defaultContent();
     }
 }
