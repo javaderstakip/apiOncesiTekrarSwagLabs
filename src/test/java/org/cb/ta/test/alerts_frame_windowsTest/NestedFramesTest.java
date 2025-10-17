@@ -5,6 +5,7 @@ import org.cb.ta.pages.HomePage;
 import org.cb.ta.pages.alerts_frame_windowsPages.FramesPage;
 import org.cb.ta.pages.alerts_frame_windowsPages.NestedFramesPage;
 import org.cb.ta.test.common.BaseTest;
+import org.junit.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -67,5 +68,20 @@ public class NestedFramesTest extends BaseTest{
         assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/nestedframes"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
+        System.out.println("ne yazıyor: " +  nestedFramesPage.getNestedFramesText().getText());
+        Assert.assertTrue(nestedFramesPage.getNestedFramesText().isDisplayed());
+        Assert.assertTrue(nestedFramesPage.getNestedFramesText().getText()
+                .equalsIgnoreCase("Nested Frames"));
+        Assert.assertTrue(nestedFramesPage.getSampleNestedIframepageText().isDisplayed());
+        System.out.println("ne yazıyor burada da: " + nestedFramesPage
+                .getSampleNestedIframepageText().getText());
+    }
+    @Test(priority = 2)
+    public void nestedFramesTest() throws InterruptedException {
+        driver.switchTo().frame("frame1");
+
+//        driver.switchTo().frame("childFrame");
+//        nestedFramesPage.getParentFreme().getText();
+//        System.out.println("ne bulduk: " + nestedFramesPage.getParentFreme().getText());
     }
 }
