@@ -29,4 +29,8 @@ public class NestedFramesPage extends BasePage{
     private WebElement parentFrame;
     @FindBy(tagName=("iframe"))
     private WebElement childFrame;
+    @FindBy(tagName=("body"))
+    private WebElement parentText;
+    @FindBy(tagName=("body"))
+    private WebElement childText;
 }

@@ -79,8 +79,10 @@ public class NestedFramesTest extends BaseTest{
     @Test(priority = 2)
     public void nestedFramesTest() throws InterruptedException {
         driver.switchTo().frame("frame1");
+        System.out.println("ne oldu simdi: " + nestedFramesPage.getParentText().getText());
 
-//        driver.switchTo().frame("childFrame");
+        driver.switchTo().frame(0);
+        System.out.println("ne oldu simdi: " + nestedFramesPage.getChildText().getText());;
 //        nestedFramesPage.getParentFreme().getText();
 //        System.out.println("ne bulduk: " + nestedFramesPage.getParentFreme().getText());
     }
