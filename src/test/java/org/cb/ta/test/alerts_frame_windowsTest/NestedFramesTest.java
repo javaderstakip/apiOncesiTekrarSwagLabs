@@ -16,17 +16,12 @@ public class NestedFramesTest extends BaseTest{
     ElementsPage elementsPage = new ElementsPage(driver);
     NestedFramesPage nestedFramesPage =new NestedFramesPage(driver);
     HomePage homePage = new HomePage(driver);
+
     @BeforeClass
     public void beforeTest() throws InterruptedException {
         elementsPage.getHomePageButton().click();Thread.sleep(1000);
         homePage.getAlertFrameWindowsButton().click();
-        //framesPage.getFrames().click();//Thread.sleep(1000);
-        //framesPage.getFrames2().click();
         nestedFramesPage.getNestedFrames().click();
-
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        //elementsPage.getElementsButton().click();
-        //elementsPage.getDynamicProperties().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     @AfterClass
@@ -82,8 +77,6 @@ public class NestedFramesTest extends BaseTest{
         System.out.println("ne oldu simdi: " + nestedFramesPage.getParentText().getText());
 
         driver.switchTo().frame(0);
-        System.out.println("ne oldu simdi: " + nestedFramesPage.getChildText().getText());;
-//        nestedFramesPage.getParentFreme().getText();
-//        System.out.println("ne bulduk: " + nestedFramesPage.getParentFreme().getText());
+        System.out.println("chil frame de calisti mi: " + nestedFramesPage.getChildText().getText());
     }
 }
