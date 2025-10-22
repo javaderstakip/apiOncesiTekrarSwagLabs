@@ -2,8 +2,7 @@ package org.cb.ta.test.alerts_frame_windowsTest;
 
 import org.cb.ta.pages.ElementsPage;
 import org.cb.ta.pages.HomePage;
-import org.cb.ta.pages.alerts_frame_windowsPages.FramesPage;
-import org.cb.ta.pages.alerts_frame_windowsPages.NestedFramesPage;
+import org.cb.ta.pages.alerts_frame_windowsPages.ModalDialogsPage;
 import org.cb.ta.test.common.BaseTest;
 import org.junit.Assert;
 import org.testng.annotations.*;
@@ -12,16 +11,16 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
-public class NestedFramesTest extends BaseTest{
+public class ModalDialogsTest extends BaseTest {
     ElementsPage elementsPage = new ElementsPage(driver);
-    NestedFramesPage nestedFramesPage =new NestedFramesPage(driver);
     HomePage homePage = new HomePage(driver);
+    ModalDialogsPage modalDialogsPage = new ModalDialogsPage(driver);
 
     @BeforeClass
     public void beforeTest() throws InterruptedException {
         elementsPage.getHomePageButton().click();Thread.sleep(1000);
         homePage.getAlertFrameWindowsButton().click();
-        nestedFramesPage.getNestedFrames().click();
+        modalDialogsPage.getModalDialogs().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     @AfterClass
@@ -59,26 +58,20 @@ public class NestedFramesTest extends BaseTest{
 //        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
     }
     @Test(priority = 1)
-    public void nestedFramesBeginningTest(){
+    public void dialogsPageTest(){
         assertTrue(driver.getCurrentUrl()
-                .equalsIgnoreCase("https://demoqa.com/nestedframes"));
+                .equalsIgnoreCase("https://demoqa.com/modal-dialogs"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
-        System.out.println("ne yazıyor: " +  nestedFramesPage.getNestedFramesText().getText());
-        Assert.assertTrue(nestedFramesPage.getNestedFramesText().isDisplayed());
-        Assert.assertTrue(nestedFramesPage.getNestedFramesText().getText()
-                .equalsIgnoreCase("Nested Frames"));
-        Assert.assertTrue(nestedFramesPage.getSampleNestedIframepageText().isDisplayed());
-        System.out.println("ne yazıyor burada da: " + nestedFramesPage
-                .getSampleNestedIframepageText().getText());
-    }
-    @Test(priority = 2)
-    public void nestedFramesTest() throws InterruptedException {
-        driver.switchTo().frame("frame1");
-        System.out.println("ne oldu simdi: " + nestedFramesPage.getParentText().getText());
-        System.out.println("hangi frame deyiz: " + nestedFramesPage.getChildText().getText());
-
-        driver.switchTo().frame(0);
-        System.out.println("hangi frame deyiz: " + nestedFramesPage.getChildText().getText());
-        System.out.println("ne oldu simdi: " + nestedFramesPage.getParentText().getText());
+        System.out.println("ne yazıyor: " +  modalDialogsPage.getModalDialogs().getText());
+        System.out.println("ne yazıyor: " +  modalDialogsPage.getModalDialogsText().getText());
+        Assert.assertTrue(modalDialogsPage.getModalDialogs().isDisplayed());
+        Assert.assertTrue(modalDialogsPage.getModalDialogsText().isDisplayed());
+        Assert.assertTrue(modalDialogsPage.getModalDialogs().getText()
+                .equalsIgnoreCase("Modal Dialogs"));
+        Assert.assertTrue(modalDialogsPage.getModalDialogsText().getText()
+                .equalsIgnoreCase("Modal Dialogs"));
+//        Assert.assertTrue(nestedFramesPage.getSampleNestedIframepageText().isDisplayed());
+//        System.out.println("ne yazıyor burada da: " + nestedFramesPage
+//                .getSampleNestedIframepageText().getText());
     }
 }

@@ -25,8 +25,6 @@ public class NestedFramesPage extends BasePage{
     private WebElement sampleNestedIframepageText;
     @FindBy(xpath = "//iframe[@id=\"frame1\"]")
     private WebElement frameOne;
-    @FindBy(xpath = "//div[@id=\"frame1Wrapper\"]/iframe")
-    private WebElement parentFrame;
     @FindBy(tagName=("iframe"))
     private WebElement childFrame;
     @FindBy(tagName=("body"))
