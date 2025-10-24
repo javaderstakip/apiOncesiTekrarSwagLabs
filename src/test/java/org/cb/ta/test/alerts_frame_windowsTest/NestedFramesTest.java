@@ -80,5 +80,6 @@ public class NestedFramesTest extends BaseTest{
         driver.switchTo().frame(0);
         System.out.println("hangi frame deyiz: " + nestedFramesPage.getChildText().getText());
         System.out.println("ne oldu simdi: " + nestedFramesPage.getParentText().getText());
+        driver.switchTo().defaultContent();
     }
 }

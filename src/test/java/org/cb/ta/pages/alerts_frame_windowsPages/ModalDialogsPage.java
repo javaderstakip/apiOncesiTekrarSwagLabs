@@ -20,4 +20,24 @@ public class ModalDialogsPage extends BasePage {
     private WebElement modalDialogs;
     @FindBy(xpath = "//h1[@class=\"text-center\"]")
     private WebElement modalDialogsText;
+    @FindBy(xpath = "//div[contains(text(),'Click on')]")
+    private WebElement clickOnButtonText;
+    @FindBy(xpath = "//button[@id=\"showSmallModal\"]")
+    private WebElement smallModalButton;
+    @FindBy(xpath = "//div[@class=\"modal-title h4\"]")
+    private WebElement smallModalWindow;
+    @FindBy(xpath = "//button[@id=\"closeSmallModal\"]")
+    private WebElement smallModalCloseButton;
+    @FindBy(xpath = "//button[@class=\"close\"]")
+    private WebElement smallModelHiddenButton;
+    @FindBy(xpath = "//div[@class=\"modal-body\"]")
+    private WebElement smallModalWindowText;
+    @FindBy(xpath = "//button[@id=\"showLargeModal\"]")
+    private WebElement largeModelButton;
+    @FindBy(xpath = "//button[@id=\"closeLargeModal\"]")
+    private WebElement largeModalCloseButton;
+    @FindBy(xpath = "//div[@id=\"example-modal-sizes-title-lg\"]")
+    private WebElement largeModalWindow;
+    @FindBy(xpath = "//div[@class=\"modal-body\"]")
+    private WebElement largeModalWindowText;
 }
