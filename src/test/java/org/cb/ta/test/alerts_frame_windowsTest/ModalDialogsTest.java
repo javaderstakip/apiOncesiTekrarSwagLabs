@@ -91,6 +91,8 @@ public class ModalDialogsTest extends BaseTest {
     public void largModalTest() throws InterruptedException {
         modalDialogsPage.getLargeModelButton().click();Thread.sleep(2000);
         modalDialogsPage.getLargeModalWindow().isDisplayed();
+        modalDialogsPage.getSmallModelHiddenButton().click();
+        modalDialogsPage.getLargeModelButton().click();Thread.sleep(2000);
         System.out.println("pencerede ne yazıyor: "+modalDialogsPage.getLargeModalWindowText()
                 .getText());
         Assert.assertTrue(modalDialogsPage.getLargeModalWindowText().getText()

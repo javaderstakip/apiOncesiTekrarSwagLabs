@@ -17,4 +17,6 @@ public class AccordianPage extends BasePage {
     }
     @FindBy(xpath = "(//li[@id=\"item-0\"])[4]")
     private WebElement accordianButton;
+    @FindBy(xpath = "//h1[@class=\"text-center\"]")
+    private WebElement accordianText;
 }
