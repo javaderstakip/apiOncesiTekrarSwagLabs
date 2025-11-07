@@ -65,6 +65,43 @@ public class AccordianTest extends BaseTest {
         Assert.assertTrue(accordianPage.getAccordianText().isDisplayed());
         Assert.assertTrue(accordianPage.getAccordianText().getText()
                 .equalsIgnoreCase("Accordian"));
+        System.out.println("ne yazıyor text te: " + accordianPage.getAccordianText().getText());
     }
-
+    @Test(priority = 2)
+    public void loremIpsumTest(){
+        accordianPage.getWhatIsLorem().click();
+        accordianPage.getWhatIsLorem().click();
+        System.out.println("ne yazıyor burda: " + accordianPage.getWhatIsLorem().getText());
+        System.out.println("ne yazıyor burda 2: " + accordianPage.getLoremIpsumText().getText());
+        assertTrue(accordianPage.getWhatIsLorem().isDisplayed());
+        assertTrue(accordianPage.getLoremIpsumText().getText()
+                .equalsIgnoreCase("Lorem Ipsum is simply dummy text of the printing " +
+                        "and typesetting industry. Lorem Ipsum has been the industry's standard " +
+                        "dummy text ever since the 1500s, when an unknown printer took a galley " +
+                        "of type and scrambled it to make a type specimen book. It has survived " +
+                        "not only five centuries, but also the leap into electronic typesetting, " +
+                        "remaining essentially unchanged. It was popularised in the 1960s with " +
+                        "the release of Letraset sheets containing Lorem Ipsum passages, and " +
+                        "more recently with desktop publishing software like Aldus PageMaker " +
+                        "including versions of Lorem Ipsum."));
+        accordianPage.getWhatIsLorem().click();
+    }
+    @Test(priority = 3)
+    public void comeFromTest(){
+        accordianPage.getWhereDoesIt().click();
+        assertTrue(accordianPage.getWhereDoesIt().isDisplayed());
+        assertTrue(accordianPage.getWhereDoesIt().isEnabled());
+        System.out.println("burada ne yazıyor: " + accordianPage.getComeFromText().getText());
+        System.out.println("burada ne yazıyor 2 : " + accordianPage.getWhereDoesIt().getText());
+        accordianPage.getWhereDoesIt().click();
+    }
+    @Test(priority = 4)
+    public void weUseItTest(){
+        accordianPage.getWhyDoWe().click();
+        System.out.println("burada ne yazıyor: " + accordianPage.getWeUseItText().getText());
+        System.out.println("burada ne yazıyor 2 : " + accordianPage.getWhyDoWe().getText());
+        assertTrue(accordianPage.getWhyDoWe().isDisplayed());
+        assertTrue(accordianPage.getWhyDoWe().isEnabled());
+        accordianPage.getWhyDoWe().click();
+    }
 }

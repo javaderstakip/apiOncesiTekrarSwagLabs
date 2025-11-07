@@ -19,4 +19,16 @@ public class AccordianPage extends BasePage {
     private WebElement accordianButton;
     @FindBy(xpath = "//h1[@class=\"text-center\"]")
     private WebElement accordianText;
+    @FindBy(xpath = "//div[@id=\"section1Heading\"]")
+    private WebElement whatIsLorem;
+    @FindBy(xpath = "//div[@id=\"section1Content\"]")
+    private WebElement loremIpsumText;
+    @FindBy(xpath = "//div[@id=\"section2Heading\"]")
+    private WebElement whereDoesIt;
+    @FindBy(xpath = "//div[@id=\"section2Content\"]")
+    private WebElement comeFromText;
+    @FindBy(xpath = "//div[@id=\"section3Heading\"]")
+    private WebElement whyDoWe;
+    @FindBy(xpath = "//div[@id=\"section3Content\"]")
+    private WebElement weUseItText;
 }
