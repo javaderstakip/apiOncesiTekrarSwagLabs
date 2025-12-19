@@ -18,4 +18,9 @@ public class AutoCompletePage extends BasePage {
 
     @FindBy (xpath = "(//li[@id=\"item-1\"])[3]")
     private WebElement autoCompleteButton;
+    @FindBy(xpath = "//h1[@class=\"text-center\"]")
+    private WebElement autoCompleteText;
+    @FindBy(xpath = "//div[@id=\"autoCompleteMultiple\"]")
+    private WebElement multipleContainer;
+
 }
