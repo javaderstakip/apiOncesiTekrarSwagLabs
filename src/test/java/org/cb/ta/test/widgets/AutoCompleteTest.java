@@ -73,6 +73,24 @@ public class AutoCompleteTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));Thread.sleep(2000);
         //Assert.assertTrue(autoCompletePage.getMultipleContainer().isSelected());
         autoCompletePage.getMultipleContainer().click();Thread.sleep(2000);
-        autoCompletePage.getMultipleContainer().sendKeys("ye");
+        //autoCompletePage.getMultipleContainer().sendKeys("ye");
+        autoCompletePage.getMultipleContainer2().sendKeys("r");
+        autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        autoCompletePage.getMultipleContainer2().sendKeys("r");
+        autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        autoCompletePage.getMultipleContainer2().sendKeys("r");
+        autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        autoCompletePage.getMultipleContainer2().sendKeys("white");
+        autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        autoCompletePage.getMultipleContainer2().sendKeys("yellow");
+        autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        autoCompletePage.getMultipleContainer2().sendKeys("a");
+        autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        System.out.println("icinde ne yazıyor1 : "
+                + autoCompletePage.getMultipleContainer2().getText());
+        System.out.println("icinde ne yazıyor2 : "
+                + autoCompletePage.getMultipleContainer().getText());
+        System.out.println("icinde ne yazıyor: "
+                + autoCompletePage.getMultipleContainer3().getText());
     }
 }

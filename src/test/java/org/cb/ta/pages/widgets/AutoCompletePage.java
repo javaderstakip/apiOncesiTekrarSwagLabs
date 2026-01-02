@@ -22,5 +22,9 @@ public class AutoCompletePage extends BasePage {
     private WebElement autoCompleteText;
     @FindBy(xpath = "//div[@id=\"autoCompleteMultiple\"]")
     private WebElement multipleContainer;
+    @FindBy(xpath = "//input[@id='autoCompleteMultipleInput']")
+    private WebElement multipleContainer2;
+    @FindBy(xpath = "//div[@id=\"autoCompleteMultiple\"]")
+    private WebElement multipleContainer3;
 
 }
