@@ -90,7 +90,25 @@ public class AutoCompleteTest extends BaseTest {
                 + autoCompletePage.getMultipleContainer2().getText());
         System.out.println("icinde ne yazıyor2 : "
                 + autoCompletePage.getMultipleContainer().getText());
-        System.out.println("icinde ne yazıyor: "
-                + autoCompletePage.getMultipleContainer3().getText());
+    }
+    @Test(priority = 3)
+    public void autoCompletePageSingleContainerTest() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));//Thread.sleep(2000);
+        autoCompletePage.getSingleContainer().click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        autoCompletePage.getSingleContainer2().sendKeys("red");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        autoCompletePage.getSingleContainer2().sendKeys(Keys.ENTER);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        System.out.println("icinde ne yazıyor1 : " + autoCompletePage.getSingleContainer().getText());
+//        Assert.assertTrue(autoCompletePage.getSingleContainer().getText()
+//                .equalsIgnoreCase("red"));
+        Thread.sleep(2000);
+        autoCompletePage.getSingleContainer().click();
+        autoCompletePage.getSingleContainer2().sendKeys("g");
+        autoCompletePage.getSingleContainer2().sendKeys(Keys.ENTER);
+        System.out.println("icinde ne yazıyor2 : " + autoCompletePage.getSingleContainer().getText());
+        Assert.assertTrue(autoCompletePage.getSingleContainer().getText()
+                .equalsIgnoreCase("Green"));
     }
 }
