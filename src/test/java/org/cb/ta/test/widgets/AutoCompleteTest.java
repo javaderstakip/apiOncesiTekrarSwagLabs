@@ -12,6 +12,8 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertTrue;
+
 public class AutoCompleteTest extends BaseTest {
     ElementsPage elementsPage = new ElementsPage(driver);
     HomePage homePage = new HomePage(driver);
@@ -60,7 +62,7 @@ public class AutoCompleteTest extends BaseTest {
     }
     @Test(priority = 1)
     public void autoCompletePageBeginningTest(){
-        Assert.assertTrue(driver.getCurrentUrl()
+        assertTrue(driver.getCurrentUrl()
                 .equalsIgnoreCase("https://demoqa.com/auto-complete"));
         System.out.println("su an hangi linkteyiz? " + driver.getCurrentUrl());
         System.out.println("ne yazıyor: " + autoCompletePage.getAutoCompleteText().getText());
@@ -86,6 +88,14 @@ public class AutoCompleteTest extends BaseTest {
         autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
         autoCompletePage.getMultipleContainer2().sendKeys("a");
         autoCompletePage.getMultipleContainer2().sendKeys(Keys.ENTER);
+        System.out.println("icinde ne yazıyor1 : "
+                + autoCompletePage.getMultipleContainer2().getText());
+        System.out.println("icinde ne yazıyor2 : "
+                + autoCompletePage.getMultipleContainer().getText());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));//Thread.sleep(2000);
+        autoCompletePage.getColorDelete().click();
+        System.out.println("black silindi mi: " + autoCompletePage.getMultipleContainer().getText());
+        System.out.println("black silindi mi: " + autoCompletePage.getMultipleContainer2().getText());
         System.out.println("icinde ne yazıyor1 : "
                 + autoCompletePage.getMultipleContainer2().getText());
         System.out.println("icinde ne yazıyor2 : "

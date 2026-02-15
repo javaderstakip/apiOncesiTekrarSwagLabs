@@ -18,7 +18,8 @@ public class ElementsPage extends BasePage{
         driver.get(baseUrl);
     }
 
-    @FindBy(xpath = "//*[@id='app']/header/a/img")
+    @FindBy(xpath = "//*[@id=\"root\"]/header/a")
+    //@FindBy(xpath = "//*[@id='app']/header/a/img")
     private WebElement homePageButton;
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
     private WebElement elementsButton;

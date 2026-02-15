@@ -16,7 +16,8 @@ public class AutoCompletePage extends BasePage {
         driver.get(baseUrl);
     }
 
-    @FindBy (xpath = "(//li[@id=\"item-1\"])[3]")
+    @FindBy(xpath = "(//li[@id=\"item-1\"]/a/span)[3]")
+    //@FindBy (xpath = "(//li[@id=\"item-1\"])[3]")
     private WebElement autoCompleteButton;
     @FindBy(xpath = "//h1[@class=\"text-center\"]")
     private WebElement autoCompleteText;
@@ -28,5 +29,7 @@ public class AutoCompletePage extends BasePage {
     private WebElement singleContainer;
     @FindBy(xpath = "//input[@id=\"autoCompleteSingleInput\"]")
     private WebElement singleContainer2;
+    @FindBy(xpath = "//*[@id=\"autoCompleteMultipleContainer\"]/div/div[1]/div[6]/div[2]")
+    private WebElement colorDelete;
 
 }
