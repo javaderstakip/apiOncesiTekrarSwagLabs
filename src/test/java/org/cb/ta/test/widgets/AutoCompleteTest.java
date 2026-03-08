@@ -100,6 +100,7 @@ public class AutoCompleteTest extends BaseTest {
                 + autoCompletePage.getMultipleContainer2().getText());
         System.out.println("icinde ne yazıyor2 : "
                 + autoCompletePage.getMultipleContainer().getText());
+        autoCompletePage.getColorDeleteFifth().click();Thread.sleep(3000);
     }
     @Test(priority = 3)
     public void autoCompletePageSingleContainerTest() throws InterruptedException {
@@ -119,6 +120,6 @@ public class AutoCompleteTest extends BaseTest {
         autoCompletePage.getSingleContainer2().sendKeys(Keys.ENTER);
         System.out.println("icinde ne yazıyor2 : " + autoCompletePage.getSingleContainer().getText());
         Assert.assertTrue(autoCompletePage.getSingleContainer().getText()
-                .equalsIgnoreCase("Green"));
+                .equalsIgnoreCase("Green"));Thread.sleep(2000);
     }
 }

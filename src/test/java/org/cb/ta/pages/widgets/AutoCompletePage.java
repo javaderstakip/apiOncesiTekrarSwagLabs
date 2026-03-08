@@ -31,5 +31,9 @@ public class AutoCompletePage extends BasePage {
     private WebElement singleContainer2;
     @FindBy(xpath = "//*[@id=\"autoCompleteMultipleContainer\"]/div/div[1]/div[6]/div[2]")
     private WebElement colorDelete;
+    @FindBy(xpath = "(//*[@class=\"css-8mmkcg\"])[5]")
+    private WebElement colorDeleteFifth;
+    @FindBy(xpath = "(//input[@class=\"auto-complete__input\"])[2]")
+    private WebElement singleColorNameDelete;
 
 }
